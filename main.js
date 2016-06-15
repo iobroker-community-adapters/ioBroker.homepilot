@@ -178,7 +178,7 @@ function controlHomepilot(id, input) {
     }
     if (correct) {
         request(url); // Send command to Homepilot
-        adapter.log.info('Command sent to Homepilot because "' + input + '" written to 'State ' + id + '.');
+        adapter.log.info('Command sent to Homepilot because "' + input + '" written to State ' + id + '.');
     } else adapter.log.warn('Wrong type of data input. Please try again');
 }
 
@@ -298,42 +298,6 @@ function createStates(result, i) {
     }, function(err, obj) {
         if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
     });
-    /*// create Channel CONTROL
-    adapter.setObjectNotExists(path + '.control', {
-        type: 'channel',
-        role: '',
-        common: {
-            name: 'Device ID ' + deviceid + ' control'
-        },
-        native: {}
-    });
-    adapter.setObjectNotExists(path + '.control.command', {
-        type: 'state',
-        common: {
-            name: 'command id control ' + devicename,
-            desc: 'control with command id for device ' + deviceid,
-            type: 'string',
-            read: true,
-            write: true
-        },
-        native: {}
-    });
-    adapter.setObjectNotExists(path + '.control.level', {
-        type: 'state',
-        common: {
-            name: 'level control ' + devicename,
-            desc: 'control level of device ' + deviceid,
-            type: 'number',
-            min: 0,
-            max: 100,
-            read: true,
-            write: true
-        },
-        native: {}
-    }, function(err, obj) {
-        if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
-    });
-    */
 }
 
 function writeStates(result, i) {
