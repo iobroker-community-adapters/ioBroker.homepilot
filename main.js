@@ -45,7 +45,7 @@ function controlHomepilot(id, input) {
     var deviceid         = parseInt(controller_array[4],10);
     var url;
     var valid = false;
-    adapter.log.info('State: ' + controller + '  device: ' + deviceid + '  command: ' + input);
+    adapter.log.debug('State: ' + controller + '  device: ' + deviceid + '  command: ' + input);
     if (controller == 'cid') { // control via cid
         var newcid;
         // hier CID auf Plausibiliät checken
@@ -162,7 +162,7 @@ function controlHomepilot(id, input) {
     }
     if (valid) {
         request(url); // Send command to Homepilot
-        adapter.log.info('Command sent to Homepilot because "' + input + '" written to State ' + id + '.');
+        adapter.log.info('Command sent to Homepilot because "' + input + '" written to State "' + id + '"');
     } else adapter.log.warn('Wrong type of data input. Please try again');
 }
 
