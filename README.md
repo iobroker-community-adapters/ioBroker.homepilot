@@ -97,19 +97,9 @@ This datapoint only accepts integer numbers between 0 and 100. In addition to th
 
 ![alt text](img/homepilot_vis_widgets.jpg "Screenshot VIS widgets")
 
-:de: In "Object ID" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.__level__ 
+![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
-In "in Arbeit Zustand" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.__level__ 
-
-"Min" 100
-
-"Max" 0
-
-"Schritt" -1
-
-"Beschriftung" "{homepilot.0.devices.RolloTronStandard.10002.name}" als Binding (als Beispiel ohne Anführungszeichen)
-
-:uk: english tbd
+Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergelegt, unter dem Metro Widget ist ein lastchange-Widget, das die letzte Bewegung des Rollladens anzeigt.
 
 ## Changelog
 ### 0.0.1 (2016-06-15)
