@@ -83,7 +83,7 @@ This datapoint only accepts integer numbers between 0 and 100. In addition to th
 | 6   | POSITION_50, position_50, 50%    |
 | 7   | POSITION_75, position_75, 75%    |
 | 8   | POSITION_100, position_100, 100% |
-| 9   | POSITION_N                       |
+| 9   | *POSITION_N (not yet)*           |
 | 10  | EIN, ein, AN, an, ON, on         |
 | 11  | AUS, aus, OFF, off               |
 | 23  | INCREMENT, increment, +          |
@@ -97,12 +97,17 @@ This datapoint only accepts integer numbers between 0 and 100. In addition to th
 
 ![alt text](img/homepilot_vis_widgets.jpg "Screenshot VIS widgets")
 
-:de: In "Object ID" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.control.__level__ (number, writeable)
-In "in Arbeit Zustand" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.__level__ (number)
+:de: In "Object ID" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.__level__ 
+
+In "in Arbeit Zustand" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.__level__ 
+
 "Min" 100
+
 "Max" 0
+
 "Schritt" -1
-"Beschriftung" "{homepilot.0.devices.RolloTronStandard.10002.name}" als Binding (ohne Anführungszeichen)
+
+"Beschriftung" "{homepilot.0.devices.RolloTronStandard.10002.name}" als Binding (als Beispiel ohne Anführungszeichen)
 
 :uk: english tbd
 
