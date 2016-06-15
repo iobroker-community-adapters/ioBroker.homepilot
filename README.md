@@ -30,13 +30,15 @@ homepilot.0.__station__ (data on Homepilot station)
 
 homepilot.0.__devices.product__ (devices sort by product type)
 
-:de: Innerhalb des Kanals *devices.product* gibt es für jedes Gerät einen weiteren Kanal *deviceID*, beispielsweise. __homepilot.0.devices.rollotron.10001.balkon__
+:de: Innerhalb des Kanals *devices.product* gibt es für jedes Gerät einen weiteren Kanal *deviceID*, beispielsweise. homepilot.0.devices.rollotron.__10001__.balkon
 
-:uk: Within *devices.product* each found device creates a new channel *devicedID*, e.g. __homepilot.0.devices.rollotron.10001.balcony__
+:uk: Within *devices.product* each found device creates a new channel *devicedID*, e.g. homepilot.0.devices.rollotron.__10001__.balcony
 
 homepilot.0.devices.product.*deviceID*.__name__ (string)
 
 homepilot.0.devices.product.*deviceID*.__description__ (string)
+
+homepilot.0.devices.product.*deviceID*.__productName__ (string)
 
 homepilot.0.devices.product.*deviceID*.__hasErrors__ (number)
 
@@ -45,8 +47,6 @@ homepilot.0.devices.product.*deviceID*.__status_changed__ (number, timecode)
 homepilot.0.devices.product.*deviceID*.__cid__ (string, writeable)
 
 homepilot.0.devices.product.*deviceID*.__level__ (number)
-
-homepilot.0.devices.product.*deviceID*.____ (number)
 
 homepilot.0.devices.__json__  (*JSON* file *json* Datenpunkt mit JSON Rückgabe / Datapoint filled with returned JSON )
 
@@ -73,22 +73,21 @@ This datapoint only accepts integer numbers between 0 and 100. In addition to th
 
 :uk: You can use these commands to control Homepilot with cid in homepilot.0.devices.product.*deviceID*.__cid__
 
-| CID   | Befehle / Commands               |
-| ------|:--------------------------------:|
-| 1     | UP, up, HOCH, hoch, RAUF, rauf   |
-| 2     | STOP, stop, Stop                 |
-| 3     | DOWN, down, RUNTER, runter       |
-| 4     | POSITION_0, position_0, 0%       |
-| 5     | POSITION_25, position_25, 25%    |
-| 6     | POSITION_50, position_50, 50%    |
-| 7     | POSITION_75, position_75, 75%    |
-| 8     | POSITION_100, position_100, 100% |
-| 9     | POSITION_N                       |
-| 10    | EIN, ein, AN, an, ON, on         |
-| 11    | AUS, aus, OFF, off               |
-| 23    | INCREMENT, increment, +          |
-| 24    | DECREMENT, decrement, -          |
-| ------|----------------------------------|
+| CID | Befehle / Commands               |
+| :--:|:--------------------------------:|
+| 1   | UP, up, HOCH, hoch, RAUF, rauf   |
+| 2   | STOP, stop, Stop                 |
+| 3   | DOWN, down, RUNTER, runter       |
+| 4   | POSITION_0, position_0, 0%       |
+| 5   | POSITION_25, position_25, 25%    |
+| 6   | POSITION_50, position_50, 50%    |
+| 7   | POSITION_75, position_75, 75%    |
+| 8   | POSITION_100, position_100, 100% |
+| 9   | POSITION_N                       |
+| 10  | EIN, ein, AN, an, ON, on         |
+| 11  | AUS, aus, OFF, off               |
+| 23  | INCREMENT, increment, +          |
+| 24  | DECREMENT, decrement, -          |
 
 ## VIS Widgets
 ### Beispiel Rollläden / Shutters
