@@ -8,15 +8,17 @@ var lang = 'de';
 var callReadHomepilot;
 var ip = '';
 var link = '';
-var synctime = 15;
+var synctime = 12;
 
 var adapter = utils.adapter({
     name: 'homepilot',
     systemConfig: true,
     useFormatDate: true,
     stateChange: function(id, state) {
-        //adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
-        //adapter.log.debug('input: ' + state.val.toString());
+        if (!id || !state || state.ack) return;
+        //if ((!id.match(/\.level\w*$/) || (!id.match(/\.cid\w*$/)) return; // if datapoint is not "level" or not "cid"
+        adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
+        adapter.log.debug('input value: ' + state.val.toString());
         controlHomepilot(id, state.val.toString());
     },
     unload: function(callback) {
@@ -36,32 +38,14 @@ var adapter = utils.adapter({
 
 
 function controlHomepilot(id, input) {
-    /*
-    Command Ids:
-    ------------
-    UP:1,
-    STOP:2,
-    DOWN:3,
-    POSITION_0:4,
-    POSITION_25:5,
-    POSITION_50:6,
-    POSITION_75:7,
-    POSITION_100:8,
-    POSITION_N:9,
-    ON:10,
-    OFF:11,
-    INCREMENT:23,
-    DECREMENT:24
-    */
-
     // example for subscribed id: "homepilot.0.devices.RolloTronStandard.10000.cid"
     // example for subscribed id: "homepilot.0.devices.RolloTronStandard.10000.level"
     var controller_array = id.split('.');
-    var controller       = controller_array[6];
+    var controller       = controller_array[5];
     var deviceid         = parseInt(controller_array[4],10);
     var url;
-    var correct = false;
-    adapter.log.debug('State: ' + controller + '  device: ' + deviceid + '  command: ' + input);
+    var valid = false;
+    adapter.log.info('State: ' + controller + '  device: ' + deviceid + '  command: ' + input);
     if (controller == 'cid') { // control via cid
         var newcid;
         // hier CID auf Plausibiliät checken
@@ -74,14 +58,14 @@ function controlHomepilot(id, input) {
             case "RAUF":
             case "rauf":
                 newcid = 1;
-                correct = true;
+                valid = true;
                 break;
             case "2":
             case "STOP":
             case "stop":
             case "Stop":
                 newcid = 2;
-                correct = true;
+                valid = true;
                 break;
             case "3":
             case "DOWN":
@@ -89,47 +73,47 @@ function controlHomepilot(id, input) {
             case "RUNTER":
             case "runter":
                 newcid = 3;
-                correct = true;
+                valid = true;
                 break;
             case "4":
             case "0%":
             case "POSITION_0":
             case "position_0":
                 newcid = 4;
-                correct = true;
+                valid = true;
                 break;
             case "5":
             case "25%":
             case "POSITION_25":
             case "position_25":
                 newcid = 5;
-                correct = true;
+                valid = true;
                 break;
             case "6":
             case "50%":
             case "POSITION_50":
             case "position_50":
                 newcid = 6;
-                correct = true;
+                valid = true;
                 break;
             case "7":
             case "75%":
             case "POSITION_75":
             case "position_75":
                 newcid = 7;
-                correct = true;
+                valid = true;
                 break;
             case "8":
             case "100%":
             case "POSITION_100":
             case "position_100":
                 newcid = 8;
-                correct = true;
+                valid = true;
                 break;
             case "9":
             case "POSITION_N":
                 newcid = 9;
-                correct = false; // weiterer Wert nötig; tbc
+                valid = false; // weiterer Wert nötig; tbc
                 break;
             case "10":
             case "EIN":
@@ -139,7 +123,7 @@ function controlHomepilot(id, input) {
             case "ON":
             case "on":
                 newcid = 10;
-                correct = true;
+                valid = true;
                 break;
             case "11":
             case "AUS":
@@ -147,36 +131,36 @@ function controlHomepilot(id, input) {
             case "OFF":
             case "off":
                 newcid = 11;
-                correct = true;
+                valid = true;
                 break;
             case "23":
             case "+":
             case "increment":
             case "INCREMENT":
                 newcid = 23;
-                correct = true;
+                valid = true;
                 break;
             case "24":
             case "-":
             case "decrement":
             case "DECREMENT":
                 newcid = 24;
-                correct = true;
+                valid = true;
                 break;
             default:
                 adapter.log.warn('Wrong CID entered');
-                correct = false;
+                valid = false;
         }
 
-        if (correct) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1';
+        if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1';
     } else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
         //hier checken, ob der Wert eine Zahl zwischen 0 und 100 ist
         if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
-            correct = true;
+            valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
-        } else correct = false;
+        } else valid = false;
     }
-    if (correct) {
+    if (valid) {
         request(url); // Send command to Homepilot
         adapter.log.info('Command sent to Homepilot because "' + input + '" written to State ' + id + '.');
     } else adapter.log.warn('Wrong type of data input. Please try again');
@@ -334,7 +318,6 @@ function writeStates(result, i) {
     adapter.log.debug('States for ' + product + ' (' + deviceid + ') written');
 }
 
-
 function readHomepilot() {
     request(link, function(error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -373,8 +356,9 @@ function stopReadHomepilot() {
 }
 
 function main() {
-    adapter.subscribeStates('*.cid*'); // subscribe command id
-    adapter.subscribeStates('*.level*'); // subscribe all dp with name level
+    adapter.subscribeStates('*'); 
+    //adapter.subscribeStates('*.cid*'); // subscribe command id
+    //adapter.subscribeStates('*.level*'); // subscribe all dp with name level
     readSettings();
     adapter.log.debug('Homepilot adapter started...');
     callReadHomepilot = setInterval(function() {
