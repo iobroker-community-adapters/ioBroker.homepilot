@@ -15,22 +15,24 @@
 
 ## Einstellungen / Configuration
 ### IP / Port
-Die IP Adresse der Homepilot Basisstation im lokalen Netzwerk. Ohne EIngabe verwendet der Adapter __homepilot.local__. Die Portnummer ist optional und wird nur bei Eingabe einer IP-Adresse berücksichtigt.
+:de: Die IP Adresse der Homepilot Basisstation im lokalen Netzwerk. Ohne EIngabe verwendet der Adapter __homepilot.local__. Die Portnummer ist optional und wird nur bei Eingabe einer IP-Adresse berücksichtigt.
 
-IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
+:uk: IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
 
 
 ##  Datenpunkte / Datapoints
-Es gibt zwei Hauptkanäle, einen für die Basisstation und einen für die gefundenen Gerätetypen:
+:de: Es gibt zwei Hauptkanäle, einen für die Basisstation und einen für die gefundenen Gerätetypen:
 
-There are to main channels, one for the station and one for all found devices (shutter belt winders, etc.):
+:uk: There are to main channels, one for the station and one for all found devices (shutter belt winders, etc.):
+
 
 homepilot.0.__station__ (data on Homepilot station)
+
 homepilot.0.__devices.product__ (devices sort by product type)
 
-Innerhalb des Kanals *devices.product* gibt es für jedes Gerät einen weiteren Kanal *deviceID*. Z.B. __E.g. homepilot.0.devices.rollotron.10001.balkon__
+:de: Innerhalb des Kanals *devices.product* gibt es für jedes Gerät einen weiteren Kanal *deviceID*, beispielsweise. __homepilot.0.devices.rollotron.10001.balkon__
 
-Within *devices.product* each found device creates a new channel *devicedID*. __E.g. homepilot.0.devices.rollotron.10001.balcony__
+:uk: Within *devices.product* each found device creates a new channel *devicedID*, e.g. __homepilot.0.devices.rollotron.10001.balcony__
 
 homepilot.0.devices.product.*deviceID*.__name__ (string)
 
@@ -52,24 +54,24 @@ homepilot.0.station.__ip__ (string)
 
 
 
-Die Datenpunkte *cid* und *level* können beschrieben werden. Sie werden auf Änderung aus anderen Adaptern (VIS, Javascript, Scenes) überwacht.
+:de: Die Datenpunkte *cid* und *level* können beschrieben werden. Sie werden auf Änderung aus anderen Adaptern (VIS, Javascript, Scenes) überwacht.
 
-Datapoints *cid* and *level* are writeable and subscribed for changes stated from other adapters (e.g. VIS, Javascript, Scenes).
+:uk: Datapoints *cid* and *level* are writeable and subscribed for changes stated from other adapters (e.g. VIS, Javascript, Scenes).
 
 ### Steuerung / Control
-Um die Rollläden aus Javascript, VIS oder z.B. Scenes zu steuern, gibt es zwei Möglichkeiten. 
+:de: Um die Rollläden aus Javascript, VIS oder z.B. Scenes zu steuern, gibt es zwei Möglichkeiten. 
 Z.B. kann man den Rolladen mit der DeviceID 10002 (zB "Wohnzimmer rechts") steuern, indem der Datenpunkt 
 homepilot.0.devices.product.*10002*.__level__ auf "50" gesetzt wird. __level__ ist eine ganze Zahl von 0 bis 100, andere Zahlen/Zeichen werden nicht angenommen.
 Alternativ können auch die Command ID von Homepilot verwendet werden. Dazu wird einfach der passende Befehl in den Datenpunkt homepilot.0.devices.product.*deviceID*.__cid__  geschrieben.
 
-The shutters can be control from Javascript. VIS Widgets or Scenes in two ways.
+:uk: The shutters can be control from Javascript. VIS Widgets or Scenes in two ways.
 For instance you can control the shutter with the DeviceID 10002 ('Living room right') by setting homepilot.0.devices.product.*10002*.__level__ to "50".
 This datapoint only accepts integer numbers between 0 and 100. In addition to that you can use Homepilots command ID. Simply state one of the strings mentioned in the following table to homepilot.0.devices.product.*deviceID*.__cid__
 
 
-Diese Befehle sind bisher möglich zur Steuerung über cid in homepilot.0.devices.product.*deviceID*.__cid__
+:de: Diese Befehle sind bisher möglich zur Steuerung über cid in homepilot.0.devices.product.*deviceID*.__cid__
 
-You can use these commands to control Homepilot with cid in homepilot.0.devices.product.*deviceID*.__cid__
+:uk: You can use these commands to control Homepilot with cid in homepilot.0.devices.product.*deviceID*.__cid__
 
 | CID   | Befehle / Commands               |
 | ------|:--------------------------------:|
@@ -96,14 +98,14 @@ You can use these commands to control Homepilot with cid in homepilot.0.devices.
 
 ![alt text](img/homepilot_vis_widgets.jpg "Screenshot VIS widgets")
 
-In "Object ID" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.control.__level__ (number, writeable)
+:de: In "Object ID" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.control.__level__ (number, writeable)
 In "in Arbeit Zustand" diesen Datenpunkt eintragen: homepilot.0.devices.product.*deviceID*.__level__ (number)
 "Min" 100
 "Max" 0
 "Schritt" -1
 "Beschriftung" "{homepilot.0.devices.RolloTronStandard.10002.name}" als Binding (ohne Anführungszeichen)
 
-english tbd
+:uk: english tbd
 
 ## Changelog
 ### 0.0.1 (2016-06-15)
