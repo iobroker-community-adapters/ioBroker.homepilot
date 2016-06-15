@@ -1,0 +1,77 @@
+{
+    "common": {
+        "name":                     "homepilot",
+        "title":                    "Homepilot",
+        "desc": {                   "en": "control Homepilot Duofern blinds with ioBroker",
+                                    "de": "steuern Sie Homepilot Duofern Rollläden mit ioBroker",
+                                    "ru": "connects ioBroker to Homepilot"},
+        "version":                  "0.0.1",
+        "mode":                     "daemon",
+        "platform":                 "javascript/Node.js",
+        "loglevel":                 "info",
+        "keywords":                 ["blinds", "jalousien", "homepilot", "duofern", "rademacher", "rollladen", "rollos", "pix"],
+        "main":                     "main.js",
+        "authors":                  ["Pix"],
+        "license":                  "MIT",
+        "readme":                   "https://github.com/Pix---/ioBroker.homepilot/blob/master/README.md",
+        "icon":                     "homepilot.png",
+        "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
+	"allowInit":                true,
+        "type":                     "hardware",
+        "config": {
+            "width": 650,
+            "height": 350,
+            "minWidth": 650,
+            "minHeight": 300
+        }
+    },
+    "native": {
+    	"homepilotip" : "",
+    	"homepilotport" : ""
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id":  "station",
+            "type": "channel",
+            "common": {
+                "role": "",
+                "name": ""
+            },
+            "native": {}
+        },
+        {
+            "_id":  "station.ip",
+            "type": "state",
+            "common": {
+                "name":  "homepilot IP",
+                "desc":  "homepilot station IP adress",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id":  "devices",
+            "type": "channel",
+            "common": {
+                "role": "",
+                "name": ""
+            },
+            "native": {}
+        },
+        {
+            "_id":  "devices.json",
+            "type": "state",
+            "common": {
+                "name":  "homepilot devices JSON",
+                "desc":  "homepilot JSON response on http://homepilotip/deviceajax.do?devices=1",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
+}
