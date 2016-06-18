@@ -48,6 +48,8 @@ homepilot.0.devices.product.*deviceID*.__cid__ (string, writeable)
 
 homepilot.0.devices.product.*deviceID*.__level__ (number)
 
+homepilot.0.devices.product.*deviceID*.__level_inverted__ (number)
+
 homepilot.0.devices.product.*deviceID*.__state__ (boolean, only if product is switch
 
 homepilot.0.devices.__json__  (*JSON* file *json* Datenpunkt mit JSON Rückgabe / Datapoint filled with returned JSON )
@@ -63,14 +65,16 @@ homepilot.0.station.__ip__ (string)
 ### Steuerung / Control
 :de: Um die Rollläden aus Javascript, VIS oder z.B. Scenes zu steuern, gibt es zwei Möglichkeiten. 
 Z.B. kann man den Rolladen mit der DeviceID 10002 (zB "Wohnzimmer rechts") steuern, indem der Datenpunkt 
-homepilot.0.devices.product.*10002*.__level__ auf "50" gesetzt wird. __level__ ist eine ganze Zahl von 0 bis 100, andere Zahlen/Zeichen werden nicht angenommen.
+homepilot.0.devices.product.*10002*.__level__ auf "30" gesetzt wird. __level__ ist eine ganze Zahl von 0 bis 100, andere Zahlen/Zeichen werden nicht angenommen.
+Für ein Darstellung wie beim "Homematic"-System (0% = dunkel/unten, 100% = hell/oben), verwendet man den Datenpunkt __level_inerverted__.
 Alternativ können auch die Command ID von Homepilot verwendet werden. Dazu wird einfach der passende Befehl in den Datenpunkt homepilot.0.devices.product.*deviceID*.__cid__  geschrieben.
-Weiterhin gibt es den Datenpunkt *state* zur Steuerung / Anzeige von Schaltaktoren (wird nur angelegt, wenn Seriennummer 43, Produktname "Universal-Aktor"). Er wird am besten von einem VIS ctrl state Widget mit *true*/*false* beschrieben. Bei der Steuerung wird *true* in einen level-Wert von 100 übersetzt, *false* wird zu 0.
+Weiterhin gibt es den Datenpunkt *state* zur Steuerung / Anzeige von Schaltaktoren (wird nur angelegt, wenn Seriennummern 43 oder 46, Produktname "Universal-Aktor"). Er wird am besten von einem VIS ctrl state Widget mit *true*/*false* beschrieben. Bei der Steuerung wird *true* in einen level-Wert von 100 übersetzt, *false* wird zu 0.
 
 :uk: The shutters can be control from Javascript. VIS Widgets or Scenes in two ways.
-For instance you can control the shutter with the DeviceID 10002 ('Living room right') by setting homepilot.0.devices.product.*10002*.__level__ to "50".
+For instance you can control the shutter with the DeviceID 10002 ('Living room right') by setting homepilot.0.devices.product.*10002*.__level__ to "30".
 This datapoint only accepts integer numbers between 0 and 100. In addition to that you can use Homepilots command ID. Simply state one of the strings mentioned in the following table to homepilot.0.devices.product.*deviceID*.__cid__
-Furthermore the datapoint *state* can be use to control switches. It is only created if the products name is "Universal-Aktor" or its serial number is 43. Simply use a VIS ctrl state widget to write *true*/*false*. This boolean value will be translated to a level 100 if *true* ord level 0 if *false*.
+If you prefer an "Homematic" like appearance (0% is dark/down, 100% is light/up) choose the datapoint __level_inerverted__.
+Furthermore the datapoint *state* can be use to control switches. It is only created if the products name is "Universal-Aktor" or its serial number is 43 or 46. Simply use a VIS ctrl state widget to write *true*/*false*. This boolean value will be translated to a level 100 if *true* ord level 0 if *false*.
 
 :de: Diese Befehle sind bisher möglich zur Steuerung über cid in homepilot.0.devices.product.*deviceID*.__cid__
 
@@ -105,8 +109,12 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.0.4 (2016-06-18)
+* (pix) datapoint "level_interted" added for Homematic like appearance
+* (pix) productNumber 46 added to switches
+
 ### 0.0.3 (2016-06-18)
-* (pix) datapoint "state" added for switches
+* (pix) datapoint "state" added for switches (incl. productNumber #43)
 
 ### 0.0.2 (2016-06-16)
 * (pix) error fixed

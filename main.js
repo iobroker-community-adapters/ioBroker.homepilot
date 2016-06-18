@@ -154,10 +154,16 @@ function controlHomepilot(id, input) {
 
         if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1';
     } else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
-        //hier checken, ob der Wert eine Zahl zwischen 0 und 100 ist
+        // check if input number is between 0 an 100
         if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
+        } else valid = false;
+    } else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
+        // check if input number is between 0 an 100
+        if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
+            valid = true;
+            url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + (100 - parseInt(input,10)) + '&command=1';
         } else valid = false;
     } else if (controller == 'state') { // control via state e.g. Universal-Aktor switch (100 ist true, <100 is false);
         if (input.search(/(true)|(false)\b/gmi) != -1) { // check if "true" or "false"
@@ -165,6 +171,7 @@ function controlHomepilot(id, input) {
             if (input || input === 'true') { // switch is on
                 url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=100&command=1';
             } else url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=0&command=1'; // switch is off
+            adapter.log.debug('Input: ' + input + ' URL: '  + url);
         } else valid = false;
     }
     if (valid) {
@@ -273,7 +280,7 @@ function createStates(result, i) {
         },
         native: {}
     });
-    if (result.devices[i].serial == 43 || result.devices[i].productName === "Universal-Aktor") { // Universal-Aktor
+    if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor") { // Universal-Aktor SWITCH
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
@@ -285,8 +292,30 @@ function createStates(result, i) {
                 write: true
             },
             native: {}
+        }, function(err, obj) {
+            if (!err && obj) {
+                var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
+                adapter.setState(path + 'state', {
+                    val: statevalue,
+                    ack: true
+                });
+            }
         });
     }
+    adapter.setObjectNotExists(path + '.level_inverted', {
+        type: 'state',
+        common: {
+            name: 'level inverted ' + devicename,
+            desc: 'level inverted (like Homematic) of device ' + deviceid,
+            type: 'number',
+            min: 0,
+            max: 100,
+            unit: '%',
+            read: true,
+            write: false
+        },
+        native: {}
+    });
     adapter.setObjectNotExists(path + '.level', {
         type: 'state',
         common: {
@@ -331,14 +360,16 @@ function writeStates(result, i) {
         val: result.devices[i].position,
         ack: true
     });
+    adapter.setState(path + 'level_inverted', {
+        val: 100 - parseInt(result.devices[i].position,10),
+        ack: true
+    });
     adapter.setState(path + 'productName', {
         val: result.devices[i].productName,
         ack: true
     });
-    if (result.devices[i].serial == '43' || result.devices[i].productName == 'Universal-Aktor') { // translate output level/position to boolean state for switches
-        var statevalue;
-        if (result.devices[i].position == 100 || result.devices[i].position === '100') statevalue = true;
-        else statevalue = false;
+    if (result.devices[i].serial == '43' || result.devices[i].serial == '46' || result.devices[i].productName == 'Universal-Aktor') { // translate output level/position to boolean state for switches
+        var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
             ack: true
