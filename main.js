@@ -159,6 +159,13 @@ function controlHomepilot(id, input) {
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
         } else valid = false;
+    } else if (controller == 'state') { // control via state e.g. Universal-Aktor switch (100 ist true, <100 is false);
+        if (input.search(/(true)|(false)\b/gmi) != -1) { // check if "true" or "false"
+            valid = true;
+            if (input || input === 'true') { // switch is on
+                url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=100&command=1';
+            } else url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=0&command=1'; // switch is off
+        } else valid = false;
     }
     if (valid) {
         request(url); // Send command to Homepilot
@@ -266,6 +273,20 @@ function createStates(result, i) {
         },
         native: {}
     });
+    if (result.devices[i].serial == 43 || result.devices[i].productName === "Universal-Aktor") { // Universal-Aktor
+        adapter.setObjectNotExists(path + '.state', {
+            type: 'state',
+            common: {
+               name: 'STATE of ' + devicename,
+                desc: 'Boolean datapoint for switches for ' + deviceid,
+                type: 'booelan',
+                def: false,
+                read: true,
+                write: true
+            },
+            native: {}
+        });
+    }
     adapter.setObjectNotExists(path + '.level', {
         type: 'state',
         common: {
@@ -314,7 +335,15 @@ function writeStates(result, i) {
         val: result.devices[i].productName,
         ack: true
     });
-
+    if (result.devices[i].serial == '43' || result.devices[i].productName == 'Universal-Aktor') { // translate output level/position to boolean state for switches
+        var statevalue;
+        if (result.devices[i].position == 100 || result.devices[i].position === '100') statevalue = true;
+        else statevalue = false;
+        adapter.setState(path + 'state', {
+            val: statevalue,
+            ack: true
+        });
+    }
     adapter.log.debug('States for ' + product + ' (' + deviceid + ') written');
 }
 
