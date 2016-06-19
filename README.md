@@ -28,6 +28,10 @@
 
 :uk: IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
 
+### Synchronisation
+:de: Dauer zwischen den Abfragen der Homepilot Basistation durch ioBroker. Die Eingabe ist optional. Standard ist 12s.
+
+:uk: In snyctime you can choose the frequency of connections to Homepilots base station in seconds. Default is 12s, input is optional.
 
 ##  Datenpunkte / Datapoints
 :de: Es gibt zwei Hauptkanäle, einen für die Basisstation und einen für die gefundenen Gerätetypen:
