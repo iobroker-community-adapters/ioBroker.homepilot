@@ -122,7 +122,7 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ## Changelog
 ### 0.0.5 (2016-06-19)
 * (pix) user can choose sync time in settings
-* (pix) switch control by command id
+* (pix) switch control by command id (cid)
 
 ### 0.0.4 (2016-06-18)
 * (pix) datapoint "level_interted" added for Homematic like appearance
