@@ -92,7 +92,7 @@ Furthermore the datapoint *state* can be use to control switches. It is only cre
 :uk: You can use these commands to control Homepilot with cid in homepilot.0.devices.product.*deviceID*.__cid__
 
 | CID | Befehle / Commands               |
-| :--:|:--------------------------------:|
+| :--:|:---------------------------------|
 | 1   | UP, up, HOCH, hoch, RAUF, rauf   |
 | 2   | STOP, stop, Stop                 |
 | 3   | DOWN, down, RUNTER, runter       |
