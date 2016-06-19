@@ -9,9 +9,18 @@
 [![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)
 
 ## Beschreibung / Description
-:de: Dieser Adapter verbindet die Rademacher Homepilot Basistation mit ioBroker, um die Rademacher DuoFern Rollladenaktoren / Gurtwickler / Rollladenmotoren / Universal-Aktoren zu steuern.
+:de: Dieser Adapter verbindet die Rademacher Homepilot Basistation mit ioBroker, um die Rademacher DuoFern Geräte zu steuern.
 
-:uk: This adapter connects Rademachers Homepilot Station to ioBroker to control Rademacher DuoFern automatic shutter belt winders / roller-blinds motors / universal actors .
+:uk: This adapter connects Rademachers Homepilot Station to ioBroker to control Rademacher DuoFern Devices.
+
+### Unterstütze Geräte / Supported devices
+
+| SN# | Produktname / product Name                             |
+|:---:|:------------------------------------------------------:|
+| 40  | RolloTron Gurtwickler / RolloTron shutter belt winder  |
+| 43  | Universal-Aktor / Universal actor                      |
+| 46  | Steckdosen-Zwischenstecker / wall plugin actor         |
+
 
 ## Einstellungen / Configuration
 ### IP / Port
@@ -56,6 +65,8 @@ homepilot.0.devices.__json__  (*JSON* file *json* Datenpunkt mit JSON Rückgabe 
 
 homepilot.0.station.__ip__ (string)
 
+homepilot.0.station.__UNREACH__ (boolean) (true if Homepilot station is not reachable)
+
 
 
 :de: Die Datenpunkte *cid*, *level* und ggf. *state*  können beschrieben werden. Sie werden auf Änderung aus anderen Adaptern (VIS, Javascript, Scenes) überwacht.
@@ -68,13 +79,13 @@ Z.B. kann man den Rolladen mit der DeviceID 10002 (zB "Wohnzimmer rechts") steue
 homepilot.0.devices.product.*10002*.__level__ auf "30" gesetzt wird. __level__ ist eine ganze Zahl von 0 bis 100, andere Zahlen/Zeichen werden nicht angenommen.
 Für ein Darstellung wie beim "Homematic"-System (0% = dunkel/unten, 100% = hell/oben), verwendet man den Datenpunkt __level_inerverted__.
 Alternativ können auch die Command ID von Homepilot verwendet werden. Dazu wird einfach der passende Befehl in den Datenpunkt homepilot.0.devices.product.*deviceID*.__cid__  geschrieben.
-Weiterhin gibt es den Datenpunkt *state* zur Steuerung / Anzeige von Schaltaktoren (wird nur angelegt, wenn Seriennummern 43 oder 46, Produktname "Universal-Aktor"). Er wird am besten von einem VIS ctrl state Widget mit *true*/*false* beschrieben. Bei der Steuerung wird *true* in einen level-Wert von 100 übersetzt, *false* wird zu 0.
+Weiterhin gibt es den Datenpunkt *state* zur Steuerung / Anzeige von Schaltaktoren (wird nur angelegt, wenn Seriennummern 43 oder 46, Produktname "Universal-Aktor" bzw. "Steckdosenaktor"). Er wird am besten von einem VIS ctrl state Widget mit *true*/*false* beschrieben. Bei der Steuerung wird *true* in einen level-Wert von 100 übersetzt, *false* wird zu 0.
 
 :uk: The shutters can be control from Javascript. VIS Widgets or Scenes in two ways.
 For instance you can control the shutter with the DeviceID 10002 ('Living room right') by setting homepilot.0.devices.product.*10002*.__level__ to "30".
 This datapoint only accepts integer numbers between 0 and 100. In addition to that you can use Homepilots command ID. Simply state one of the strings mentioned in the following table to homepilot.0.devices.product.*deviceID*.__cid__
 If you prefer an "Homematic" like appearance (0% is dark/down, 100% is light/up) choose the datapoint __level_inerverted__.
-Furthermore the datapoint *state* can be use to control switches. It is only created if the products name is "Universal-Aktor" or its serial number is 43 or 46. Simply use a VIS ctrl state widget to write *true*/*false*. This boolean value will be translated to a level 100 if *true* ord level 0 if *false*.
+Furthermore the datapoint *state* can be use to control switches. It is only created if the products name is "Universal-Aktor"/"Steckdosenaktor" or its serial number is 43 or 46. Simply use a VIS ctrl state widget to write *true*/*false*. This boolean value will be translated to a level 100 if *true* ord level 0 if *false*.
 
 :de: Diese Befehle sind bisher möglich zur Steuerung über cid in homepilot.0.devices.product.*deviceID*.__cid__
 
@@ -109,6 +120,10 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.0.5 (2016-06-19)
+* (pix) user can choose sync time in settings
+* (pix) switch control by command id
+
 ### 0.0.4 (2016-06-18)
 * (pix) datapoint "level_interted" added for Homematic like appearance
 * (pix) productNumber 46 added to switches

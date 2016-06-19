@@ -8,7 +8,7 @@ var lang = 'de';
 var callReadHomepilot;
 var ip = '';
 var link = '';
-var synctime = 12;
+var sync = 12;
 
 var adapter = utils.adapter({
     name: 'homepilot',
@@ -45,9 +45,9 @@ function controlHomepilot(id, input) {
     var deviceid         = parseInt(controller_array[4],10);
     var url;
     var valid = false;
+    var newcid;
     adapter.log.debug('State: ' + controller + '  device: ' + deviceid + '  command: ' + input);
     if (controller == 'cid') { // control via cid
-        var newcid;
         // hier CID auf Plausibiliät checken
         switch (input) {
             case "1":
@@ -153,27 +153,29 @@ function controlHomepilot(id, input) {
         }
 
         if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1';
-    } else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
+    } 
+    else if (controller == 'state') { // control via state e.g. Universal-Aktor switch
+        if (input.search(/(true)|(false)\b/gmi) != -1) { // check if "true" or "false"
+            valid = true;
+            newcid = (input || input === 'true') ? '10' : '11';
+            if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1'; // switch ON / OFF
+            adapter.log.debug('Switch ' + deviceid + ' new status detected: ' + input + ' URL: '  + url);
+        } else valid = false;
+    } 
+    else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
         // check if input number is between 0 an 100
         if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
         } else valid = false;
-    } else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
+    } 
+    else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
         // check if input number is between 0 an 100
         if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + (100 - parseInt(input,10)) + '&command=1';
         } else valid = false;
-    } else if (controller == 'state') { // control via state e.g. Universal-Aktor switch (100 ist true, <100 is false);
-        if (input.search(/(true)|(false)\b/gmi) != -1) { // check if "true" or "false"
-            valid = true;
-            if (input || input === 'true') { // switch is on
-                url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=100&command=1';
-            } else url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=0&command=1'; // switch is off
-            adapter.log.debug('Input: ' + input + ' URL: '  + url);
-        } else valid = false;
-    }
+    } 
     if (valid) {
         request(url); // Send command to Homepilot
         adapter.log.info('Command sent to Homepilot because "' + input + '" written to State "' + id + '"');
@@ -181,20 +183,16 @@ function controlHomepilot(id, input) {
 }
 
 function readSettings() {
-    //check if IP entered in settings
+    //check if IP is entered in settings
     if (adapter.config.homepilotip === undefined || adapter.config.homepilotip.length === 0) {
         ip = 'homepilot.local';
         adapter.log.debug('No IP adress of Homepilot station set up - "' + ip + '" used');
-    } else {
-        if (adapter.config.homepilotport.length > 0) {
-            ip = adapter.config.homepilotip + ':' + adapter.config.homepilotport;
-        } else {
-            ip = adapter.config.homepilotip;
-        }
-    }
-    adapter.log.debug('Homepilot station IP: ' + ip);
+    } 
+    else ip = (adapter.config.homepilotport.length > 0) ? adapter.config.homepilotip + ':' + adapter.config.homepilotport : adapter.config.homepilotip;
     link = 'http://' + ip + '/deviceajax.do?devices=1';
-    // probably let user choose synctime in settings (7,15,30,60,120) 
+    //check if sync time is entered in settings
+    sync = (adapter.config.synctime === undefined || adapter.config.synctime.length === 0) ? 12 : parseInt(adapter.config.synctime,10);
+    adapter.log.debug('Homepilot station and ioBroker synchronize every ' + sync + 's');
 }
 
 function createStates(result, i) {
@@ -280,7 +278,7 @@ function createStates(result, i) {
         },
         native: {}
     });
-    if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor") { // Universal-Aktor SWITCH
+    if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // Universal-Aktor SWITCH
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
@@ -368,7 +366,7 @@ function writeStates(result, i) {
         val: result.devices[i].productName,
         ack: true
     });
-    if (result.devices[i].serial == '43' || result.devices[i].serial == '46' || result.devices[i].productName == 'Universal-Aktor') { // translate output level/position to boolean state for switches
+    if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // translate output level/position to boolean state for switches
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
@@ -379,12 +377,14 @@ function writeStates(result, i) {
 }
 
 function readHomepilot() {
+    var unreach = true;
     request(link, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var result;
             try {
                 result = JSON.parse(body);
                 var data = JSON.stringify(result, null, 2);
+                unreach = false;
                 //adapter.log.debug('Homepilot data: ' + data);
                 adapter.setState('devices.json', {
                     val: data,
@@ -392,6 +392,7 @@ function readHomepilot() {
                 });
             } catch (e) {
                 adapter.log.warn('Parse Error: ' + e);
+                unreach = true;
             }
             if (result) {
                 // save val here, go through ALL devices
@@ -405,7 +406,15 @@ function readHomepilot() {
                     ack: true
                 });
             }
-        } else adapter.log.warn('Fehler: ' + error);
+        } else {
+            adapter.log.warn('Cannot connect to Homepilot: ' + error);
+            unreach = true;
+        }
+        // Write connection status
+        adapter.setState('station.UNREACH', {
+            val: unreach,
+            ack: true
+        });
     }); // End request 
     adapter.log.debug('finished reading Homepilot Data');
 }
@@ -424,5 +433,5 @@ function main() {
     callReadHomepilot = setInterval(function() {
         adapter.log.debug('reading homepilot JSON ...');
         readHomepilot();
-    }, synctime * 1000);
+    }, sync * 1000);
 }
