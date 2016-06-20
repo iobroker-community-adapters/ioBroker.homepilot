@@ -125,6 +125,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.0.7 (2016-06-21)
+* (pix) fixed RegEx and log
+
 ### 0.0.6 (2016-06-20)
 * (pix) fixed switch control "false" by command id (cid)
 * (pix) names of datapoints
