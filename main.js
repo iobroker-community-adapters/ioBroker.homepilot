@@ -155,12 +155,16 @@ function controlHomepilot(id, input) {
         if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1';
     } 
     else if (controller == 'state') { // control via state e.g. Universal-Aktor switch
-        if (input.search(/(true)|(false)\b/gmi) != -1) { // check if "true" or "false"
+        if (input.search(/(true)(EIN)(AN)(ON)|([10-11])|(false)(AUS)(OFF)\b\b/gmi) != -1) { // check if "true" or "false"
             valid = true;
-            newcid = (input || input === 'true') ? '10' : '11';
-            if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1'; // switch ON / OFF
+            if (input.search(/(true)(EIN)(AN)(ON)|(10)\b\b/gmi) != -1 ) newcid = '10'; 
+            if (input.search(/(false)(AUS)(OFF)|(11)\b\b/gmi) != -1 ) newcid = '11'; 
+            url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1'; // switch ON / OFF
             adapter.log.debug('Switch ' + deviceid + ' new status detected: ' + input + ' URL: '  + url);
-        } else valid = false;
+        } else {
+            valid = false;
+            adapter.lo.warn('Only use "ON/OFF", "true/false", "ein/aus" (all caseinsensitive) or "10/11" to control you switch');
+        }
     } 
     else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
         // check if input number is between 0 an 100
