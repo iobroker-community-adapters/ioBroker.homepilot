@@ -4,7 +4,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.homepilot.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.homepilot)
+[![Tests](https://travis-ci.org/Pix---/ioBroker.homepilot.svg?branch=master)](https://travis-ci.org/Pix---/ioBroker.homepilot)
 
 [![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)
 
@@ -125,6 +125,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.1.0 (2017-01-05)
+* (pix) Travis CI supported
+
 ### 0.0.7 (2016-06-21)
 * (pix) fixed RegEx and log
 
