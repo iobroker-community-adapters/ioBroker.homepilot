@@ -128,6 +128,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.0 (2017-01-15)
+* (pix) removed parent from setObjects
+
 ### 0.1.1 (2017-01-15)
 * (pix) Roles added
 
