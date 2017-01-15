@@ -232,6 +232,7 @@ function createStates(result, i) {
             name: 'description ' + devicename,
             desc: 'description stored in homepilot for device' + deviceid,
             type: 'string',
+            role: 'text',
             read: true,
             write: false
         },
@@ -243,6 +244,7 @@ function createStates(result, i) {
             name: 'product name ' + devicename,
             desc: 'product name stored in homepilot for device' + deviceid,
             type: 'string',
+            role: 'text',
             read: true,
             write: false
         },
@@ -253,7 +255,8 @@ function createStates(result, i) {
         common: {
             name: 'status changed ' + devicename,
             desc: 'time of last status changed for device ' + deviceid,
-            type: 'string',
+            type: 'number',
+            role: 'value.datetime',
             read: true,
             write: false
         },
@@ -265,6 +268,7 @@ function createStates(result, i) {
             name: 'number of errors ' + devicename,
             desc: 'number of errors of device ' + deviceid,
             type: 'number',
+            role: 'value',
             min: 0,
             read: true,
             write: false
@@ -289,6 +293,7 @@ function createStates(result, i) {
                name: 'STATE of ' + devicename,
                 desc: 'Boolean datapoint for switches for ' + deviceid,
                 type: 'booelan',
+                role: 'switch',
                 def: false,
                 read: true,
                 write: true
@@ -310,6 +315,7 @@ function createStates(result, i) {
             name: 'level inverted ' + devicename,
             desc: 'level inverted (like Homematic) of device ' + deviceid,
             type: 'number',
+            role: 'level.blind',
             min: 0,
             max: 100,
             unit: '%',
@@ -324,6 +330,7 @@ function createStates(result, i) {
             name: 'level ' + devicename,
             desc: 'level of device ' + deviceid,
             type: 'number',
+            role: 'level.blind',
             min: 0,
             max: 100,
             unit: '%',
