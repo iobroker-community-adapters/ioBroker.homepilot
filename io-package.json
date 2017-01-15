@@ -60,6 +60,7 @@
                 "name":  "homepilot not connected",
                 "desc":  "is homepilot station unreachable or not",
                 "type":  "boolean",
+		"role" : "indicator.maintenance.unreach",
                 "def":   true,
                 "read":  true,
                 "write": false
