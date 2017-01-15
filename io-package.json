@@ -5,13 +5,18 @@
         "desc": {                   "en": "control Homepilot Duofern blinds with ioBroker",
                                     "de": "verbinden Sie Homepilot Duofern mit ioBroker",
                                     "ru": "connects ioBroker to Homepilot"},
-        "version":                  "0.1.1",
+        "version":                  "0.2.0",
         "mode":                     "daemon",
 	"news": {
-	                            "0.1.1": {
+	                            "0.2.0": {
+                                        "en": "Removed parent from setObject-config",
+                                        "de": "Eltern/Kind-Zuordnung bei Datenpunkten entfernt",
+                                        "ru": "Removed parent from setObject-config"
+				    },
+		                    "0.1.1": {
                                         "en": "Roles Added",
                                         "de": "Rollen hinzugefügt",
-                                        "ru": "oles Added"
+                                        "ru": "roles Added"
 				    },
 		                    "0.1.0": {
                                         "en": "Travis CI and Appveyor testing supported",
