@@ -204,19 +204,20 @@ function createStates(result, i) {
     var deviceid   = result.devices[i].did;
     var devicename = result.devices[i].name;
     var path = 'devices.' + product + '.' + deviceid;
-
+    var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
     // create Channel DeviceID
     adapter.setObjectNotExists(path, {
         type: 'channel',
-        role: '',
         common: {
-            name: devicename + ' (Device ID ' + deviceid + ')'
+            name: devicename + ' (Device ID ' + deviceid + ')',
+            role: devicerole,
         },
         native: {}
     });
     // create States
     adapter.setObjectNotExists(path + '.name', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'name ' + devicename,
             desc: 'name stored in homepilot for device ' + deviceid,
@@ -229,6 +230,7 @@ function createStates(result, i) {
     });
     adapter.setObjectNotExists(path + '.description', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'description ' + devicename,
             desc: 'description stored in homepilot for device' + deviceid,
@@ -241,6 +243,7 @@ function createStates(result, i) {
     });
     adapter.setObjectNotExists(path + '.productName', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'product name ' + devicename,
             desc: 'product name stored in homepilot for device' + deviceid,
@@ -253,6 +256,7 @@ function createStates(result, i) {
     });
     adapter.setObjectNotExists(path + '.status_changed', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'status changed ' + devicename,
             desc: 'time of last status changed for device ' + deviceid,
@@ -265,6 +269,7 @@ function createStates(result, i) {
     });
     adapter.setObjectNotExists(path + '.hasErrors', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'number of errors ' + devicename,
             desc: 'number of errors of device ' + deviceid,
@@ -278,6 +283,7 @@ function createStates(result, i) {
     });
     adapter.setObjectNotExists(path + '.cid', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'Command ID input ' + devicename,
             desc: 'type in command id for ' + deviceid,
@@ -290,6 +296,7 @@ function createStates(result, i) {
     if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // Universal-Aktor SWITCH
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
+            parent: devicename + ' (Device ID ' + deviceid + ')',
             common: {
                name: 'STATE of ' + devicename,
                 desc: 'Boolean datapoint for switches for ' + deviceid,
@@ -312,6 +319,7 @@ function createStates(result, i) {
     }
     adapter.setObjectNotExists(path + '.level_inverted', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'level inverted ' + devicename,
             desc: 'level inverted (like Homematic) of device ' + deviceid,
@@ -327,6 +335,7 @@ function createStates(result, i) {
     });
     adapter.setObjectNotExists(path + '.level', {
         type: 'state',
+        parent: devicename + ' (Device ID ' + deviceid + ')',
         common: {
             name: 'level ' + devicename,
             desc: 'level of device ' + deviceid,
