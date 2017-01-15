@@ -60,6 +60,7 @@
                 "name":  "homepilot IP",
                 "desc":  "homepilot station IP adress",
                 "type":  "string",
+		"role": "text.url",
                 "read":  true,
                 "write": false
             },
@@ -95,6 +96,7 @@
                 "name":  "homepilot devices JSON",
                 "desc":  "homepilot JSON response on http://homepilotip/deviceajax.do?devices=1",
                 "type":  "string",
+		"role": "json",
                 "read":  true,
                 "write": false
             },
