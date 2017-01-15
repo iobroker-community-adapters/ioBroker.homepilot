@@ -204,7 +204,20 @@ function createStates(result, i) {
     var deviceid   = result.devices[i].did;
     var devicename = result.devices[i].name;
     var path = 'devices.' + product + '.' + deviceid;
-    var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
+    var serialnumber = result.devices[i].serial;
+    //var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
+    var devicerole;
+    switch (serialnumber) {
+            case "40": // Rollotron
+                devicerole = 'blind';
+                break;
+            case "43": // Universalactor
+            case "46": // Wall-Plugin-Actor
+                devicerole = (devicename.indexOf('Licht') != -1) ? 'light.switch' : 'switch' ;
+                break;
+            default:
+                devicerole = 'switch'
+    }
     // create Channel DeviceID
     adapter.setObjectNotExists(path, {
         type: 'channel',
