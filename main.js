@@ -221,6 +221,7 @@ function createStates(result, i) {
             name: 'name ' + devicename,
             desc: 'name stored in homepilot for device ' + deviceid,
             type: 'string',
+            role: 'text',
             read: true,
             write: false
         },
