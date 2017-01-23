@@ -28,12 +28,12 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | 47  | Rohrmotor-Steuerung         |                                        |  level       |                        |
 | 49  | Rohrmotor                   |                                        |  level       |                        |
 
-:de: Der Schaltaktor mit der Seriennummer 43 bietet sowohl einen Licht- wie einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt AUF ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt AB verhält sich umgekehrt.
+:de: Der Schaltaktor mit der Seriennummer 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
 
 
 ## Einstellungen / Configuration
 ### IP / Port
-:de: Die IP Adresse der Homepilot Basisstation im lokalen Netzwerk. Ohne EIngabe verwendet der Adapter __homepilot.local__. Die Portnummer ist optional und wird nur bei Eingabe einer IP-Adresse berücksichtigt.
+:de: Die IP Adresse der Homepilot Basisstation im lokalen Netzwerk. Ohne Eingabe verwendet der Adapter __homepilot.local__. Die Portnummer ist optional und wird nur bei Eingabe einer IP-Adresse berücksichtigt.
 
 :uk: IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
 
