@@ -12,17 +12,23 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 
 ## Beschreibung / Description
-:de: Dieser Adapter verbindet die Rademacher Homepilot Basistation mit ioBroker, um die Rademacher DuoFern Geräte zu steuern.
+:de: Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet auf 434,5 MHz.
 
-:uk: This adapter connects Rademachers Homepilot Station to ioBroker to control Rademacher DuoFern Devices.
+:uk: This adapter connects ioBroker and Rademacher's Homepilot Station to control Rademacher DuoFern radio controlled devices. DuoFern broadcasts at 434,5 MHz.
 
 ### Unterstütze Geräte / Supported devices
 
-| SN# | Produktname / product Name                             |
-|:---:|:------------------------------------------------------:|
-| 40  | RolloTron Gurtwickler / RolloTron shutter belt winder  |
-| 43  | Universal-Aktor / Universal actor                      |
-| 46  | Steckdosen-Zwischenstecker / wall plugin actor         |
+| SN# | Produktname / product Name  | Notiz / Note                           |  Datapoint   | Produkt Nr / Product # |
+|:---:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
+| 40  | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
+| 41  | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
+| 42  | Rohrmotor-Aktor             |                                        |  level       |                        |
+| 43  | Schaltaktor 2-Kanal         |                                        |  state       | 9470-2                 |
+| 46  | Schaltaktor 1-Kanal         |                                        |  state       |                        |
+| 47  | Rohrmotor-Steuerung         |                                        |  level       |                        |
+| 49  | Rohrmotor                   |                                        |  level       |                        |
+
+:de: Der Schaltaktor mit der Seriennummer 43 bietet sowohl einen Licht- wie einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt AUF ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt AB verhält sich umgekehrt.
 
 
 ## Einstellungen / Configuration
@@ -66,7 +72,7 @@ homepilot.0.devices.product.*deviceID*.__level__ (number)
 
 homepilot.0.devices.product.*deviceID*.__level_inverted__ (number)
 
-homepilot.0.devices.product.*deviceID*.__state__ (boolean, only if product is switch
+homepilot.0.devices.product.*deviceID*.__state__ (boolean, only if product is switch)
 
 homepilot.0.devices.__json__  (*JSON* file *json* Datenpunkt mit JSON Rückgabe / Datapoint filled with returned JSON )
 
@@ -128,6 +134,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.1 (2017-01-23)
++ (pix) Device recognition by serial number optimized
+
 ### 0.2.0 (2017-01-15)
 * (pix) removed parent from setObjects
 
