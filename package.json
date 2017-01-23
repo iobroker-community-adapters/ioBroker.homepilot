@@ -1,7 +1,7 @@
 {
   "name": "iobroker.homepilot",
-  "description": "Adapter connects Radmecher Homepilot station to ioBroker",
-  "version": "0.2.0",
+  "description": "Adapter connects Rademacher Homepilot station to ioBroker",
+  "version": "0.2.1",
   "author": "pix",
   "contributors": [
     "pix"
