@@ -172,6 +172,8 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 
 ## Roadmap
 * Include more duofern products
+* get a list of all installed duofern products in your network within the settings window
+* rearrange object tree to "homepilot.0.device.channel.state"
 
 
 ## License
