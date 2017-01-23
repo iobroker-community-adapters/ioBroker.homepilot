@@ -300,7 +300,7 @@ function createStates(result, i) {
         },
         native: {}
     });
-    if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // Universal-Aktor SWITCH
+    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46" || result.devices[i].productName === "Schaltaktor 2-Kanal" || result.devices[i].productName === "Schaltaktor 1-Kanal") { // Universal-Aktor SWITCH
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
