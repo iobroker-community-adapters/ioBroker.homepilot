@@ -134,6 +134,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.2 (2017-01-24)
++ (pix) fixed state datapoint updates
+
 ### 0.2.1 (2017-01-23)
 + (pix) Device recognition by serial number optimized
 
