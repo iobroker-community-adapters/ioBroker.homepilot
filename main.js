@@ -310,7 +310,7 @@ function createStates(result, i) {
             common: {
                name: 'STATE of ' + devicename,
                 desc: 'Boolean datapoint for switches for ' + deviceid,
-                type: 'booelan',
+                type: 'boolean',
                 role: 'switch',
                 def: false,
                 read: true,
