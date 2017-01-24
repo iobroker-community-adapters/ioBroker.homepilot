@@ -207,8 +207,12 @@ function createStates(result, i) {
     var serialnumber = result.devices[i].serial;
     //var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
     var devicerole;
-    switch (serialnumber) {
-            case "40": // Rollotron
+    switch (serialnumber.substring(0,2)) {
+            case "40": // Rollotron Standard
+            case "41": // Rollotron Comfort
+            case "42": // Rohrmotor
+            case "47": // Rohrmotor
+            case "49": // Rohrmotor
                 devicerole = 'blind';
                 break;
             case "43": // Universalactor
@@ -360,6 +364,7 @@ function createStates(result, i) {
 function writeStates(result, i) {
     var product = result.devices[i].productName.replace(/\s+/g, ''); // clear whitespaces in product name
     var deviceid = result.devices[i].did;
+    var serialnumber = result.devices[i].serial;
     var path = 'devices.' + product + '.' + deviceid + '.';
 
     adapter.setState(path + 'name', {
@@ -379,22 +384,25 @@ function writeStates(result, i) {
         ack: true
     });
     if (result.devices[i].hasErrors > 0) adapter.log.warn('Homepilot Device ' + deviceid + ' reports an error'); // find logic to reduce to one message only
-    adapter.setState(path + 'level', {
-        val: result.devices[i].position,
-        ack: true
-    });
-    adapter.setState(path + 'level_inverted', {
-        val: 100 - parseInt(result.devices[i].position,10),
-        ack: true
-    });
+    
     adapter.setState(path + 'productName', {
         val: result.devices[i].productName,
         ack: true
     });
-    if (result.devices[i].serial == 43 || result.devices[i].serial == 46 || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // translate output level/position to boolean state for switches
+    // STATE
+    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46" || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // translate output level/position to boolean state for switches
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
+            ack: true
+        });
+    } else { // LEVEL Datapoints
+        adapter.setState(path + 'level', {
+            val: result.devices[i].position,
+            ack: true
+        });
+        adapter.setState(path + 'level_inverted', {
+            val: 100 - parseInt(result.devices[i].position,10),
             ack: true
         });
     }
