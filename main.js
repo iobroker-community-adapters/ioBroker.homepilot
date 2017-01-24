@@ -182,7 +182,7 @@ function controlHomepilot(id, input) {
     } 
     if (valid) {
         request(url); // Send command to Homepilot
-        adapter.log.info('Command sent to Homepilot because "' + input + '" written to State "' + id + '"');
+        adapter.log.debug('Command sent to Homepilot because "' + input + '" written to State "' + id + '"'); // should be debug not info
     } else adapter.log.warn('Wrong type of data input. Please try again');
 }
 
