@@ -168,14 +168,14 @@ function controlHomepilot(id, input) {
     } 
     else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
         // check if input number is between 0 an 100
-        if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
+        if (input.search(/(?:\b|-)([0-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
         } else valid = false;
     } 
     else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
         // check if input number is between 0 an 100
-        if (input.search(/(?:\b|-)([1-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
+        if (input.search(/(?:\b|-)([0-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + (100 - parseInt(input,10)) + '&command=1';
         } else valid = false;
@@ -248,7 +248,19 @@ function createStates(result, i) {
         type: 'state',
         common: {
             name: 'description ' + devicename,
-            desc: 'description stored in homepilot for device' + deviceid,
+            desc: 'description stored in homepilot for device ' + deviceid,
+            type: 'string',
+            role: 'text',
+            read: true,
+            write: false
+        },
+        native: {}
+    });
+    adapter.setObjectNotExists(path + '.serial', {
+        type: 'state',
+        common: {
+            name: 'serial number of ' + devicename,
+            desc: 'serial number stored in homepilot for device ' + deviceid,
             type: 'string',
             role: 'text',
             read: true,
@@ -260,7 +272,7 @@ function createStates(result, i) {
         type: 'state',
         common: {
             name: 'product name ' + devicename,
-            desc: 'product name stored in homepilot for device' + deviceid,
+            desc: 'product name stored in homepilot for device ' + deviceid,
             type: 'string',
             role: 'text',
             read: true,
@@ -304,7 +316,7 @@ function createStates(result, i) {
         },
         native: {}
     });
-    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46" || result.devices[i].productName === "Schaltaktor 2-Kanal" || result.devices[i].productName === "Schaltaktor 1-Kanal") { // Universal-Aktor SWITCH
+    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46"/* || result.devices[i].productName === "Schaltaktor 2-Kanal" || result.devices[i].productName === "Schaltaktor 1-Kanal"*/) { // Universal-Aktor SWITCH
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
@@ -375,6 +387,10 @@ function writeStates(result, i) {
         val: result.devices[i].description,
         ack: true
     });
+    adapter.setState(path + 'serial', {
+        val: serialnumber,
+        ack: true
+    });
     adapter.setState(path + 'status_changed', {
         val: result.devices[i].status_changed,
         ack: true
@@ -390,7 +406,7 @@ function writeStates(result, i) {
         ack: true
     });
     // STATE
-    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46" || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor") { // translate output level/position to boolean state for switches
+    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46"/* || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor"*/) { // translate output level/position to boolean state for switches
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
