@@ -66,7 +66,7 @@ homepilot.0.devices.product.*deviceID*.__hasErrors__ (number)
 
 homepilot.0.devices.product.*deviceID*.__status_changed__ (number, timecode)
 
-homepilot.0.devices.product.*deviceID*.__cid__ (string, writeable)
+homepilot.0.devices.product.*deviceID*.__cid__ (string, writeable) !!! WRITE STRING ONLY
 
 homepilot.0.devices.product.*deviceID*.__level__ (number)
 
@@ -134,11 +134,15 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.3 (2017-01-25)
+* (pix) fixed regexp issue within level datapoints for input of value 0
+* (pix) new datapoint serial number of duofern product
+
 ### 0.2.2 (2017-01-24)
-+ (pix) fixed state datapoint updates
+* (pix) fixed state datapoint updates
 
 ### 0.2.1 (2017-01-23)
-+ (pix) Device recognition by serial number optimized
+* (pix) Device recognition by serial number optimized
 
 ### 0.2.0 (2017-01-15)
 * (pix) removed parent from setObjects
