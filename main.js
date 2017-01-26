@@ -350,7 +350,7 @@ function createStates(result, i) {
             max: 100,
             unit: '%',
             read: true,
-            write: false
+            write: true
         },
         native: {}
     });
@@ -365,7 +365,7 @@ function createStates(result, i) {
             max: 100,
             unit: '%',
             read: true,
-            write: false
+            write: true
         },
         native: {}
     }, function(err, obj) {
