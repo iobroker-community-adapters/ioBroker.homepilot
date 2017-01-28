@@ -18,17 +18,17 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 ### Unterstütze Geräte / Supported devices
 
-| SN# | Produktname / product Name  | Notiz / Note                           |  Datapoint   | Produkt Nr / Product # |
-|:---:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
-| 40  | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
-| 41  | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
-| 42  | Rohrmotor-Aktor             |                                        |  level       | [9471-1](https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf)                 |
-| 43  | Schaltaktor 2-Kanal         |                                        |  state       | 9470-2                 |
-| 46  | Schaltaktor 1-Kanal         |                                        |  state       | 9470-1                 |
-| 47  | Rohrmotor-Steuerung         |                                        |  level       |                        |
-| 49  | Rohrmotor                   |                                        |  level       |                        |
+| Code | Produktname / product Name  | Notiz / Note                           |  Datapoint   | Produkt Nr / Product # |
+|:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
+| 40   | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
+| 41   | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
+| 42   | Rohrmotor-Aktor             |                                        |  level       | [9471-1](https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf)                 |
+| 43   | Schaltaktor 2-Kanal         |                                        |  state       | 9470-2                 |
+| 46   | Schaltaktor 1-Kanal         |                                        |  state       | 9470-1                 |
+| 47   | Rohrmotor-Steuerung         |                                        |  level       |                        |
+| 49   | Rohrmotor                   |                                        |  level       |                        |
 
-:de: Der Schaltaktor mit der Seriennummer 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
+:de: Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
 
 
 ## Einstellungen / Configuration
@@ -61,6 +61,8 @@ homepilot.0.devices.product.*deviceID*.__name__ (string)
 homepilot.0.devices.product.*deviceID*.__description__ (string)
 
 homepilot.0.devices.product.*deviceID*.__productName__ (string)
+
+homepilot.0.devices.product.*deviceID*.__duofernCode__ (string)
 
 homepilot.0.devices.product.*deviceID*.__hasErrors__ (number)
 
@@ -134,6 +136,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.4 (2017-01-27)
+* (pix) converted serial to duofern code
+
 ### 0.2.3 (2017-01-25)
 * (pix) fixed regexp issue within level datapoints for input of value 0
 * (pix) new datapoint serial number of duofern product
