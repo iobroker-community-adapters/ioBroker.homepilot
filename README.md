@@ -41,17 +41,17 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | 65   | Bewegungsmelder             |                                        |              |                        |
 | 69   | Umweltsensor                |                                        |              |                        |
 | 70   | Troll Comfort DuoFern       |                                        |              |                        |
-| 71   | Troll Comfort DuoFern       |                                        |              |                        |
+| 71   | Troll Comfort DuoFern\      |                                        |              |                        |
 |      | (Lichtmodus)                |                                        |              |                        |
 | 73   | Raumthermostat              |                                        |              |                        |
 | 74   | Wandtaster 6fach 230V       |                                        |              |                        |
-| A0   | Handsender                  |                                        |              |                        |
+| A0   | Handsender\                 |                                        |              |                        |
 |      | (6 Gruppen-48 Geraete)      |                                        |              |                        |
-| A1   | Handsender                  |                                        |              |                        |
+| A1   | Handsender\                 |                                        |              |                        |
 |      | (1 Gruppe-48 Geraete)       |                                        |              |                        |
-| A2   | Handsender                  |                                        |              |                        |
+| A2   | Handsender\                 |                                        |              |                        |
 |      | (6 Gruppen-1 Geraet)        |                                        |              |                        |
-| A3   | Handsender                  |                                        |              |                        |
+| A3   | Handsender\                 |                                        |              |                        |
 |      | (1 Gruppe-1 Geraet)         |                                        |              |                        |
 | A4   | Wandtaster                  |                                        |              |                        |
 | A5   | Sonnensensor                |                                        |              |                        |
