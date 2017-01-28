@@ -22,7 +22,7 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 |:---:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
 | 40  | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
 | 41  | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
-| 42  | Rohrmotor-Aktor             |                                        |  level       | [9471-1]https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf                 |
+| 42  | Rohrmotor-Aktor             |                                        |  level       | [9471-1](https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf)                 |
 | 43  | Schaltaktor 2-Kanal         |                                        |  state       | 9470-2                 |
 | 46  | Schaltaktor 1-Kanal         |                                        |  state       | 9470-1                 |
 | 47  | Rohrmotor-Steuerung         |                                        |  level       |                        |
