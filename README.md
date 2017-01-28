@@ -12,9 +12,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 
 ## Beschreibung / Description
-:de: Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet auf 434,5 MHz.
+:de: Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
 
-:uk: This adapter connects ioBroker and Rademacher's Homepilot Station to control Rademacher DuoFern radio controlled devices. DuoFern broadcasts at 434,5 MHz.
+:uk: This adapter connects ioBroker and Rademacher's Homepilot Station via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
 
 ### Unterstütze Geräte / Supported devices
 
