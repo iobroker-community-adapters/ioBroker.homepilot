@@ -204,10 +204,10 @@ function createStates(result, i) {
     var deviceid   = result.devices[i].did;
     var devicename = result.devices[i].name;
     var path = 'devices.' + product + '.' + deviceid;
-    var serialnumber = result.devices[i].serial;
+    var duoferncode = result.devices[i].serial;
     //var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
     var devicerole;
-    switch (serialnumber.substring(0,2)) {
+    switch (duoferncode.substring(0,2)) {
             case "40": // Rollotron Standard
             case "41": // Rollotron Comfort
             case "42": // Rohrmotor
@@ -256,11 +256,11 @@ function createStates(result, i) {
         },
         native: {}
     });
-    adapter.setObjectNotExists(path + '.serial', {
+    adapter.setObjectNotExists(path + '.duofernCode', {
         type: 'state',
         common: {
-            name: 'serial number of ' + devicename,
-            desc: 'serial number stored in homepilot for device ' + deviceid,
+            name: 'duofern code number of ' + devicename,
+            desc: 'duofern code stored in homepilot for device ' + deviceid,
             type: 'string',
             role: 'text',
             read: true,
@@ -316,7 +316,7 @@ function createStates(result, i) {
         },
         native: {}
     });
-    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46"/* || result.devices[i].productName === "Schaltaktor 2-Kanal" || result.devices[i].productName === "Schaltaktor 1-Kanal"*/) { // Universal-Aktor SWITCH
+    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46"/* || result.devices[i].productName === "Schaltaktor 2-Kanal" || result.devices[i].productName === "Schaltaktor 1-Kanal"*/) { // Universal-Aktor SWITCH
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
@@ -376,7 +376,7 @@ function createStates(result, i) {
 function writeStates(result, i) {
     var product = result.devices[i].productName.replace(/\s+/g, ''); // clear whitespaces in product name
     var deviceid = result.devices[i].did;
-    var serialnumber = result.devices[i].serial;
+    var duoferncode = result.devices[i].serial;
     var path = 'devices.' + product + '.' + deviceid + '.';
 
     adapter.setState(path + 'name', {
@@ -387,8 +387,8 @@ function writeStates(result, i) {
         val: result.devices[i].description,
         ack: true
     });
-    adapter.setState(path + 'serial', {
-        val: serialnumber,
+    adapter.setState(path + 'duofernCode', {
+        val: duoferncode,
         ack: true
     });
     adapter.setState(path + 'status_changed', {
@@ -406,7 +406,7 @@ function writeStates(result, i) {
         ack: true
     });
     // STATE
-    if (serialnumber.substring(0,2) == "43" || serialnumber.substring(0,2) == "46"/* || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor"*/) { // translate output level/position to boolean state for switches
+    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46"/* || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor"*/) { // translate output level/position to boolean state for switches
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
