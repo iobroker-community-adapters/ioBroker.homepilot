@@ -12,9 +12,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 
 ## Beschreibung / Description
-:de: Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
+:de: Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 (1/2) über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
 
-:uk: This adapter connects ioBroker and Rademacher's Homepilot Station via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
+:uk: This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
 
 ### Unterstütze Geräte / Supported devices
 
@@ -22,9 +22,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 |:---:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
 | 40  | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
 | 41  | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
-| 42  | Rohrmotor-Aktor             |                                        |  level       |                        |
+| 42  | Rohrmotor-Aktor             |                                        |  level       | [9471-1]https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf                 |
 | 43  | Schaltaktor 2-Kanal         |                                        |  state       | 9470-2                 |
-| 46  | Schaltaktor 1-Kanal         |                                        |  state       |                        |
+| 46  | Schaltaktor 1-Kanal         |                                        |  state       | 9470-1                 |
 | 47  | Rohrmotor-Steuerung         |                                        |  level       |                        |
 | 49  | Rohrmotor                   |                                        |  level       |                        |
 
