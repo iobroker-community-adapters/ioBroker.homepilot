@@ -23,12 +23,43 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | 40   | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
 | 41   | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
 | 42   | Rohrmotor-Aktor             |                                        |  level       | [9471-1](https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf)                 |
-| 43   | Schaltaktor 2-Kanal         |                                        |  state       | 9470-2                 |
-| 46   | Schaltaktor 1-Kanal         |                                        |  state       | 9470-1                 |
-| 47   | Rohrmotor-Steuerung         |                                        |  level       |                        |
+| 43   | Schaltaktor 2-Kanal         |  Universalaktor                        |  state       | 9470-2                 |
+| 46   | Schaltaktor 1-Kanal         |  Steckdosenaktor                       |  state       | 9470-1                 |
+| 47   | Rohrmotor-Steuerung         |  Rohrmotor Steuerung                   |  level       |                        |
 | 49   | Rohrmotor                   |                                        |  level       |                        |
 
 :de: Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
+
+#### Noch nicht unterstützt / Not yet supported (Thx to [mhop](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/30_DUOFERN.pm))
+| Code | Produktname / product Name  | Notiz / Note                           |  Datapoint   | Produkt Nr / Product # |
+|:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
+| 4B   | Connect-Aktor               |                                        |              |                        |
+| 4C   | Troll Basis                 |                                        |              |                        |
+| 4E   | SX5                         |                                        |              |                        |
+| 61   | RolloTron Comfort Master    |                                        |              |                        |
+| 62   | SupeFake Device             |                                        |              |                        |
+| 65   | Bewegungsmelder             |                                        |              |                        |
+| 69   | Umweltsensor                |                                        |              |                        |
+| 70   | Troll Comfort DuoFern       |                                        |              |                        |
+| 71   | Troll Comfort DuoFern       |                                        |              |                        |
+|      | (Lichtmodus)                |                                        |              |                        |
+| 73   | Raumthermostat              |                                        |              |                        |
+| 74   | Wandtaster 6fach 230V       |                                        |              |                        |
+| A0   | Handsender                  |                                        |              |                        |
+|      | (6 Gruppen-48 Geraete)      |                                        |              |                        |
+| A1   | Handsender                  |                                        |              |                        |
+|      | (1 Gruppe-48 Geraete)       |                                        |              |                        |
+| A2   | Handsender                  |                                        |              |                        |
+|      | (6 Gruppen-1 Geraet)        |                                        |              |                        |
+| A3   | Handsender                  |                                        |              |                        |
+|      | (1 Gruppe-1 Geraet)         |                                        |              |                        |
+| A4   | Wandtaster                  |                                        |              |                        |
+| A5   | Sonnensensor                |                                        |              |                        |
+| A7   | Funksender UP               |                                        |              |                        |
+| A8   | HomeTimer                   |                                        |              |                        |
+| AA   | Markisenwaechter            |                                        |              |                        |
+| AB   | Rauchmelder                 |                                        |              |                        |
+| AD   | Wandtaster 6fach Bat        |                                        |              |                        |
 
 
 ## Einstellungen / Configuration
