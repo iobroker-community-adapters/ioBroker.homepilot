@@ -26,6 +26,7 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | 43   | Schaltaktor 2-Kanal         |  Universalaktor                        |  state       | 9470-2                 |
 | 46   | Schaltaktor 1-Kanal         |  Steckdosenaktor                       |  state       | 9470-1                 |
 | 47   | Rohrmotor-Steuerung         |  Rohrmotor Steuerung                   |  level       |                        |
+| 48   | Dimmer                      |  Dimmaktor                             |  level       |                        |
 | 49   | Rohrmotor                   |                                        |  level       |                        |
 
 :de: Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
@@ -162,6 +163,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.6 (2017-02-03)
++ (pix) Product "Dimmer" integrated (duofern id 48)
+
 ### 0.2.5 (2017-02-03)
 + (pix) CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11.
 
