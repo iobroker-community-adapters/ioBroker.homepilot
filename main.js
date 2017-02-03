@@ -215,7 +215,10 @@ function createStates(result, i) {
             case "42": // Rohrmotor
             case "47": // Rohrmotor
             case "49": // Rohrmotor
-                devicerole = 'blind';
+                devicerole = 'level.blind';
+                break;
+            case "48": // Dimmer
+                devicerole = 'level.dimmer';
                 break;
             case "43": // Universalactor
             case "46": // Wall-Plugin-Actor
@@ -347,7 +350,7 @@ function createStates(result, i) {
             name: 'level inverted ' + devicename,
             desc: 'level inverted (like Homematic) of device ' + deviceid,
             type: 'number',
-            role: 'level.blind',
+            role: devicerole,
             min: 0,
             max: 100,
             unit: '%',
@@ -362,7 +365,7 @@ function createStates(result, i) {
             name: 'level ' + devicename,
             desc: 'level of device ' + deviceid,
             type: 'number',
-            role: 'level.blind',
+            role: devicerole,
             min: 0,
             max: 100,
             unit: '%',
@@ -413,7 +416,7 @@ function writeStates(result, i) {
         adapter.setState(path + 'state', {
             val: statevalue,
             ack: true
-        });
+        }); // maybe should write to adapters level and level_inverted too
     } else { // LEVEL Datapoints
         adapter.setState(path + 'level', {
             val: result.devices[i].position,
