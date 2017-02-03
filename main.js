@@ -116,6 +116,7 @@ function controlHomepilot(id, input) {
                 valid = false; // weiterer Wert nötig; tbc
                 break;
             case "10":
+            case "true":
             case "EIN":
             case "ein":
             case "AN":
@@ -126,6 +127,7 @@ function controlHomepilot(id, input) {
                 valid = true;
                 break;
             case "11":
+            case "false":
             case "AUS":
             case "aus":
             case "OFF":
