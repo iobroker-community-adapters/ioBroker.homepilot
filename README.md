@@ -162,6 +162,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.5 (2017-02-03)
++ (pix) CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11.
+
 ### 0.2.4 (2017-01-27)
 * (pix) converted serial to duofern code
 
@@ -209,10 +212,10 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 * (pix) adapter created
 
 ## Roadmap
-* Include more duofern products
-* get a list of all installed duofern products in your network within the settings window
-* rearrange object tree to "homepilot.0.device.channel.state"
-
+* 0.3.0 Include more duofern products
+* 0.4.0 get a list of all installed duofern products in your network within the settings window
+* 0.5.0 rearrange object tree to "homepilot.0.device.channel.state"
+* 1.0.0 get live data from Homepilot station
 
 ## License
 
