@@ -5,9 +5,14 @@
         "desc": {                   "en": "control Homepilot Duofern blinds with ioBroker",
                                     "de": "verbinden Sie Homepilot Duofern mit ioBroker",
                                     "ru": "connects ioBroker to Homepilot"},
-        "version":                  "0.2.4",
+        "version":                  "0.2.5",
         "mode":                     "daemon",
 	"news": {
+	                            "0.2.5": {
+                                        "en": "CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11.",
+                                        "de": "Datenpunkt CID erlaubt nun die Eingabe von 'true' or 'false' und wandelt sie in Kommando 10 or 11.",
+                                        "ru": "CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11."
+				    },
 	                            "0.2.4": {
                                         "en": "converted serial to duofern code",
                                         "de": "Seriennummer in Duofern Code geändert",
@@ -121,7 +126,7 @@
                 "name":  "homepilot devices JSON",
                 "desc":  "homepilot JSON response on http://homepilotip/deviceajax.do?devices=1",
                 "type":  "string",
-		"role": "json",
+		"role":  "json",
                 "read":  true,
                 "write": false
             },
