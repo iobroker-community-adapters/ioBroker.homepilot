@@ -210,6 +210,9 @@ function createStates(result, i) {
     //var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
     var devicerole;
     switch (duoferncode.substring(0,2)) {
+            case "4": // Heizkörperstellantrieb Z-Wave
+                devicerole = 'level.temperature';
+                break;
             case "40": // Rollotron Standard
             case "41": // Rollotron Comfort
             case "42": // Rohrmotor
@@ -344,38 +347,65 @@ function createStates(result, i) {
             }
         });
     }
-    adapter.setObjectNotExists(path + '.level_inverted', {
-        type: 'state',
-        common: {
-            name: 'level inverted ' + devicename,
-            desc: 'level inverted (like Homematic) of device ' + deviceid,
-            type: 'number',
-            role: devicerole,
-            min: 0,
-            max: 100,
-            unit: '%',
-            read: true,
-            write: true
-        },
-        native: {}
-    });
-    adapter.setObjectNotExists(path + '.level', {
-        type: 'state',
-        common: {
-            name: 'level ' + devicename,
-            desc: 'level of device ' + deviceid,
-            type: 'number',
-            role: devicerole,
-            min: 0,
-            max: 100,
-            unit: '%',
-            read: true,
-            write: true
-        },
-        native: {}
-    }, function(err, obj) {
-        if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
-    });
+    if (duoferncode.substring(0,2) == "4") { // HeizkörperstellantrieZ-Wave
+        adapter.setObjectNotExists(path + '.temperature', {
+            type: 'state',
+            common: {
+               name: 'Temperature of ' + devicename,
+                desc: 'Temperature datapoint for ' + deviceid,
+                type: 'number',
+                role: 'level.temperature',
+                def: 0,
+                min: 0,
+                max: 100,
+                unit: '°C',
+                read: true,
+                write: true
+            },
+            native: {}
+        }, function(err, obj) {
+            if (!err && obj) {
+                var tempvalue = (parseInt(result.devices[i].position) * 0.1);
+                adapter.setState(path + 'temperature', {
+                    val: tempvalue,
+                    ack: true
+                });
+            }
+        });
+    } else {
+        adapter.setObjectNotExists(path + '.level_inverted', {
+            type: 'state',
+            common: {
+                name: 'level inverted ' + devicename,
+                desc: 'level inverted (like Homematic) of device ' + deviceid,
+                type: 'number',
+                role: devicerole,
+                min: 0,
+                max: 100,
+                unit: '%',
+                read: true,
+                write: true
+            },
+            native: {}
+        });
+        adapter.setObjectNotExists(path + '.level', {
+            type: 'state',
+            common: {
+                name: 'level ' + devicename,
+                desc: 'level of device ' + deviceid,
+                type: 'number',
+                role: devicerole,
+                min: 0,
+                max: 100,
+                unit: '%',
+                read: true,
+                write: true
+            },
+            native: {}
+        }, function(err, obj) {
+            if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
+        });
+    } // ENDE else
 }
 
 function writeStates(result, i) {
@@ -417,7 +447,15 @@ function writeStates(result, i) {
             val: statevalue,
             ack: true
         }); // maybe should write to adapters level and level_inverted too
-    } else { // LEVEL Datapoints
+    // TEMP
+    } else if (duoferncode.substring(0,2) == "4" // HeizkörperstellantrieZ-Wave
+        var tempvalue = (parseInt(result.devices[i].position) * 0.1);
+        adapter.setState(path + 'temperature', {
+            val: tempvalue,
+            ack: true
+        });
+    }
+    else { // LEVEL Datapoints
         adapter.setState(path + 'level', {
             val: result.devices[i].position,
             ack: true
