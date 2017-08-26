@@ -28,6 +28,7 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | 47   | Rohrmotor-Steuerung         |  Rohrmotor Steuerung                   |  level       |                        |
 | 48   | Dimmer                      |  Dimmaktor                             |  level       |                        |
 | 49   | Rohrmotor                   |                                        |  level       |                        |
+|  4   | Z-WAVE                      | Heizkörperstellantrieb                 |  temperature |                        |
 
 :de: Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
 
@@ -101,6 +102,8 @@ homepilot.0.devices.product.*deviceID*.__level__ (number)
 
 homepilot.0.devices.product.*deviceID*.__level_inverted__ (number)
 
+homepilot.0.devices.product.*deviceID*.__temperature__ (number, alternatively)
+
 homepilot.0.devices.product.*deviceID*.__state__ (boolean, only if product is switch)
 
 homepilot.0.devices.__json__  (*JSON* file *json* Datenpunkt mit JSON Rückgabe / Datapoint filled with returned JSON )
@@ -163,6 +166,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.7 (2017-08-26)
++ (pix) Added support for Heizkörperstellantrieb Z-Wave
+
 ### 0.2.6 (2017-02-03)
 + (pix) Product "Dimmer" integrated (duofern id 48)
 
