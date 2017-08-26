@@ -5,7 +5,7 @@
         "desc": {                   "en": "control Homepilot Duofern blinds with ioBroker",
                                     "de": "verbinden Sie Homepilot Duofern mit ioBroker",
                                     "ru": "connects ioBroker to Homepilot"},
-        "version":                  "0.2.7", //
+        "version":                  "0.2.7",
         "mode":                     "daemon",
 	"news": {
 	                            "0.2.7": {
