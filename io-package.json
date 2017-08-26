@@ -5,10 +5,15 @@
         "desc": {                   "en": "control Homepilot Duofern blinds with ioBroker",
                                     "de": "verbinden Sie Homepilot Duofern mit ioBroker",
                                     "ru": "connects ioBroker to Homepilot"},
-        "version":                  "0.2.6",
+        "version":                  "0.2.7", //
         "mode":                     "daemon",
 	"news": {
-	                            "0.2.6": {
+	                            "0.2.7": {
+                                        "en": "Added support for Heizkörperstellantrieb Z-Wave",
+                                        "de": "Heizkörperstellantrieb Z-Wave integriert",
+                                        "ru": "Added support for Heizkörperstellantrieb Z-Wave"
+				    },
+		                    "0.2.6": {
                                         "en": "Duofern product 'Dimmer' with id 48 integrated",
                                         "de": "Dimmer mit Duofern ID 48 integriert",
                                         "ru": "Duofern product 'Dimmer' with id 48 integrated"
