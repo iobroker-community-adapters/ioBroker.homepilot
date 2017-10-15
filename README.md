@@ -1,9 +1,9 @@
 ![Logo](admin/homepilot.png)
 # ioBroker.homepilot
-=================
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
+[![Open Issues](http://githubbadges.herokuapp.com/Pix---/ioBroker.homepilot/issues.svg)](http://github.com/Pix---/ioBroker.homepilot/issues)
 
 [![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)
 
