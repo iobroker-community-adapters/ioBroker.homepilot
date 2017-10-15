@@ -167,7 +167,7 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 
 ## Changelog
 ### 0.2.8 (2017-10-15)
-+ (mikepa) Fixed issues with Heizkörperstellantrieb Z-Wave
++ (mikepa1) Fixed issues with Heizkörperstellantrieb Z-Wave
 
 ### 0.2.7 (2017-08-26)
 + (pix) Added support for Heizkörperstellantrieb Z-Wave
