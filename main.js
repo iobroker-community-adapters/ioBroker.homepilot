@@ -175,6 +175,21 @@ function controlHomepilot(id, input) {
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
         } else valid = false;
     } 
+    else if (controller == 'temperature') { // control via temperature e.g. Heizkörperstellantrieb
+	    adapter.log.info('input temperature: ' + input);
+		var val = (parseFloat(input)*10);
+		// limit value to 0..28°C
+		if (val < 0.0) {
+			val = 0.0;
+		} else if (val > 280.0) {
+			val = 280.0;
+		}
+		var parts = (val.toString()).split(".");
+		input = parts[0]; 
+	    adapter.log.info('input temperature converted: ' + input);
+        valid = true;
+        url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
+    } 
     else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
         // check if input number is between 0 an 100
         if (input.search(/(?:\b|-)([0-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
@@ -210,10 +225,8 @@ function createStates(result, i) {
     //var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
     var devicerole;
     switch (duoferncode.substring(0,2)) {
-            case "4": // Heizkörperstellantrieb Z-Wave
-                devicerole = 'level.temperature';
-                break;
-            case "40": // Rollotron Standard
+           case "4": // Heizkörperstellantrieb Z-Wave
+           case "40": // Rollotron Standard
             case "41": // Rollotron Comfort
             case "42": // Rohrmotor
             case "47": // Rohrmotor
@@ -347,30 +360,24 @@ function createStates(result, i) {
             }
         });
     }
-    if (duoferncode.substring(0,2) == "4") { // HeizkörperstellantrieZ-Wave
-        adapter.setObjectNotExists(path + '.temperature', {
-            type: 'state',
+    if (duoferncode == "4") { // HeizkörperstellantrieZ-Wave
+       adapter.setObjectNotExists(path + '.temperature', {
+          type: 'state',
             common: {
-               name: 'Temperature of ' + devicename,
+             name: 'Temperature of ' + devicename,
                 desc: 'Temperature datapoint for ' + deviceid,
                 type: 'number',
-                role: 'level.temperature',
-                def: 0,
+                role: devicerole,
+				def: 0,
                 min: 0,
-                max: 100,
+                max: 280,
                 unit: '°C',
                 read: true,
                 write: true
             },
             native: {}
         }, function(err, obj) {
-            if (!err && obj) {
-                var tempvalue = (parseInt(result.devices[i].position) * 0.1);
-                adapter.setState(path + 'temperature', {
-                    val: tempvalue,
-                    ack: true
-                });
-            }
+            if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
     } else {
         adapter.setObjectNotExists(path + '.level_inverted', {
@@ -448,10 +455,10 @@ function writeStates(result, i) {
             ack: true
         }); // maybe should write to adapters level and level_inverted too
     // TEMP
-    } else if (duoferncode.substring(0,2) == "4" // HeizkörperstellantrieZ-Wave
-        var tempvalue = (parseInt(result.devices[i].position) * 0.1);
+    }
+	else if (duoferncode.substring(0,2) == "4") { // HeizkörperstellantrieZ-Wave
         adapter.setState(path + 'temperature', {
-            val: tempvalue,
+            val: (parseFloat(result.devices[i].position) * 0.1),
             ack: true
         });
     }
