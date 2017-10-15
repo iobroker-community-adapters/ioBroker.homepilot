@@ -166,6 +166,9 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 ![alt text](img/homepilot_vis_widgets_settings.jpg "Screenshot VIS widgets settings")
 
 ## Changelog
+### 0.2.9 (2017-10-15)
++ (pix) Minimum nodejs 4 is required
+
 ### 0.2.8 (2017-10-15)
 + (mikepa1) Fixed issues with Heizkörperstellantrieb Z-Wave
 
@@ -234,7 +237,7 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 
 The MIT License (MIT)
 
-Copyright (c) 2016 pix
+Copyright (c) 2017 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
