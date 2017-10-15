@@ -222,7 +222,7 @@ Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergel
 * (pix) adapter created
 
 ## Roadmap
-* 0.3.0 Include more duofern products
+* 0.3.0 Include more duofern products, ioBroker.Discovery Support
 * 0.4.0 get a list of all installed duofern products in your network within the settings window
 * 0.5.0 rearrange object tree to "homepilot.0.device.channel.state"
 * 1.0.0 get live data from Homepilot station
