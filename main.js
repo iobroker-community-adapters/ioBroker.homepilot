@@ -176,7 +176,7 @@ function controlHomepilot(id, input) {
         } else valid = false;
     } 
     else if (controller == 'temperature') { // control via temperature e.g. Heizkörperstellantrieb
-	    adapter.log.info('input temperature: ' + input);
+	    // adapter.log.info('input temperature: ' + input);
 		var val = (parseFloat(input)*10);
 		// limit value to 0..28°C
 		if (val < 0.0) {
@@ -186,7 +186,7 @@ function controlHomepilot(id, input) {
 		}
 		var parts = (val.toString()).split(".");
 		input = parts[0]; 
-	    adapter.log.info('input temperature converted: ' + input);
+	    // adapter.log.info('input temperature converted: ' + input);
         valid = true;
         url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
     } 
@@ -225,23 +225,40 @@ function createStates(result, i) {
     //var devicerole = (product.indexOf('RolloTron') != -1) ? 'blind' : 'switch' ; // tbd insert more products
     var devicerole;
     switch (duoferncode.substring(0,2)) {
-           case "4": // Heizkörperstellantrieb Z-Wave
-           case "40": // Rollotron Standard
-            case "41": // Rollotron Comfort
-            case "42": // Rohrmotor
-            case "47": // Rohrmotor
-            case "49": // Rohrmotor
-                devicerole = 'level.blind';
-                break;
-            case "48": // Dimmer
-                devicerole = 'level.dimmer';
-                break;
-            case "43": // Universalactor
-            case "46": // Wall-Plugin-Actor
-                devicerole = (devicename.indexOf('Licht') != -1) ? 'light.switch' : 'switch' ;
-                break;
-            default:
-                devicerole = 'switch'
+        case "4": // Heizkörperstellantrieb Z-Wave
+        case "5": // Heizkörperstellantrieb Z-Wave
+        case "6": // Heizkörperstellantrieb Z-Wave
+        case "7": // Heizkörperstellantrieb Z-Wave
+        case "8": // Heizkörperstellantrieb Z-Wave
+        case "9": // Heizkörperstellantrieb Z-Wave
+        case "10": // Heizkörperstellantrieb Z-Wave
+        case "11": // Heizkörperstellantrieb Z-Wave
+        case "12": // Heizkörperstellantrieb Z-Wave
+        case "13": // Heizkörperstellantrieb Z-Wave
+        case "14": // Heizkörperstellantrieb Z-Wave
+        case "15": // Heizkörperstellantrieb Z-Wave
+        case "16": // Heizkörperstellantrieb Z-Wave
+        case "17": // Heizkörperstellantrieb Z-Wave
+        case "18": // Heizkörperstellantrieb Z-Wave
+        case "19": // Heizkörperstellantrieb Z-Wave
+            devicerole = 'level.temperature';
+            break;
+        case "40": // Rollotron Standard
+        case "41": // Rollotron Comfort
+        case "42": // Rohrmotor
+        case "47": // Rohrmotor
+        case "49": // Rohrmotor
+            devicerole = 'level.blind';
+            break;
+        case "48": // Dimmer
+            devicerole = 'level.dimmer';
+            break;
+        case "43": // Universalactor
+        case "46": // Wall-Plugin-Actor
+            devicerole = (devicename.indexOf('Licht') != -1) ? 'light.switch' : 'switch' ;
+            break;
+        default:
+            devicerole = 'switch'
     }
     // create Channel DeviceID
     adapter.setObjectNotExists(path, {
@@ -360,7 +377,7 @@ function createStates(result, i) {
             }
         });
     }
-    if (duoferncode == "4") { // HeizkörperstellantrieZ-Wave
+    if (parseInt(duoferncode.substring(0,2)) < 20) { // HeizkörperstellantrieZ-Wave
        adapter.setObjectNotExists(path + '.temperature', {
           type: 'state',
             common: {
@@ -456,7 +473,7 @@ function writeStates(result, i) {
         }); // maybe should write to adapters level and level_inverted too
     // TEMP
     }
-	else if (duoferncode.substring(0,2) == "4") { // HeizkörperstellantrieZ-Wave
+	else if (parseInt(duoferncode.substring(0,2)) < 20) { // HeizkörperstellantrieZ-Wave
         adapter.setState(path + 'temperature', {
             val: (parseFloat(result.devices[i].position) * 0.1),
             ack: true
