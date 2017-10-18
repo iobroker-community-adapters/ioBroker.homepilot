@@ -1,4 +1,4 @@
-![Logo](../../../admin/homepilot.png)
+![Logo](../../admin/homepilot.png)
 # ioBroker.homepilot
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
