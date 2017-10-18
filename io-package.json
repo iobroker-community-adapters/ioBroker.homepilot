@@ -2,18 +2,13 @@
     "common":{  
         "name":"homepilot",
         "title":"Homepilot",
-        "mode":"daemon",
-        "docs": {
-            "en": "docs/en/doc_homepilot_en.md",
-            "ru": "docs/ru/doc_homepilot_em.md",
-            "de": "docs/de/doc_homepilot_de.md"
-        },
         "desc":{  
             "en":"control Homepilot Duofern Devices with ioBroker",
             "de":"verbinden Sie Homepilot Duofern mit ioBroker",
             "ru":"connects ioBroker to Homepilot"
         },
         "version":"0.3.1",
+        "mode":"daemon",
         "news":{  
             "0.3.1":{  
                 "en":"New documentation structure",
@@ -107,7 +102,7 @@
         "icon":"homepilot.png",
         "extIcon":"https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
         "allowInit":true,
-        "type":"hardware",
+        "type":"iot-systems",
         "config":{  
             "width":650,
             "height":450,

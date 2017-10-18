@@ -37,7 +37,7 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
 | 4B   | Connect-Aktor               |                                        |              |                        |
 | 4C   | Troll Basis                 |                                        |              |                        |
-| 4E   | SX5                         |                                        |              |                        |
+| 4E   | SX5 Rolltorantrieb          |                                        |              |                        |
 | 61   | RolloTron Comfort Master    |                                        |              |                        |
 | 62   | SupeFake Device             |                                        |              |                        |
 | 65   | Bewegungsmelder             |                                        |              |                        |
