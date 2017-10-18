@@ -1,161 +1,196 @@
-{
-    "common": {
-        "name":                     "homepilot",
-        "title":                    "Homepilot",
-        "desc": {                   "en": "control Homepilot Duofern Devices with ioBroker",
-                                    "de": "verbinden Sie Homepilot Duofern mit ioBroker",
-                                    "ru": "connects ioBroker to Homepilot"},
-        "version":                  "0.3.0",
-        "mode":                     "daemon",
-	"news": {
-	                            "0.3.0": {
-                                        "en": "Support more Z-Wave actuators, integration to iobroker.discover",
-                                        "de": "Unterstützung weiterer Z-Wave Aktoren, Integration in iobroker.discover",
-                                        "ru": "Support more Z-Wave actuators, integration to iobroker.discover"
-				    },
-		                    "0.2.9": {
-                                        "en": "Minimum nodejs 4 required",
-                                        "de": "Mindestens nodejs 4 erforderlich",
-                                        "ru": "Minimum nodejs 4 required"
-				    },
-		                    "0.2.8": {
-                                        "en": "Code corrections on Heizkörperstellantrieb Z-Wave",
-                                        "de": "Code-Korrekturen für Heizkörperstellantrieb Z-Wave",
-                                        "ru": "Code corrections Heizkörperstellantrieb Z-Wave"
-				    },
-		                    "0.2.7": {
-                                        "en": "Added support for Heizkörperstellantrieb Z-Wave",
-                                        "de": "Heizkörperstellantrieb Z-Wave integriert",
-                                        "ru": "Added support for Heizkörperstellantrieb Z-Wave"
-				    },
-		                    "0.2.6": {
-                                        "en": "Duofern product 'Dimmer' with id 48 integrated",
-                                        "de": "Dimmer mit Duofern ID 48 integriert",
-                                        "ru": "Duofern product 'Dimmer' with id 48 integrated"
-				    },
-	                            "0.2.5": {
-                                        "en": "CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11.",
-                                        "de": "Datenpunkt CID erlaubt nun die Eingabe von 'true' or 'false' und wandelt sie in Kommando 10 or 11.",
-                                        "ru": "CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11."
-				    },
-	                            "0.2.4": {
-                                        "en": "converted serial to duofern code",
-                                        "de": "Seriennummer in Duofern Code geändert",
-                                        "ru": "converted serial to duofern code"
-				    },
-	                            "0.2.3": {
-                                        "en": "datapoint serial number added, fixed regexp issue on cid",
-                                        "de": "Datenpunkt Seriennummer zugefügt, RegExp Fehler in CID korrigiert",
-                                        "ru": "datapoint serial number added, fixed regexp issue on cid"
-				    },
-		                    "0.2.2": {
-                                        "en": "fixed state datapoint updates",
-                                        "de": "State Datenpunkt Updates korrigiert",
-                                        "ru": "fixed state datapoint updates"
-				    },
-	                            "0.2.1": {
-                                        "en": "Device recognition by serial number optimized",
-                                        "de": "Geräte-Erkennung durch Seriennummer verbessert",
-                                        "ru": "Device recognition by serial number optimized"
-				    },
-		                    "0.2.0": {
-                                        "en": "Removed parent from setObject-config",
-                                        "de": "Eltern/Kind-Zuordnung bei Datenpunkten entfernt",
-                                        "ru": "Removed parent from setObject-config"
-				    },
-		                    "0.1.1": {
-                                        "en": "Roles Added",
-                                        "de": "Rollen hinzugefügt",
-                                        "ru": "roles Added"
-				    },
-		                    "0.1.0": {
-                                        "en": "Travis CI and Appveyor testing supported",
-                                        "de": "Travis CI und Appveyor Test Unterstützung",
-                                        "ru": "Travis CI и Appveyor тестирование при поддержке"
-				    }
-	},
-        "platform":                 "javascript/Node.js",
-        "loglevel":                 "info",
-        "keywords":                 ["blinds", "jalousien", "homepilot", "duofern", "rademacher", "rollladen", "rollos", "pix"],
-        "main":                     "main.js",
-        "authors":                  ["Pix"],
-        "license":                  "MIT",
-        "readme":                   "https://github.com/Pix---/ioBroker.homepilot/blob/master/README.md",
-        "icon":                     "homepilot.png",
-        "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
-	"allowInit":                true,
-        "type":                     "hardware",
-        "config": {
-            "width": 650,
-            "height": 450,
-            "minWidth": 650,
-            "minHeight": 400
+{  
+    "common":{  
+        "name":"homepilot",
+        "title":"Homepilot",
+        "mode":"daemon",
+        "docs": {
+            "en": "docs/en/doc_homepilot_en.md",
+            "ru": "docs/ru/doc_homepilot_em.md",
+            "de": "docs/de/doc_homepilot_de.md"
+        },
+        "desc":{  
+            "en":"control Homepilot Duofern Devices with ioBroker",
+            "de":"verbinden Sie Homepilot Duofern mit ioBroker",
+            "ru":"connects ioBroker to Homepilot"
+        },
+        "version":"0.3.1",
+        "news":{  
+            "0.3.1":{  
+                "en":"New documentation structure",
+                "de":"neue Struktur der Dokumentation",
+                "ru":"New documentation structure"
+            },
+            "0.3.0":{  
+                "en":"Support more Z-Wave actuators, integration to iobroker.discover",
+                "de":"Unterstützung weiterer Z-Wave Aktoren, Integration in iobroker.discover",
+                "ru":"Support more Z-Wave actuators, integration to iobroker.discover"
+            },
+            "0.2.9":{  
+                "en":"Minimum nodejs 4 required",
+                "de":"Mindestens nodejs 4 erforderlich",
+                "ru":"Minimum nodejs 4 required"
+            },
+            "0.2.8":{  
+                "en":"Code corrections on Heizkörperstellantrieb Z-Wave",
+                "de":"Code-Korrekturen für Heizkörperstellantrieb Z-Wave",
+                "ru":"Code corrections Heizkörperstellantrieb Z-Wave"
+            },
+            "0.2.7":{  
+                "en":"Added support for Heizkörperstellantrieb Z-Wave",
+                "de":"Heizkörperstellantrieb Z-Wave integriert",
+                "ru":"Added support for Heizkörperstellantrieb Z-Wave"
+            },
+            "0.2.6":{  
+                "en":"Duofern product 'Dimmer' with id 48 integrated",
+                "de":"Dimmer mit Duofern ID 48 integriert",
+                "ru":"Duofern product 'Dimmer' with id 48 integrated"
+            },
+            "0.2.5":{  
+                "en":"CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11.",
+                "de":"Datenpunkt CID erlaubt nun die Eingabe von 'true' or 'false' und wandelt sie in Kommando 10 or 11.",
+                "ru":"CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11."
+            },
+            "0.2.4":{  
+                "en":"converted serial to duofern code",
+                "de":"Seriennummer in Duofern Code geändert",
+                "ru":"converted serial to duofern code"
+            },
+            "0.2.3":{  
+                "en":"datapoint serial number added, fixed regexp issue on cid",
+                "de":"Datenpunkt Seriennummer zugefügt, RegExp Fehler in CID korrigiert",
+                "ru":"datapoint serial number added, fixed regexp issue on cid"
+            },
+            "0.2.2":{  
+                "en":"fixed state datapoint updates",
+                "de":"State Datenpunkt Updates korrigiert",
+                "ru":"fixed state datapoint updates"
+            },
+            "0.2.1":{  
+                "en":"Device recognition by serial number optimized",
+                "de":"Geräte-Erkennung durch Seriennummer verbessert",
+                "ru":"Device recognition by serial number optimized"
+            },
+            "0.2.0":{  
+                "en":"Removed parent from setObject-config",
+                "de":"Eltern/Kind-Zuordnung bei Datenpunkten entfernt",
+                "ru":"Removed parent from setObject-config"
+            },
+            "0.1.1":{  
+                "en":"Roles Added",
+                "de":"Rollen hinzugefügt",
+                "ru":"roles Added"
+            },
+            "0.1.0":{  
+                "en":"Travis CI and Appveyor testing supported",
+                "de":"Travis CI und Appveyor Test Unterstützung",
+                "ru":"Travis CI и Appveyor тестирование при поддержке"
+            }
+        },
+        "platform":"javascript/Node.js",
+        "loglevel":"info",
+        "keywords":[  
+            "blinds",
+            "jalousien",
+            "homepilot",
+            "duofern",
+            "rademacher",
+            "rollladen",
+            "rollos",
+            "pix"
+        ],
+        "main":"main.js",
+        "authors":[  
+            "Pix"
+        ],
+        "license":"MIT",
+        "readme":"https://github.com/Pix---/ioBroker.homepilot/blob/master/README.md",
+        "icon":"homepilot.png",
+        "extIcon":"https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
+        "allowInit":true,
+        "type":"hardware",
+        "config":{  
+            "width":650,
+            "height":450,
+            "minWidth":650,
+            "minHeight":400
         }
     },
-    "native": {
-    	"homepilotip" : "",
-    	"homepilotport" : "",
-    	"synctime" : ""
+    "native":{  
+        "homepilotip":"",
+        "homepilotport":"",
+        "synctime":""
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id":  "station",
-            "type": "channel",
-            "common": {
-                "role": "",
-                "name": ""
+    "objects":[  
+
+    ],
+    "instanceObjects":[  
+        {  
+            "_id":"station",
+            "type":"channel",
+            "common":{  
+                "role":"",
+                "name":""
             },
-            "native": {}
+            "native":{  
+
+            }
         },
-        {
-            "_id":  "station.ip",
-            "type": "state",
-            "common": {
-                "name":  "homepilot IP",
-                "desc":  "homepilot station IP adress",
-                "type":  "string",
-		"role": "text.url",
-                "read":  true,
-                "write": false
+        {  
+            "_id":"station.ip",
+            "type":"state",
+            "common":{  
+                "name":"homepilot IP",
+                "desc":"homepilot station IP adress",
+                "type":"string",
+                "role":"text.url",
+                "read":true,
+                "write":false
             },
-            "native": {}
+            "native":{  
+
+            }
         },
-        {
-            "_id":  "station.UNREACH",
-            "type": "state",
-            "common": {
-                "name":  "homepilot not connected",
-                "desc":  "is homepilot station unreachable or not",
-                "type":  "boolean",
-		"role" : "indicator.maintenance.unreach",
-                "def":   true,
-                "read":  true,
-                "write": false
+        {  
+            "_id":"station.UNREACH",
+            "type":"state",
+            "common":{  
+                "name":"homepilot not connected",
+                "desc":"is homepilot station unreachable or not",
+                "type":"boolean",
+                "role":"indicator.maintenance.unreach",
+                "def":true,
+                "read":true,
+                "write":false
             },
-            "native": {}
+            "native":{  
+
+            }
         },
-        {
-            "_id":  "devices",
-            "type": "channel",
-            "common": {
-                "role": "",
-                "name": ""
+        {  
+            "_id":"devices",
+            "type":"channel",
+            "common":{  
+                "role":"",
+                "name":""
             },
-            "native": {}
+            "native":{  
+
+            }
         },
-        {
-            "_id":  "devices.json",
-            "type": "state",
-            "common": {
-                "name":  "homepilot devices JSON",
-                "desc":  "homepilot JSON response on http://homepilotip/deviceajax.do?devices=1",
-                "type":  "string",
-		"role":  "json",
-                "read":  true,
-                "write": false
+        {  
+            "_id":"devices.json",
+            "type":"state",
+            "common":{  
+                "name":"homepilot devices JSON",
+                "desc":"homepilot JSON response on http://homepilotip/deviceajax.do?devices=1",
+                "type":"string",
+                "role":"json",
+                "read":true,
+                "write":false
             },
-            "native": {}
+            "native":{  
+
+            }
         }
     ]
 }

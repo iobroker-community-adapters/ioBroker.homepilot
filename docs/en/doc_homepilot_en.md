@@ -11,14 +11,12 @@
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.homepilot?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-homepilot/)
 
 
-## Beschreibung / Description
-:de: Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 (1/2) über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
+## Description
+This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
 
-:uk: This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
+### Supported devices
 
-### Unterstütze Geräte / Supported devices
-
-| Code | Produktname / product Name  | Notiz / Note                           |  Datapoint   | Produkt Nr / Product # |
+| Code | Product Name                | Note                                   |  Datapoint   | Product #              |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
 | 40   | RolloTron Standard          | Gurtwickler / shutter belt winder      |  level       |                        |
 | 41   | RolloTron Comfort           | Gurtwickler / shutter belt winder      |  level       |                        |
@@ -30,10 +28,10 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | 49   | Rohrmotor                   |                                        |  level       |                        |
 |  4   | Z-WAVE                      | Heizkörperstellantrieb                 |  temperature |                        |
 
-:de: Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
+The actuator duofern code 43 supports a light mode and a device mode. Each mode delivers either ON (device mode) or OFF (light mode) when UP is pressed. Press DOWN is vice versa.
 
-#### Noch nicht unterstützt / Not yet supported (Thx to [mhop](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/30_DUOFERN.pm))
-| Code | Produktname / product Name  | Notiz / Note                           |  Datapoint   | Produkt Nr / Product # |
+#### Not yet supported (Thx to [mhop](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/30_DUOFERN.pm))
+| Code | Product Name                | Note                                   |  Datapoint   | Product #              |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
 | 4B   | Connect-Aktor               |                                        |              |                        |
 | 4C   | Troll Basis                 |                                        |              |                        |
@@ -59,30 +57,22 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 | AD   | Wandtaster 6fach Bat        |                                        |              |                        |
 
 
-## Einstellungen / Configuration
+## Configuration
 ### IP / Port
-:de: Die IP Adresse der Homepilot Basisstation im lokalen Netzwerk. Ohne Eingabe verwendet der Adapter __homepilot.local__. Die Portnummer ist optional und wird nur bei Eingabe einer IP-Adresse berücksichtigt.
-
-:uk: IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
+IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
 
 ### Synchronisation
-:de: Dauer zwischen den Abfragen der Homepilot Basistation durch ioBroker. Die Eingabe ist optional. Standard ist 12s.
+In snyctime you can choose the frequency of connections to Homepilots base station in seconds. Default is 12s, input is optional.
 
-:uk: In snyctime you can choose the frequency of connections to Homepilots base station in seconds. Default is 12s, input is optional.
-
-##  Datenpunkte / Datapoints
-:de: Es gibt zwei Hauptkanäle, einen für die Basisstation und einen für die gefundenen Gerätetypen:
-
-:uk: There are to main channels, one for the station and one for all found devices (shutter belt winders, etc.):
+##  Datapoints
+There are to main channels, one for the station and one for all found devices (shutter belt winders, etc.):
 
 
 homepilot.0.__station__ (data on Homepilot station)
 
 homepilot.0.__devices.product__ (devices sort by product type)
 
-:de: Innerhalb des Kanals *devices.product* gibt es für jedes Gerät einen weiteren Kanal *deviceID*, beispielsweise. homepilot.0.devices.rollotron.__10001__.balkon
-
-:uk: Within *devices.product* each found device creates a new channel *devicedID*, e.g. homepilot.0.devices.rollotron.__10001__.balcony
+Within *devices.product* each found device creates a new channel *devicedID*, e.g. homepilot.0.devices.rollotron.__10001__.balcony
 
 homepilot.0.devices.product.*deviceID*.__name__ (string)
 
@@ -106,38 +96,27 @@ homepilot.0.devices.product.*deviceID*.__temperature__ (number, alternatively)
 
 homepilot.0.devices.product.*deviceID*.__state__ (boolean, only if product is switch)
 
-homepilot.0.devices.__json__  (*JSON* file *json* Datenpunkt mit JSON Rückgabe / Datapoint filled with returned JSON )
+homepilot.0.devices.__json__  (*JSON* file *json* Datapoint filled with returned JSON )
 
 homepilot.0.station.__ip__ (string)
 
 homepilot.0.station.__UNREACH__ (boolean) (true if Homepilot station is not reachable)
 
 
-:de: Die Datenpunkte *cid*, *level* und ggf. *state*  können beschrieben werden. Sie werden auf Änderung aus anderen Adaptern (VIS, Javascript, Scenes) überwacht.
+Datapoints *cid*, *level* and in some cases *state* are writeable and subscribed for changes stated from other adapters (e.g. VIS, Javascript, Scenes).
 
-:uk: Datapoints *cid*, *level* and in some cases *state* are writeable and subscribed for changes stated from other adapters (e.g. VIS, Javascript, Scenes).
-
-### Steuerung / Control
-#### level / level_inverted
-:de: Um die Rollläden aus Javascript, VIS oder z.B. Scenes zu steuern, gibt es zwei Möglichkeiten. 
-Z.B. kann man den Rolladen mit der DeviceID 10002 (zB "Wohnzimmer rechts") steuern, indem der Datenpunkt 
-homepilot.0.devices.product.*10002*.__level__ auf "30" gesetzt wird. __level__ ist eine ganze Zahl von 0 bis 100, andere Zahlen/Zeichen werden nicht angenommen.
-Für ein Darstellung wie beim "Homematic"-System (0% = dunkel/unten, 100% = hell/oben), verwendet man den Datenpunkt __level_inverted__.
-
-:uk: The shutters can be control from Javascript. VIS Widgets or Scenes in two ways.
+### Control
+#### level and level_inverted
+The shutters can be control from Javascript. VIS Widgets or Scenes in two ways.
 For instance you can control the shutter with the DeviceID 10002 ('Living room right') by setting homepilot.0.devices.product.*10002*.__level__ to "30".
 This datapoint only accepts integer numbers between 0 and 100. In addition to that you can use Homepilots command ID. Simply state one of the strings mentioned in the following table to homepilot.0.devices.product.*deviceID*.__cid__
 If you prefer an "Homematic" like appearance (0% is dark/down, 100% is light/up) choose the datapoint __level_inverted__.
 
 #### Command ID
-:de: Alternativ können auch die Command ID von Homepilot verwendet werden. Dazu wird einfach der passende Befehl in den Datenpunkt homepilot.0.devices.product.*deviceID*.__cid__  geschrieben.
-Weiterhin gibt es den Datenpunkt *state* zur Steuerung / Anzeige von Schaltaktoren (wird nur angelegt, wenn Seriennummern 43 oder 46, Produktname "Universal-Aktor" bzw. "Steckdosenaktor"). Er wird am besten von einem VIS ctrl state Widget mit *true*/*false* beschrieben. Bei der Steuerung wird *true* in einen level-Wert von 100 übersetzt, *false* wird zu 0.
-Diese Befehle sind bisher möglich zur Steuerung über cid in homepilot.0.devices.product.*deviceID*.__cid__
-
-:uk: Furthermore the datapoint *state* can be use to control switches. It is only created if the products name is "Universal-Aktor"/"Steckdosenaktor" or its serial number is 43 or 46. Simply use a VIS ctrl state widget to write *true*/*false*. This boolean value will be translated to a level 100 if *true* ord level 0 if *false*.
+Furthermore the datapoint *state* can be use to control switches. It is only created if the products name is "Universal-Aktor"/"Steckdosenaktor" or its serial number is 43 or 46. Simply use a VIS ctrl state widget to write *true*/*false*. This boolean value will be translated to a level 100 if *true* ord level 0 if *false*.
 You can use these commands to control Homepilot with cid in homepilot.0.devices.product.*deviceID*.__cid__
 
-| CID | Befehle / Commands               |
+| CID | Commands               |
 | :--:|:---------------------------------|
 | 1   | UP, up, HOCH, hoch, RAUF, rauf   |
 | 2   | STOP, stop, Stop                 |
@@ -154,12 +133,12 @@ You can use these commands to control Homepilot with cid in homepilot.0.devices.
 | 24  | DECREMENT, decrement, -          |
 
 ## VIS Widgets
-### Beispiel Rollläden / Shutters
+### Example for shutters
 ```
 [{"tpl":"tplValueFloat","data":{"oid":"homepilot.0.devices.RolloTronStandard.10002.level","visibility-cond":"==","visibility-val":1,"is_comma":true,"is_tdp":"false","factor":"1","gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"digits":"0","html_append_singular":" %","html_append_plural":" %","name":"RolloTron Percent","label":"{homepilot.0.devices.RolloTronStandard.10002.name}"},"style":{"left":"519px","top":"555px","color":"lightblue","text-align":"right","z-index":"20"},"widgetSet":"basic"},{"tpl":"tplValueLastchange","data":{"oid":"homepilot.0.devices.RolloTronStandard.10002.status_changed","visibility-cond":"==","visibility-val":1,"gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"format_date":"DD.MM.YYYY hh:mm:ss"},"style":{"left":"432px","top":"582px","z-index":"20","color":"lightblue","width":"148px","height":"15px","font-size":"80%","text-align":"right"},"widgetSet":"basic"},{"tpl":"tplMetroTileShutter","data":{"oid":"homepilot.0.devices.RolloTronStandard.10002.level","visibility-cond":"==","visibility-val":1,"step":"-1","bg_class":"bg-darkCobalt","brand_bg_class":"bg-mauve","gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"min":"100","max":"1","oid-working":"homepilot.0.devices.RolloTronStandard.10002.level","name":"Rollotron Metro","label":"{homepilot.0.devices.RolloTronStandard.10002.name}","sliderColor":"","sliderMarkerColor":"","sliderCompleteColor":"#c19fb9"},"style":{"left":"301px","top":"439px","z-index":"15"},"widgetSet":"metro"}]
 ```
 
-Rechts unten ist ein val-number Widget zur Anzeige des Level als Zahl drübergelegt, unter dem Metro Widget ist ein lastchange-Widget, das die letzte Bewegung des Rollladens anzeigt.
+Bottom right corner shows the level datapoint as a number. Under the transparent metro widget a lastchange-widget is positionend. It shows any shutter movement.
 
 ![alt text](img/homepilot_vis_widgets.jpg "Screenshot VIS widgets")
 
