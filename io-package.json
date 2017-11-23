@@ -4,7 +4,7 @@
         "title":"Homepilot",
         "desc":{  
             "en":"control Homepilot Duofern Devices with ioBroker",
-            "de":"verbinden Sie Homepilot Duofern mit ioBroker",
+            "de":"verbindet Rademacher Homepilot Duofern Geräte mit ioBroker",
             "ru":"connects ioBroker to Homepilot"
         },
         "version":"0.3.1",
