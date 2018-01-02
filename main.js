@@ -10,7 +10,7 @@ var ip = '';
 var link = '';
 var sync = 12;
 
-var adapter = utils.adapter({
+var adapter = utils.Adapter({
     name: 'homepilot',
     systemConfig: true,
     useFormatDate: true,
