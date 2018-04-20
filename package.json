@@ -1,49 +1,49 @@
-{  
-    "name":"iobroker.homepilot",
-    "description":"Adapter connects Rademacher Homepilot station to ioBroker",
-    "version":"0.3.1",
-    "author":"pix",
-    "contributors":[  
-        "pix",
-        "mikepa1"
-    ],
-    "homepage":"https://github.com/Pix---/ioBroker.homepilot",
-    "repository":{  
-        "type":"git",
-        "url":"https://github.com/Pix---/ioBroker.homepilot"
-    },
-    "license":"MIT",
-    "keywords":[  
-        "ioBroker",
-        "homepilot",
-        "blinds",
-        "hardware",
-        "jalousien",
-        "rollo",
-        "rollladen",
-        "home automation"
-    ],
-    "dependencies":{  
-        "request":"^2.72.0",
-        "xml2js":"^0.2"
-    },
-    "devDependencies":{  
-        "grunt":"^1.0.1",
-        "grunt-replace":"^1.0.1",
-        "grunt-contrib-jshint":"^1.0.0",
-        "grunt-jscs":"^2.8.0",
-        "grunt-http":"^2.0.1",
-        "mocha":"^2.4.5",
-        "chai":"^3.5.0"
-    },
-    "bugs":{  
-        "url":"https://github.com/Pix---/ioBroker.homepilot/issues"
-    },
-    "main":"main.js",
-    "scripts":{  
-        "test":"node node_modules/mocha/bin/mocha"
-    },
-    "maintainers":[  
-        "pix"
-    ]
+{
+  "name": "iobroker.homepilot",
+  "description": "Adapter connects Rademacher Homepilot station to ioBroker",
+  "version": "0.3.1",
+  "author": "pix",
+  "contributors": [
+    "pix",
+    "mikepa1"
+  ],
+  "homepage": "https://github.com/Pix---/ioBroker.homepilot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pix---/ioBroker.homepilot"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "homepilot",
+    "blinds",
+    "hardware",
+    "jalousien",
+    "rollo",
+    "rollladen",
+    "home automation"
+  ],
+  "dependencies": {
+    "request": "^2.72.0",
+    "xml2js": "^0.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-replace": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-jscs": "^3.0.1",
+    "grunt-http": "^2.2.0",
+    "mocha": "^4.1.0",
+    "chai": "^4.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Pix---/ioBroker.homepilot/issues"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --exit"
+  },
+  "maintainers": [
+    "pix"
+  ]
 }
