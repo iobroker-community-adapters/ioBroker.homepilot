@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
 <script type="text/javascript" src="../../js/translate.js"></script>
 <script type="text/javascript" src="../../js/adapter-settings.js"></script>
-
+<script type="text/javascript" src="words.js"></script>
 <style>
     #config {
         font-size: smaller;	
@@ -65,44 +65,7 @@
 </style>
 <!-- you have to define 2 functions in the global scope: -->
 <script type="text/javascript">
-	systemDictionary = {
-            "homepilot Adapter settings": {
-                "en": "homepilot blinds Adapter settings",
-                "de": "Homepilot Rollladen Adapter Einstellungen",
-                "ru": "Настройки Homepilot blinds Adapter"
-            },
-            "homepilot station": {
-                "en": "Homepilot station",
-                "de": "Homepilot Basisstation",
-                "ru": "Homepilot Basisstation"
-            },
-            "IP": {
-                "en": "ip adress of homepilot station",
-                "de": "IP Adresse der Homepilot Basisstation",
-                "ru": "Translate pls: ip adress of homepilot station"
-            },
-            "Port": {
-                "en": "Port number",
-                "de": "Port Nummer",
-                "ru": "Translate pls: port number"
-            },
-            "if left empty 'homepilot.local' will be used": {
-                "en": "if left empty 'homepilot.local' will be used",
-                "de": "ohne Eingabe wird 'homepilot.local' verwendet",
-                "ru": "Translate pls: if left empty 'homepilot.local' will be used"
-            },
-            "normally no port setting is required": {
-                "en": "normally no port is required",
-                "de": "normalerweise wird keine Porteingabe benötigt",
-                "ru": "Translate pls: normally no port setting is required"
-            },
-            "default is 12": {
-                "en": "if left empty '12' will be used",
-                "de": "ohne Eingabe wird '12' verwendet",
-                "ru": "Translate pls: if left empty '12' will be used"
-            }
-    };
-
+	
     function load(settings, onChange) {
         $('#homepilot_ip').val(settings.homepilotip).change(onChange);
         $('#homepilot_port').val(settings.homepilotport).change(onChange);

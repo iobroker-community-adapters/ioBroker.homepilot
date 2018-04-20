@@ -2,14 +2,31 @@
     "common":{  
         "name":"homepilot",
         "title":"Homepilot",
-        "desc":{  
-            "en":"control Homepilot Duofern Devices with ioBroker",
-            "de":"verbindet Rademacher Homepilot Duofern Geräte mit ioBroker",
-            "ru":"connects ioBroker to Homepilot"
+        "desc":{
+            "en": "control Homepilot Duofern Devices with ioBroker",
+            "de": "verbindet Rademacher Homepilot Duofern Geräte mit ioBroker",
+            "ru": "контроль Homepilot Duofern Devices с ioBroker",
+            "pt": "Control Homepilot Duofern Devices com ioBroker",
+            "nl": "controle Homepilot Duofern-apparaten met ioBroker",
+            "fr": "contrôle Homepilot Duofern Devices avec ioBroker",
+            "it": "controlla i dispositivi Homepilot Duofern con ioBroker",
+            "es": "controlar dispositivos Homepilot Duofern con ioBroker",
+            "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
         },
-        "version":"0.3.1",
+        "version":"1.0.0",
         "mode":"daemon",
         "news":{  
+            "1.0.0":{
+                "en": "Admin 3 support, Translations to de, ru, pt, nl, fr, it, es and pl languages",
+                "de": "Admin 3 Unterstützung, Übersetzungen in de, ru, pt, nl, fr, it, es und pl Sprachen",
+                "ru": "Поддержка Admin 3, Переводы на языки de, ru, pt, nl, fr, it, es и pl",
+                "pt": "Suporte a Admin 3, Traduções para, ru, pt, nl, fr, es e es linguagens",
+                "nl": "Admin 3 ondersteuning, Translations to de, ru, pt, nl, fr, it, es en pl languages",
+                "fr": "Admin 3 support, Traductions aux langues de, ru, pt, nl, fr, it, es et pl",
+                "it": "Supporto di Admin 3, traduzioni in lingue de, ru, pt, nl, fr, it, es e pl",
+                "es": "Soporte de Admin 3, Traducciones a de, ru, pt, nl, fr, it, es y pl languages",
+                "pl": "Wsparcie dla administratora 3, Tłumaczenia na języki de, ru, pt, nl, fr, it, es i pl"
+            },
             "0.3.1":{  
                 "en":"New documentation structure",
                 "de":"neue Struktur der Dokumentation",
@@ -83,6 +100,7 @@
         },
         "platform":"javascript/Node.js",
         "loglevel":"info",
+        "materialize": true,
         "keywords":[  
             "blinds",
             "jalousien",
