@@ -13,9 +13,20 @@
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
             "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
         },
-        "version":"1.0.0",
+        "version":"1.0.1",
         "mode":"daemon",
         "news":{  
+            "1.0.1":{
+                "en": "Readme and Documentation structure",
+                "de": "Liesmich und Dokumentationsstruktur",
+                "ru": "Структура Readme и Documentation",
+                "pt": "Estrutura de Leia-me e Documentação",
+                "nl": "Readme en documentatie structuur",
+                "fr": "Lisez-moi et structure de documentation",
+                "it": "Struttura Leggimi e Documentazione",
+                "es": "Léame y estructura de documentación",
+                "pl": "Struktura Readme i Dokumentacja"
+            },
             "1.0.0":{
                 "en": "Admin 3 support, Translations to de, ru, pt, nl, fr, it, es and pl languages",
                 "de": "Admin 3 Unterstützung, Übersetzungen in de, ru, pt, nl, fr, it, es und pl Sprachen",

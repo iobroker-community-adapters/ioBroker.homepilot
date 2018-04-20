@@ -30,8 +30,10 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 ## Changelog
 ### 1.0.1 (2018-04-20)
-+ (pix) Admin 3 support, Translations to de, ru, pt, nl, fr, it, es and pl language
 + (pix) Readme/Documentation structure
+
+### 1.0.0 (2018-04-20)
++ (pix) Admin 3 support, Translations to de, ru, pt, nl, fr, it, es and pl language
 
 ### 0.3.1 (2017-10-18)
 + (pix) new documentation structure
