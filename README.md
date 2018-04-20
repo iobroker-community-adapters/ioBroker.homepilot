@@ -10,22 +10,15 @@
 **Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.homepilot/master.svg)](https://travis-ci.org/Pix---/ioBroker.homepilot)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.homepilot?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-homepilot/)
 
-
-## Documentation
-:de:Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 (1/2) über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
-
-:uk: This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
-
-
 :de: [Dokumentation](/docs/de/doc_homepilot_de.md)
 
 :uk: [Documentation](/docs/en/doc_homepilot_en.md)
 
 :ru: [Документация](/docs/en/doc_homepilot_en.md)
 
-:pt: [Documentação](/docs/en/doc_homepilot_en.md)
+:portugal: [Documentação](/docs/en/doc_homepilot_en.md)
 
-:nl: [Documentatie](/docs/en/doc_homepilot_en.md)
+:netherlands: [Documentatie](/docs/en/doc_homepilot_en.md)
 
 :fr: [Documentation](/docs/en/doc_homepilot_en.md)
 
@@ -33,12 +26,12 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 :es: [Documentación](/docs/en/doc_homepilot_en.md)
 
-:pl: [Dokumentacja](/docs/en/doc_homepilot_en.md)
-
+:poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
-### 1.0.0 (2018-04-20)
+### 1.0.1 (2018-04-20)
 + (pix) Admin 3 support, Translations to de, ru, pt, nl, fr, it, es and pl language
++ (pix) Readme/Documentation structure
 
 ### 0.3.1 (2017-10-18)
 + (pix) new documentation structure
