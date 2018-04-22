@@ -56,20 +56,19 @@
                     </div>
                     <div class="row">
                          <div class="input-field col s12 m8 l5">
-                             <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" title="invalid input" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" />
-                             <label class="translate" for="homepilot_ip">IP</label>
-                             <!--<label  class="translate inputlabel">if left empty 'homepilot.local' will be used</label>-->
+                             <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" />
+                             <label class="translate" for="homepilot_ip">IP</label>if left empty 'homepilot.local' will be used
+                             
                          </div>
                          <div class="input-field col s12 m4 l3">
-                             <input pattern="[0-9]{1,2,3,4,5}$" title="invalid input" placeholder="8000" name="homepilot_port" type="text" id="homepilot_port" class="value" size="5" maxlength="5" autocomplete="off" />
-				<label class="translate" for="homepilot_port">Port</label>
-                                <!--<label  class="translate inputlabel" for="homepilot_port">normally no port setting is required</label>-->
+                             <input pattern="[0-9]{1,2,3,4,5}$" name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" autocomplete="off" />
+			     <label class="translate" for="homepilot_port">Port</label>normally no port setting is required</label>-->
                          </div>
                      </div>
                      <!-- <div class="divider"></div> -->
                      <div class="row">
                          <div class="input-field col s4 m4 l3">
-                             <input pattern="[0-9]{1,2,3}$" title="invalid input" placeholder="12" name="homepilot_ip_adress" type="text" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off" />s
+                             <input pattern="[0-9]{1,2,3}$" name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off"/>s
                              <label class="translate" for="sync_time">Synctime</label>
                              <!--<label  class="translate inputlabel">default is 12</label>-->
                          </div>
