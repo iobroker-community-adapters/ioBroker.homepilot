@@ -13,9 +13,20 @@
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
             "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
         },
-        "version":"1.0.1",
+        "version":"1.0.2",
         "mode":"daemon",
         "news":{  
+            "1.0.2":{
+              "en": "New design for settings window",
+              "de": "Neues Design für Einstellungsfenster",
+              "ru": "Новый дизайн для окна настроек",
+              "pt": "Novo design para janela de configurações",
+              "nl": "Nieuw ontwerp voor instellingenvenster",
+              "fr": "Nouveau design pour la fenêtre des paramètres",
+              "it": "Nuovo design per la finestra delle impostazioni",
+              "es": "Nuevo diseño para la ventana de configuraciones",
+              "pl": "Nowy wygląd okna ustawień"
+            },
             "1.0.1":{
                 "en": "Readme and Documentation structure",
                 "de": "Liesmich und Dokumentationsstruktur",
