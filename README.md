@@ -29,6 +29,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+### 1.1.0 (2018-04-22)
++ (pix) New design for settings window
+
 ### 1.0.1 (2018-04-20)
 + (pix) Readme/Documentation structure
 
