@@ -1,0 +1,115 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.15.9
+3 info using node@v4.6.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/jens/Documents/Github/ioBroker.homepilot',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/jens/.npm/iobroker.homepilot/1.0.1/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/jens/.npm correctMkdir not in flight; initializing
+10 verbose tar pack [ '/Users/jens/.npm/iobroker.homepilot/1.0.1/package.tgz',
+10 verbose tar pack   '/Users/jens/Documents/Github/ioBroker.homepilot' ]
+11 verbose tarball /Users/jens/.npm/iobroker.homepilot/1.0.1/package.tgz
+12 verbose folder /Users/jens/Documents/Github/ioBroker.homepilot
+13 info prepublish iobroker.homepilot@1.0.1
+14 verbose addLocalTarball adding from inside cache /Users/jens/.npm/iobroker.homepilot/1.0.1/package.tgz
+15 verbose correctMkdir /Users/jens/.npm correctMkdir not in flight; initializing
+16 silly cache afterAdd iobroker.homepilot@1.0.1
+17 verbose afterAdd /Users/jens/.npm/iobroker.homepilot/1.0.1/package/package.json not in flight; writing
+18 verbose correctMkdir /Users/jens/.npm correctMkdir not in flight; initializing
+19 verbose afterAdd /Users/jens/.npm/iobroker.homepilot/1.0.1/package/package.json written
+20 silly publish { name: 'iobroker.homepilot',
+20 silly publish   description: 'Adapter connects Rademacher Homepilot station to ioBroker',
+20 silly publish   version: '1.0.1',
+20 silly publish   author: { name: 'pix' },
+20 silly publish   contributors: [ { name: 'pix' }, { name: 'mikepa1' } ],
+20 silly publish   homepage: 'https://github.com/Pix---/ioBroker.homepilot',
+20 silly publish   repository:
+20 silly publish    { type: 'git',
+20 silly publish      url: 'git+https://github.com/Pix---/ioBroker.homepilot.git' },
+20 silly publish   license: 'MIT',
+20 silly publish   keywords:
+20 silly publish    [ 'ioBroker',
+20 silly publish      'homepilot',
+20 silly publish      'blinds',
+20 silly publish      'hardware',
+20 silly publish      'jalousien',
+20 silly publish      'rollo',
+20 silly publish      'rollladen',
+20 silly publish      'home automation' ],
+20 silly publish   dependencies: { request: '^2.72.0', xml2js: '^0.2' },
+20 silly publish   devDependencies: { gulp: '^3.9.1', mocha: '^4.1.0', chai: '^4.1.2' },
+20 silly publish   bugs: { url: 'https://github.com/Pix---/ioBroker.homepilot/issues' },
+20 silly publish   main: 'main.js',
+20 silly publish   scripts: { test: 'node node_modules/mocha/bin/mocha --exit' },
+20 silly publish   maintainers: [ { name: 'pix' } ],
+20 silly publish   readme: '![Logo](admin/homepilot.png)\n# ioBroker.homepilot\n\n[![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)\n[![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)\n[![Open Issues](http://githubbadges.herokuapp.com/Pix---/ioBroker.homepilot/issues.svg)](http://github.com/Pix---/ioBroker.homepilot/issues)\n\n[![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)\n\n**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.homepilot/master.svg)](https://travis-ci.org/Pix---/ioBroker.homepilot)\nWindows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.homepilot?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-homepilot/)\n\n:de: [Dokumentation](/docs/de/doc_homepilot_de.md)\n\n:uk: [Documentation](/docs/en/doc_homepilot_en.md)\n\n:ru: [Документация](/docs/en/doc_homepilot_en.md)\n\n:portugal: [Documentação](/docs/en/doc_homepilot_en.md)\n\n:netherlands: [Documentatie](/docs/en/doc_homepilot_en.md)\n\n:fr: [Documentation](/docs/en/doc_homepilot_en.md)\n\n:it: [Documentazione](/docs/en/doc_homepilot_en.md)\n\n:es: [Documentación](/docs/en/doc_homepilot_en.md)\n\n:poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)\n\n## Changelog\n### 1.0.1 (2018-04-20)\n+ (pix) Readme/Documentation structure\n\n### 1.0.0 (2018-04-20)\n+ (pix) Admin 3 support, Translations to de, ru, pt, nl, fr, it, es and pl language\n\n### 0.3.1 (2017-10-18)\n+ (pix) new documentation structure\n\n### 0.3.0 (2017-10-16)\n+ (mikepa1) Support for more z-wave actuators\n+ (pix) iobroker.discovery integration\n\n### 0.2.9 (2017-10-15)\n+ (pix) Minimum nodejs 4 is required\n\n### 0.2.8 (2017-10-15)\n+ (mikepa1) Fixed issues with Heizkörperstellantrieb Z-Wave\n\n### 0.2.7 (2017-08-26)\n+ (pix) Added support for Heizkörperstellantrieb Z-Wave\n\n### 0.2.6 (2017-02-03)\n+ (pix) Product "Dimmer" integrated (duofern id 48)\n\n### 0.2.5 (2017-02-03)\n+ (pix) CID datapoint now accepts input of \'true\' or \'false\' and translates it to command 10 or 11.\n\n### 0.2.4 (2017-01-27)\n* (pix) converted serial to duofern code\n\n### 0.2.3 (2017-01-25)\n* (pix) fixed regexp issue within level datapoints for input of value 0\n* (pix) new datapoint serial number of duofern product\n\n### 0.2.2 (2017-01-24)\n* (pix) fixed state datapoint updates\n\n### 0.2.1 (2017-01-23)\n* (pix) Device recognition by serial number optimized\n\n### 0.2.0 (2017-01-15)\n* (pix) removed parent from setObjects\n\n### 0.1.1 (2017-01-15)\n* (pix) Roles added\n\n### 0.1.0 (2017-01-05)\n* (pix) Travis CI supported\n\n### 0.0.7 (2016-06-21)\n* (pix) fixed RegEx and log\n\n### 0.0.6 (2016-06-20)\n* (pix) fixed switch control "false" by command id (cid)\n* (pix) names of datapoints\n\n### 0.0.5 (2016-06-19)\n* (pix) user can choose sync time in settings\n* (pix) switch control by command id (cid)\n\n### 0.0.4 (2016-06-18)\n* (pix) datapoint "level_interted" added for Homematic like appearance\n* (pix) productNumber 46 added to switches\n\n### 0.0.3 (2016-06-18)\n* (pix) datapoint "state" added for switches (incl. productNumber #43)\n\n### 0.0.2 (2016-06-16)\n* (pix) error fixed\n\n### 0.0.1 (2016-06-15)\n* (pix) adapter created\n\n## Roadmap\n* 1.1.0 Materialize design for adapter settings window in admin\n* 1.4.0 get a list of all installed duofern products in your network within the settings window\n* 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"\n* 2.0.0 get live data from Homepilot station (zwave)\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2018 pix\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n',
+20 silly publish   readmeFilename: 'README.md',
+20 silly publish   gitHead: '462de0893c82d20e9f625cf01e28a010767ac2b6',
+20 silly publish   _id: 'iobroker.homepilot@1.0.1',
+20 silly publish   _shasum: '2482b7c1c5cc64ba6b4c8b0d358f23f4a599cdaf',
+20 silly publish   _from: '.' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name iobroker.homepilot
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'iobroker.homepilot',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'iobroker.homepilot',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/iobroker.homepilot
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /Users/jens/.npm/iobroker.homepilot/1.0.1/package.tgz
+29 verbose request uri https://registry.npmjs.org/iobroker.homepilot
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 21:29:22
+32 verbose request id 9c0edccab8d0a0be
+33 http request PUT https://registry.npmjs.org/iobroker.homepilot
+34 http 403 https://registry.npmjs.org/iobroker.homepilot
+35 verbose headers { 'content-type': 'application/json',
+35 verbose headers   'cache-control': 'max-age=300',
+35 verbose headers   'content-length': '93',
+35 verbose headers   'accept-ranges': 'bytes',
+35 verbose headers   date: 'Fri, 20 Apr 2018 19:29:25 GMT',
+35 verbose headers   via: '1.1 varnish',
+35 verbose headers   connection: 'keep-alive',
+35 verbose headers   'x-served-by': 'cache-fra19124-FRA',
+35 verbose headers   'x-cache': 'MISS',
+35 verbose headers   'x-cache-hits': '0',
+35 verbose headers   'x-timer': 'S1524252563.043200,VS0,VE2945',
+35 verbose headers   vary: 'Accept-Encoding, Accept' }
+36 verbose request invalidating /Users/jens/.npm/registry.npmjs.org/iobroker.homepilot on PUT
+37 error publish Failed PUT 403
+38 verbose stack Error: You cannot publish over the previously published versions: 1.0.1. : iobroker.homepilot
+38 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+38 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+38 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+38 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+38 verbose stack     at emitTwo (events.js:87:13)
+38 verbose stack     at Request.emit (events.js:172:7)
+38 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+38 verbose stack     at emitOne (events.js:82:20)
+38 verbose stack     at Request.emit (events.js:169:7)
+38 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+39 verbose statusCode 403
+40 verbose pkgid iobroker.homepilot
+41 verbose cwd /Users/jens/Documents/Github/ioBroker.homepilot
+42 error Darwin 15.6.0
+43 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+44 error node v4.6.0
+45 error npm  v2.15.9
+46 error code E403
+47 error You cannot publish over the previously published versions: 1.0.1. : iobroker.homepilot
+48 error If you need help, you may report this error at:
+48 error     <https://github.com/npm/npm/issues>
+49 verbose exit [ 1, true ]

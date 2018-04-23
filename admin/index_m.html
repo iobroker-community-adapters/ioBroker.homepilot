@@ -45,34 +45,35 @@
             <div class="row">
                 <div class="col s12">
                     <ul class="tabs">
-                        <li class="tab col s2">
+                        <li class="tab col s4">  <!-- statt s2 -->
                             <a href="#tab-main" class="translate">homepilot station</a>
                         </li><!-- weitere Tabs einfügen -->
                     </ul>
                 </div>
                 <div id="tab-main" class="col s12 page">
                     <div class="col s6 m4 l2">
-                        <img src="homepilot.png" class="logo">
+                        <img src="homepilot.png" width="100%" height="100%" class="logo">
                     </div>
                     <div class="row">
-                         <div class="input-field col s12 m8 l5">
-                             <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" />
-                             <label class="translate" for="homepilot_ip">IP</label><span class="translate">if left empty 'homepilot.local' will be used</span>
-                             
+                        <div class="input-field col s12 m8 l5">
+                            <!-- <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" /> -->
+                            <input name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" />
+                            <label class="translate" for="homepilot_ip">IP</label><span class="translate">if left empty 'homepilot.local' will be used</span>
+                        </div>
+                        <div class="input-field col s12 m4 l3">
+                            <!-- <input pattern="[0-9]{1,2,3,4,5}$" name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" autocomplete="off" /> -->
+			                <input name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" />
+			                <label class="translate" for="homepilot_port">Port</label><span class="translate">normally no port setting is required</span>
                          </div>
-                         <div class="input-field col s12 m4 l3">
-                             <input pattern="[0-9]{1,2,3,4,5}$" name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" autocomplete="off" />
-			     <label class="translate" for="homepilot_port">Port</label><span>normally no port setting is required</span>
-                         </div>
-                     </div>
-                     <!-- <div class="divider"></div> -->
-                     <div class="row">
-                         <div class="input-field col s4 m4 l3">
-                             <input pattern="[0-9]{1,2,3}$" name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off"/>s
-                             <label class="translate" for="sync_time">Synctime</label>
-                             <!--<label  class="translate inputlabel">default is 12</label>-->
-                         </div>
-                     </div>
+                    </div>
+                    <!-- <div class="divider"></div> -->
+                    <div class="row">
+                        <div class="input-field col s4 m4 l3">
+                            <!-- <input pattern="[0-9]{1,2,3}$" name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off"/>s -->
+                            <input name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" />
+                            <label class="translate" for="sync_time">Synctime</label>s <span class="translate">default is 12</span>
+                        </div>
+                    </div>
                 </div> <!-- Ende tab -->
             </div>
         </div>
