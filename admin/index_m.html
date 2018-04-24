@@ -3,7 +3,10 @@
     <head>
         <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
         <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
-
+        
+        <!-- <link rel="stylesheet" type="text/css" href="http://materializecss.com/css/ghpages-materialize.css"/>  -->
+        
+        
         <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
 
@@ -51,11 +54,13 @@
                     </ul>
                 </div>
                 <div id="tab-main" class="col s12 page">
-                    <div class="col s6 m4 l2">
-                        <img src="homepilot.png" class="logo">
+                    <div class="row">
+                        <div class="col s6 m4 l3">
+                            <img src="homepilot.png" class="logo">
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m8 l5">
+                        <div class="input-field col s12 m8 l6">
                             <!-- <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" /> -->
                             <input name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" />
                             <label class="translate" for="homepilot_ip">IP</label><span class="translate">if left empty 'homepilot.local' will be used</span>
@@ -66,16 +71,17 @@
 			                <label class="translate" for="homepilot_port">Port</label><span class="translate">normally no port setting is required</span>
                          </div>
                     </div>
-                    <!-- <div class="divider"></div> -->
+                    
                     <div class="row">
-                        <div class="input-field col s4 m4 l3">
+                        <div class="input-field col s12 m4 l3">
                             <!-- <input pattern="[0-9]{1,2,3}$" name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off"/>s -->
-                            <input name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" />
+                            <input name="synchronization" type="number" id="sync_time" class="value" size="3" maxlength="3" />
                             <label class="translate" for="sync_time">Synctime</label>s (<span class="translate">default is 12</span>)
                         </div>
                     </div>
+                    
                 </div> <!-- Ende tab -->
-            </div>
+            </div><!-- Ende row -->
         </div>
     </body>
 </html>

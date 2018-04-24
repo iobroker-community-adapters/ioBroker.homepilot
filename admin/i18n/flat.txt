@@ -1,7 +1,0 @@
-IP
-Port
-default is 12
-homepilot Adapter settings
-homepilot station
-if left empty 'homepilot.local' will be used
-normally no port setting is required
