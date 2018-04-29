@@ -67,8 +67,8 @@
                         </div>
                         <div class="input-field col s12 m4 l3">
                             <!-- <input pattern="[0-9]{1,2,3,4,5}$" name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" autocomplete="off" /> -->
-			                <input name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" />
-			                <label class="translate active" for="homepilot_port">Port</label><span class="helper-text translate">normally no port setting is required</span>
+			                <input name="homepilot_port" type="number" id="homepilot_port" class="value number validate"  />
+			                <label data-error="numbers only" data-success="ok" class="translate active" for="homepilot_port">Port</label><span class="helper-text translate">normally no port setting is required</span>
                          </div>
                     </div>
                     
@@ -76,7 +76,7 @@
                         <div class="input-field col s12 m4 l3">
                             <!-- <input pattern="[0-9]{1,2,3}$" name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off"/>s -->
                             <input placeholder="12" name="synchronization" type="number" id="sync_time" class="value validate" />
-                            <label data-error="numbers only" data-success="ok" class="translate active" for="sync_time">Synctime</label>s (<span class="helper-text translate">default is 12</span>)
+                            <label data-error="numbers only" data-success="ok" class="translate active" for="sync_time">Synctime</label><span class="helper-text translate">s (default is 12)</span>
                         </div>
                     </div>
                     
