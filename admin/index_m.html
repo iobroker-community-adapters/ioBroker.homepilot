@@ -63,20 +63,20 @@
                         <div class="input-field col s12 m8 l6">
                             <!-- <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" /> -->
                             <input name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" />
-                            <label class="translate" for="homepilot_ip">IP</label><span class="translate">if left empty 'homepilot.local' will be used</span>
+                            <label class="translate active" for="homepilot_ip">IP</label><span class="helper-text translate">if left empty 'homepilot.local' will be used</span>
                         </div>
                         <div class="input-field col s12 m4 l3">
                             <!-- <input pattern="[0-9]{1,2,3,4,5}$" name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" autocomplete="off" /> -->
 			                <input name="homepilot_port" type="number" id="homepilot_port" class="value number" size="5" maxlength="5" />
-			                <label class="translate" for="homepilot_port">Port</label><span class="translate">normally no port setting is required</span>
+			                <label class="translate active" for="homepilot_port">Port</label><span class="helper-text translate">normally no port setting is required</span>
                          </div>
                     </div>
                     
                     <div class="row">
                         <div class="input-field col s12 m4 l3">
                             <!-- <input pattern="[0-9]{1,2,3}$" name="homepilot_ip_adress" type="number" id="sync_time" class="value" size="3" maxlength="3" autocomplete="off"/>s -->
-                            <input name="synchronization" type="number" id="sync_time" class="value" size="3" maxlength="3" />
-                            <label class="translate" for="sync_time">Synctime</label>s (<span class="translate">default is 12</span>)
+                            <input placeholder="12" name="synchronization" type="number" id="sync_time" class="value validate" />
+                            <label data-error="numbers only" data-success="ok" class="translate active" for="sync_time">Synctime</label>s (<span class="helper-text translate">default is 12</span>)
                         </div>
                     </div>
                     
