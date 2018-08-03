@@ -13,19 +13,30 @@
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
             "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
         },
-        "version":"1.0.2",
+        "version":"1.0.3",
         "mode":"daemon",
-        "news":{  
+        "news":{   
+            "1.0.3":{
+                "en": "1.0.3 design improvements settings window",
+                "de": "1.0.3 Design-Verbesserungen Einstellungen Fenster",
+                "ru": "1.0.3 окно настроек улучшений проекта",
+                "pt": "1.0.3 janela de configurações de melhorias de design",
+                "nl": "1.0.3 ontwerp verbeteringen instellingen venster",
+                "fr": "1.0.3 Fenêtre de paramétrage des améliorations de la conception",
+                "it": "1.0.3 finestra delle impostazioni dei miglioramenti di progettazione",
+                "es": "1.0.3 ventana de configuración de mejoras de diseño",
+                "pl": "1.0.3 okno ustawień ulepszeń projektu"
+            },
             "1.0.2":{
-              "en": "New design for settings window",
-              "de": "Neues Design für Einstellungsfenster",
-              "ru": "Новый дизайн для окна настроек",
-              "pt": "Novo design para janela de configurações",
-              "nl": "Nieuw ontwerp voor instellingenvenster",
-              "fr": "Nouveau design pour la fenêtre des paramètres",
-              "it": "Nuovo design per la finestra delle impostazioni",
-              "es": "Nuevo diseño para la ventana de configuraciones",
-              "pl": "Nowy wygląd okna ustawień"
+                "en": "New design for settings window",
+                "de": "Neues Design für Einstellungsfenster",
+                "ru": "Новый дизайн для окна настроек",
+                "pt": "Novo design para janela de configurações",
+                "nl": "Nieuw ontwerp voor instellingenvenster",
+                "fr": "Nouveau design pour la fenêtre des paramètres",
+                "it": "Nuovo design per la finestra delle impostazioni",
+                "es": "Nuevo diseño para la ventana de configuraciones",
+                "pl": "Nowy wygląd okna ustawień"
             },
             "1.0.1":{
                 "en": "Readme and Documentation structure",
