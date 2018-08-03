@@ -207,7 +207,9 @@ function readSettings() {
     //check if IP is entered in settings
     if (adapter.config.homepilotip === undefined || adapter.config.homepilotip.length === 0) {
         ip = 'homepilot.local';
-        adapter.log.debug('No IP adress of Homepilot station set up - "' + ip + '" used');
+        adapter.log.error('No IP adress of Homepilot station set up - "' + ip + '" used');
+	adapter.log.error('Adapter will be stopped');
+	stopReadHomepilot():
     } 
     else ip = (adapter.config.homepilotport.length > 0) ? adapter.config.homepilotip + ':' + adapter.config.homepilotport : adapter.config.homepilotip;
     link = 'http://' + ip + '/deviceajax.do?devices=1';
