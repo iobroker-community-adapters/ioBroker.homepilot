@@ -31,6 +31,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+### 1.0.4 (2018-11-11)
++ (pix) fixed typo in main.js
+
 ### 1.0.3 (2018-08-03)
 + (pix) design improvements settings window
 
