@@ -36,6 +36,10 @@ var adapter = utils.Adapter({
     }
 });
 
+function stopReadHomepilot() {
+    clearInterval(callReadHomepilot);
+    adapter.log.info('Homepilot adapter stopped');
+}
 
 function controlHomepilot(id, input) {
     // example for subscribed id: "homepilot.0.devices.RolloTronStandard.10000.cid"
@@ -535,11 +539,6 @@ function readHomepilot() {
         });
     }); // End request 
     adapter.log.debug('finished reading Homepilot Data');
-}
-
-function stopReadHomepilot() {
-    clearInterval(callReadHomepilot);
-    adapter.log.info('Homepilot adapter stopped');
 }
 
 function main() {
