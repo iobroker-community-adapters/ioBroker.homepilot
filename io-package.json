@@ -13,9 +13,20 @@
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
             "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
         },
-        "version":"1.0.3",
+        "version":"1.0.4",
         "mode":"daemon",
-        "news":{   
+        "news":{
+            "1.0.4":{
+                "en": "fixed typo in main.js",
+                "de": "Tippfehler in main.js behoben",
+                "ru": "исправлена опечатка в main.js",
+                "pt": "erro de digitação fixo em main.js",
+                "nl": "vaste typfout in main.js",
+                "fr": "correction d'une faute de frappe dans main.js",
+                "it": "corretto errore di battitura in main.js",
+                "es": "error tipográfico corregido en main.js",
+                "pl": "naprawiono literówkę w main.js"
+            },
             "1.0.3":{
                 "en": "1.0.3 design improvements settings window",
                 "de": "1.0.3 Design-Verbesserungen Einstellungen Fenster",
