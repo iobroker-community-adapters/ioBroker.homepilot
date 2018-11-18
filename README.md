@@ -31,6 +31,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+### 1.1.0 (2018-11-18)
++ (homecineplexx) 1.1.0 Improved integration of thermostats
+
 ### 1.0.4 (2018-11-11)
 + (pix) fixed typo in main.js
 
