@@ -13,9 +13,20 @@
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
             "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
         },
-        "version":"1.0.4",
+        "version":"1.1.0",
         "mode":"daemon",
         "news":{
+            "1.1.0":{
+                "en": "Improved integration of thermostats",
+                "de": "Verbesserte Integration von Thermostaten",
+                "ru": "Улучшенная интеграция термостатов",
+                "pt": "Melhor integração de termostatos",
+                "nl": "Verbeterde integratie van thermostaten",
+                "fr": "Meilleure intégration des thermostats",
+                "it": "Migliore integrazione dei termostati",
+                "es": "Integración mejorada de termostatos.",
+                "pl": "Poprawiona integracja termostatów"
+            },
             "1.0.4":{
                 "en": "fixed typo in main.js",
                 "de": "Tippfehler in main.js behoben",
