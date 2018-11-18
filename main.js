@@ -159,8 +159,7 @@ function controlHomepilot(id, input) {
         }
 
         if (valid) url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1';
-    } 
-    else if (controller == 'state') { // control via state e.g. Universal-Aktor switch
+    } else if (controller == 'state') { // control via state e.g. Universal-Aktor switch
         if (input.search(/(true)|(EIN)|(AN)|(ON)|([10-11])|(false)|(AUS)|(OFF)\b\b/gmi) != -1) { // check if "true" or "false"
             valid = true;
             if (input.search(/(true)|(EIN)|(AN)|(ON)|(10)\b\b/gmi) != -1 ) newcid = '10'; 
@@ -171,36 +170,53 @@ function controlHomepilot(id, input) {
             valid = false;
             adapter.log.warn('Only use "ON/OFF", "true/false", "ein/aus" (all caseinsensitive) or "10/11" to control you switch');
         }
-    } 
-    else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
+    } else if (controller == 'level') { // control via level e.g. RolloTronStandar.level
         // check if input number is between 0 an 100
         if (input.search(/(?:\b|-)([0-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
         } else valid = false;
-    } 
-    else if (controller == 'temperature') { // control via temperature e.g. Heizkörperstellantrieb
-	    // adapter.log.info('input temperature: ' + input);
+    } else if (controller == 'temperature') { // control via temperature e.g. Heizkörperstellantrieb
+		var product = controller_array[3];
 		var val = (parseFloat(input)*10);
-		// limit value to 0..28°C
-		if (val < 0.0) {
-			val = 0.0;
-		} else if (val > 280.0) {
-			val = 280.0;
+
+		if (product.indexOf('Raumthermostat') != -1) {
+			// limit value to 4..40°C
+			if (val < 4.0) {
+				val = 4.0;
+			} else if (val > 400.0) {
+				val = 400.0;
+			}
+		} else if (product.indexOf('DuoFernHeizkörperstellantrieb') != -1) {
+			// limit value to 4..28°C
+			if (val < 4.0) {
+				val = 4.0;
+			} else if (val > 280.0) {
+				val = 280.0;
+			}
+		} else {
+			// limit value to 0..28°C
+			if (val < 0.0) {
+				val = 0.0;
+			} else if (val > 280.0) {
+				val = 280.0;
+			}
 		}
+				
 		var parts = (val.toString()).split(".");
 		input = parts[0]; 
+		
 	    // adapter.log.info('input temperature converted: ' + input);
         valid = true;
         url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + input + '&command=1';
-    } 
-    else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
+    } else if (controller == 'level_inverted') { // control via inverted  level e.g. RolloTronStandar.level (like Homematic 100% up, 0% down)
         // check if input number is between 0 an 100
         if (input.search(/(?:\b|-)([0-9]{1,2}[0]?|100)\b/gmi) != -1) { // 0 to 100 https://regex101.com/r/mN1iT5/6#javascript
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + (100 - parseInt(input,10)) + '&command=1';
         } else valid = false;
     } 
+	
     if (valid) {
         request(url); // Send command to Homepilot
         adapter.log.debug('Command sent to Homepilot because "' + input + '" written to State "' + id + '"'); // should be debug not info
@@ -247,13 +263,18 @@ function createStates(result, i) {
         case "17": // Heizkörperstellantrieb Z-Wave
         case "18": // Heizkörperstellantrieb Z-Wave
         case "19": // Heizkörperstellantrieb Z-Wave
-            devicerole = 'level.temperature';
+			if (product.indexOf('Repeater') != -1) {
+				devicerole = (devicename.indexOf('Licht') != -1) ? 'light.switch' : 'switch' ;
+			} else {
+				devicerole = 'level.temperature';
+			}
             break;
         case "40": // Rollotron Standard
         case "41": // Rollotron Comfort
         case "42": // Rohrmotor
         case "47": // Rohrmotor
         case "49": // Rohrmotor
+		case "4B": // DuoFern Connect-Aktor
             devicerole = 'level.blind';
             break;
         case "48": // Dimmer
@@ -261,8 +282,13 @@ function createStates(result, i) {
             break;
         case "43": // Universalactor
         case "46": // Wall-Plugin-Actor
+		case "74": // Schaltaktor DuoFern Mehrfachwandtaster
             devicerole = (devicename.indexOf('Licht') != -1) ? 'light.switch' : 'switch' ;
             break;
+		case "73": // Schaltaktor DuoFern Raumthermostat
+		case "E1": // DuoFern Heizkörperstellantrieb
+			devicerole = 'level.temperature';
+			break;
         default:
             devicerole = 'switch'
     }
@@ -360,7 +386,9 @@ function createStates(result, i) {
         },
         native: {}
     });
-    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46"/* || result.devices[i].productName === "Schaltaktor 2-Kanal" || result.devices[i].productName === "Schaltaktor 1-Kanal"*/) { // Universal-Aktor SWITCH
+	
+	if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" || 
+		(parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') != -1)) {
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
@@ -382,8 +410,7 @@ function createStates(result, i) {
                 });
             }
         });
-    }
-    if (parseInt(duoferncode.substring(0,2)) < 20) { // HeizkörperstellantrieZ-Wave
+    } else if (parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
        adapter.setObjectNotExists(path + '.temperature', {
           type: 'state',
             common: {
@@ -393,7 +420,7 @@ function createStates(result, i) {
                 role: devicerole,
 				def: 0,
                 min: 0,
-                max: 280,
+                max: 28,
                 unit: '°C',
                 read: true,
                 write: true
@@ -402,7 +429,64 @@ function createStates(result, i) {
         }, function(err, obj) {
             if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
-    } else {
+    } else if (duoferncode.substring(0,2) == "E1") {
+		adapter.setObjectNotExists(path + '.temperature', {
+          type: 'state',
+            common: {
+             name: 'Temperature of ' + devicename,
+                desc: 'Temperature datapoint for ' + deviceid,
+                type: 'number',
+                role: devicerole,
+				def: 4,
+                min: 4,
+                max: 28,
+                unit: '°C',
+                read: true,
+                write: true
+            },
+            native: {}
+        }, function(err, obj) {
+            if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
+        });
+	} else if (duoferncode.substring(0,2) == "73") {
+		adapter.setObjectNotExists(path + '.temperature', {
+          type: 'state',
+            common: {
+             name: 'Temperature of ' + devicename,
+                desc: 'Temperature datapoint for ' + deviceid,
+                type: 'number',
+                role: devicerole,
+				def: 4,
+                min: 4,
+                max: 40,
+                unit: '°C',
+                read: true,
+                write: true
+            },
+            native: {}
+        }, function(err, obj) {
+            if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
+        });
+		
+		adapter.setObjectNotExists(path + '.current_temperature', {
+          type: 'state',
+            common: {
+             name: 'current Temperature of ' + devicename,
+                desc: 'current Temperature datapoint for ' + deviceid,
+                type: 'number',
+                role: devicerole,
+				def: 4,
+                min: 4,
+                max: 40,
+                unit: '°C',
+                read: true,
+                write: false
+            },
+            native: {}
+        }, function(err, obj) {
+            if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
+        });
+	} else {
         adapter.setObjectNotExists(path + '.level_inverted', {
             type: 'state',
             common: {
@@ -471,21 +555,37 @@ function writeStates(result, i) {
         ack: true
     });
     // STATE
-    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46"/* || result.devices[i].productName === "Universal-Aktor" || result.devices[i].productName === "Steckdosenaktor"*/) { // translate output level/position to boolean state for switches
+    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" ||
+		(parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') != -1)) { 
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
             ack: true
         }); // maybe should write to adapters level and level_inverted too
-    // TEMP
-    }
-	else if (parseInt(duoferncode.substring(0,2)) < 20) { // HeizkörperstellantrieZ-Wave
+	} else if (parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
+		// TEMP
         adapter.setState(path + 'temperature', {
             val: (parseFloat(result.devices[i].position) * 0.1),
             ack: true
         });
-    }
-    else { // LEVEL Datapoints
+    } else if (duoferncode.substring(0,2) == "E1") {
+		// TEMP
+        adapter.setState(path + 'temperature', {
+            val: (parseFloat(result.devices[i].position) * 0.1),
+            ack: true
+        });
+	} else if (duoferncode.substring(0,2) == "73") {
+		// TEMP
+        adapter.setState(path + 'temperature', {
+            val: (parseFloat(result.devices[i].position) * 0.1),
+            ack: true
+        });
+		// current TEMP
+        adapter.setState(path + 'current_temperature', {
+            val: (parseFloat(result.devices[i].statusesMap.acttemperatur) * 0.1),
+            ack: true
+        });
+	} else { // LEVEL Datapoints
         adapter.setState(path + 'level', {
             val: result.devices[i].position,
             ack: true
