@@ -31,6 +31,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+### 1.1.1 (2019-01-09)
++ (homecineplexx) Added new device "Troll Comfort DuoFern"
+
 ### 1.1.0 (2018-11-18)
 + (homecineplexx) Improved integration of thermostats
 
