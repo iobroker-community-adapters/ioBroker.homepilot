@@ -275,6 +275,7 @@ function createStates(result, i) {
         case "47": // Rohrmotor
         case "49": // Rohrmotor
 		case "4B": // DuoFern Connect-Aktor
+		case "70": // Troll Comfort DuoFern
             devicerole = 'level.blind';
             break;
         case "48": // Dimmer
