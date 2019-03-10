@@ -1,7 +1,7 @@
 ![Logo](admin/homepilot.png)
 # ioBroker.homepilot
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
+![Number of Installations](http://iobroker.live/badges/homepilot-installed.svg) ![Number of Installations](http://iobroker.live/badges/homepilot-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
 [![Open Issues](http://githubbadges.herokuapp.com/Pix---/ioBroker.homepilot/issues.svg)](http://github.com/Pix---/ioBroker.homepilot/issues)
 
