@@ -120,10 +120,10 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 * (pix) adapter created
 
 ## Roadmap
-* 1.1.0 Materialize design for adapter settings window in admin
 * 1.4.0 get a list of all installed duofern products in your network within the settings window
 * 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"
 * 2.0.0 get live data from Homepilot station (zwave)
+Contributions are welcome!
 
 ## License
 
