@@ -18,16 +18,16 @@
         "mode":"daemon",
         "news":{
             "1.1.2":{
-                 "en": "Update testing for nodejs12",
-                 "de": "Aktualisieren Sie die Tests für nodejs12",
-                 "ru": "Обновление тестирования для nodejs12",
-                 "pt": "Teste de atualização para nodejs12",
-                 "nl": "Update testen voor nodejs12",
-                 "fr": "Test de mise à jour pour nodejs12",
-                 "it": "Test di aggiornamento per nodejs12",
-                 "es": "Actualización de pruebas para nodejs12",
-                 "pl": "Zaktualizuj testowanie dla nodejs12",
-                 "zh-cn": "更新nodejs12的测试"
+                 "en": "Update testing for nodejs12, translations",
+                 "de": "Update-Test für nodejs12, Übersetzungen",
+                 "ru": "Обновление тестирования для nodejs12, переводы",
+                 "pt": "Teste de atualização para nodejs12, traduções",
+                 "nl": "Update testen voor nodejs12, vertalingen",
+                 "fr": "Test de mise à jour pour nodejs12, traductions",
+                 "it": "Test di aggiornamento per nodejs12, traduzioni",
+                 "es": "Actualización de pruebas para nodejs12, traducciones",
+                 "pl": "Zaktualizuj testy dla nodejs12, tłumaczenia",
+                 "zh-cn": "更新nodejs12，翻译的测试"
             },
             "1.1.1":{
                 "en": "added new device Troll Comfort DuoFern",
