@@ -11,11 +11,24 @@
             "fr": "contrôle Homepilot Duofern Devices avec ioBroker",
             "it": "controlla i dispositivi Homepilot Duofern con ioBroker",
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
-            "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
+            "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker",
+            "zh-cn": "使用ioBroker控制Homepilot Duofern设备"
         },
-        "version":"1.1.1",
+        "version":"1.1.2",
         "mode":"daemon",
         "news":{
+            "1.1.2":{
+                 "en": "Update testing for nodejs12",
+                 "de": "Aktualisieren Sie die Tests für nodejs12",
+                 "ru": "Обновление тестирования для nodejs12",
+                 "pt": "Teste de atualização para nodejs12",
+                 "nl": "Update testen voor nodejs12",
+                 "fr": "Test de mise à jour pour nodejs12",
+                 "it": "Test di aggiornamento per nodejs12",
+                 "es": "Actualización de pruebas para nodejs12",
+                 "pl": "Zaktualizuj testowanie dla nodejs12",
+                 "zh-cn": "更新nodejs12的测试"
+            },
             "1.1.1":{
                 "en": "added new device Troll Comfort DuoFern",
                 "de": "Neues Gerät Troll Comfort DuoFern hinzugefügt",
