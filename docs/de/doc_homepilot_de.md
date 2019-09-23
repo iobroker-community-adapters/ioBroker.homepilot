@@ -18,6 +18,7 @@ Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 
 | 49   | Rohrmotor                   |                                        |  level       |                        |
 | 70   | Troll Comfort DuoFern       | (dank an homecineplexx)                |              |                        |
 |  4   | Z-WAVE                      | Heizkörperstellantrieb                 |  temperature |                        |
+| 4B   | Connect-Aktor               |                                        |              |                        |
 
 Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
 
@@ -25,7 +26,6 @@ Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch eine
 
 | Code | Produktname                 | Notiz                                  |  Datenpunkt  | Produkt Nr             |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
-| 4B   | Connect-Aktor               |                                        |              |                        |
 | 4C   | Troll Basis                 |                                        |              |                        |
 | 4E   | SX5                         |                                        |              |                        |
 | 61   | RolloTron Comfort Master    |                                        |              |                        |
