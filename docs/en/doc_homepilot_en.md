@@ -18,13 +18,13 @@ This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via
 | 49   | Rohrmotor                   |                                        |  level       |                        |
 | 70   | Troll Comfort DuoFern       | (thanks to homecineplexx)              |              |                        |
 |  4   | Z-WAVE                      | Heizkörperstellantrieb                 |  temperature |                        |
+| 4B   | Connect-Aktor               |                                        |              |                        |
 
 The actuator duofern code 43 supports a light mode and a device mode. Each mode delivers either ON (device mode) or OFF (light mode) when UP is pressed. Press DOWN is vice versa.
 
 #### Not yet supported (Thx to [mhop](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/30_DUOFERN.pm))
 | Code | Product Name                | Note                                   |  Datapoint   | Product #              |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
-| 4B   | Connect-Aktor               |                                        |              |                        |
 | 4C   | Troll Basis                 |                                        |              |                        |
 | 4E   | SX5                         |                                        |              |                        |
 | 61   | RolloTron Comfort Master    |                                        |              |                        |
