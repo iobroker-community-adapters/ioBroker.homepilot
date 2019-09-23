@@ -30,6 +30,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+### 1.1.3 (2019-09-23)
++ (christofkac) Added support for Connect Actor
+
 ### 1.1.2 (2019-09-02)
 + (Apollon77) Update testing for nodejs12
 
