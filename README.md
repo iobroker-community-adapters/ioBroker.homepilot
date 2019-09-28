@@ -11,6 +11,8 @@
 **Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.homepilot/master.svg)](https://travis-ci.org/Pix---/ioBroker.homepilot)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.homepilot?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-homepilot/)
 
+Adapter needs Homepilot Base Station's firmware to be lower than v5.0 (earlier than September 2019). Newer or updated stations can be managed with [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)
+
 :de: [Dokumentation](/docs/de/doc_homepilot_de.md)
 
 :uk: [Documentation](/docs/en/doc_homepilot_en.md)
