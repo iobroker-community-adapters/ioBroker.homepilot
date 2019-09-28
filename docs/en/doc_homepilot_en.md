@@ -2,7 +2,7 @@
 # ioBroker.homepilot
 
 ## Description
-This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
+This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2 with firmware lower than v5.0) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
 
 ### Supported devices
 
