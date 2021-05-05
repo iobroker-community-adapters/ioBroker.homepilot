@@ -14,7 +14,7 @@
             "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker",
             "zh-cn": "使用ioBroker控制Homepilot Duofern设备"
         },
-        "version":"1.1.4",
+        "version":"1.1.5",
         "mode":"daemon",
         "news":{
             "1.1.4":{
@@ -224,6 +224,8 @@
         "extIcon":"https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
         "allowInit":true,
         "type":"iot-systems",
+        "connectionType": "local",
+        "dataSource": "push",
         "config":{
             "width":650,
             "height":450,
