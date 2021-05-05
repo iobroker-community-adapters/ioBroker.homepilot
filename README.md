@@ -31,9 +31,10 @@ NodeJS 10 or higher required
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
-### 1.1.5 (20021-05-05)
+### 1.1.6 (20021-05-05)
 * (pix) connectionType and dataSource added
 * (pix) Travis updated
+* (pix) minor fixes (logo size, update news)
 
 ### 1.1.4 (2020-04-21)
 * (pix) xml2js-lib updated
