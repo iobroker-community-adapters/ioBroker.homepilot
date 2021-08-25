@@ -46,7 +46,7 @@ function controlHomepilot(id, input) {
     // example for subscribed id: "homepilot.0.devices.RolloTronStandard.10000.level"
     var controller_array = id.split('.');
     var controller       = controller_array[5];
-    var deviceid         = parseInt(controller_array[4],10);
+    var deviceid         = controller_array[4];  // String
     var url;
     var valid = false;
     var newcid;
