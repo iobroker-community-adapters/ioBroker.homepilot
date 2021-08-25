@@ -31,6 +31,9 @@ NodeJS 10 or higher required
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+### 1.1.7a (20021-08-25)
+* (pix) DeviceId should be string [#27](https://github.com/Pix---/ioBroker.homepilot/issues/27)
+
 ### 1.1.6 (20021-05-05)
 * (pix) connectionType and dataSource added
 * (pix) Travis updated
