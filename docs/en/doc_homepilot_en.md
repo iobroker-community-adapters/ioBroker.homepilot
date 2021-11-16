@@ -79,6 +79,8 @@ homepilot.0.devices.product.*deviceID*.__status_changed__ (number, timecode)
 
 homepilot.0.devices.product.*deviceID*.__cid__ (string, writeable) !!! WRITE STRING ONLY
 
+homepilot.0.devices.product.*deviceID*.__stop__ (button, blinds only)
+
 homepilot.0.devices.product.*deviceID*.__level__ (number)
 
 homepilot.0.devices.product.*deviceID*.__level_inverted__ (number)
