@@ -2,7 +2,7 @@
 # ioBroker.homepilot
 
 ## Beschreibung
-Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 (1/2) über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
+Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 (1/2 bis zur Firmware unter v5.0) über TCP/IP, um Rademacher DuoFern Geräte zu steuern. DuoFern sendet übrigens auf 434,5 MHz. Die als Standard eingestellte Dauer bis zur Synchronisierung der Homepilot Daten nach ioBroker beträgt 12s. In die andere Richtung werden Befehle zeitnah ausgeführt. Daher eignet sich der Adapter nicht zur Auswertung von Homepilot Sensoren, sondern eher zur Ansteuerung der Homepilot Aktoren aus ioBroker heraus (z.B. Homematic Wandtaster steuert Homepilot Rollladen-Aktor).
 
 ### Unterstütze Geräte
 
@@ -16,7 +16,9 @@ Dieser Adapter verbindet ioBroker mit der Rademacher Homepilot Basistation 9496 
 | 47   | Rohrmotor-Steuerung         |  Rohrmotor Steuerung                   |  level       |                        |
 | 48   | Dimmer                      |  Dimmaktor                             |  level       |                        |
 | 49   | Rohrmotor                   |                                        |  level       |                        |
+| 70   | Troll Comfort DuoFern       | (dank an homecineplexx)                |              |                        |
 |  4   | Z-WAVE                      | Heizkörperstellantrieb                 |  temperature |                        |
+| 4B   | Connect-Aktor               |                                        |              |                        |
 
 Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch einen Gerätemodus an. Je nach Einstellung liefert der Datenpunkt "AUF" ein "EIN" (Gerätemodus) oder ein "AUS" (Lichtmodus). Der Datenpunkt "AB" verhält sich umgekehrt.
 
@@ -24,14 +26,12 @@ Der Schaltaktor mit dem Duofern Code 43 bietet sowohl einen Licht- als auch eine
 
 | Code | Produktname                 | Notiz                                  |  Datenpunkt  | Produkt Nr             |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
-| 4B   | Connect-Aktor               |                                        |              |                        |
 | 4C   | Troll Basis                 |                                        |              |                        |
 | 4E   | SX5                         |                                        |              |                        |
 | 61   | RolloTron Comfort Master    |                                        |              |                        |
 | 62   | SupeFake Device             |                                        |              |                        |
 | 65   | Bewegungsmelder             |                                        |              |                        |
 | 69   | Umweltsensor                |                                        |              |                        |
-| 70   | Troll Comfort DuoFern       |                                        |              |                        |
 | 71   | Troll Comfort DuoFern<br/>(Lichtmodus)|                                        |              |                        |      | (Lichtmodus)                |                                        |              |                        |
 | 73   | Raumthermostat              |                                        |              |                        |
 | 74   | Wandtaster 6fach 230V       |                                        |              |                        |

@@ -2,7 +2,7 @@
 # ioBroker.homepilot
 
 ## Description
-This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
+This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2 with firmware lower than v5.0) via TCP/IP to control Rademacher DuoFern radio controlled devices. Besides DuoFern broadcasts at 434,5 MHz. Homepilot syncs every 12s to ioBroker by default. On the other hand iobroker broadcasts its commands just in time. Therefore this adapter should be used to control homepilot actuators from ioBroker rather than read homepilot sensors to ioBroker.
 
 ### Supported devices
 
@@ -16,14 +16,15 @@ This adapter connects ioBroker and Rademacher's Homepilot Station 9496 (1/2) via
 | 47   | Rohrmotor-Steuerung         |  Rohrmotor Steuerung                   |  level       |                        |
 | 48   | Dimmer                      |  Dimmaktor                             |  level       |                        |
 | 49   | Rohrmotor                   |                                        |  level       |                        |
+| 70   | Troll Comfort DuoFern       | (thanks to homecineplexx)              |              |                        |
 |  4   | Z-WAVE                      | Heizkörperstellantrieb                 |  temperature |                        |
+| 4B   | Connect-Aktor               |                                        |              |                        |
 
 The actuator duofern code 43 supports a light mode and a device mode. Each mode delivers either ON (device mode) or OFF (light mode) when UP is pressed. Press DOWN is vice versa.
 
 #### Not yet supported (Thx to [mhop](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/30_DUOFERN.pm))
 | Code | Product Name                | Note                                   |  Datapoint   | Product #              |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
-| 4B   | Connect-Aktor               |                                        |              |                        |
 | 4C   | Troll Basis                 |                                        |              |                        |
 | 4E   | SX5                         |                                        |              |                        |
 | 61   | RolloTron Comfort Master    |                                        |              |                        |

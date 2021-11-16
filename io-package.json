@@ -1,5 +1,5 @@
-{  
-    "common":{  
+{
+    "common":{
         "name":"homepilot",
         "title":"Homepilot",
         "desc":{
@@ -11,11 +11,63 @@
             "fr": "contrôle Homepilot Duofern Devices avec ioBroker",
             "it": "controlla i dispositivi Homepilot Duofern con ioBroker",
             "es": "controlar dispositivos Homepilot Duofern con ioBroker",
-            "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker"
+            "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker",
+            "zh-cn": "使用ioBroker控制Homepilot Duofern设备"
         },
-        "version":"1.1.0",
+        "version":"1.1.6",
         "mode":"daemon",
         "news":{
+            "1.1.6":{
+                "en": "connectionType and dataSource added, minor fixes",
+                "de": "connectionType und dataSource zugefügt, kleine Korrekturen"
+            },
+            "1.1.4":{
+                "en": "NodeJS 10 or higher required",
+                "de": "NodeJS 10 oder höher erforderlich",
+                "ru": "Требуется NodeJS 10 или выше",
+                "pt": "Necessário NodeJS 10 ou superior",
+                "nl": "NodeJS 10 of hoger vereist",
+                "fr": "NodeJS 10 ou supérieur requis",
+                "it": "Nodo JS 10 o superiore richiesto",
+                "es": "Nodo JS 10 o superior requerido",
+                "pl": "Wymagany NodeJS 10 lub wyższy",
+                "zh-cn": "需要NodeJS 10或更高版本"
+            },
+            "1.1.3":{
+                  "en": "Added support for Connect Actor",
+                  "de": "Unterstützung für Connect Actor hinzugefügt",
+                  "ru": "Добавлена поддержка Connect Actor",
+                  "pt": "Suporte adicionado ao Connect Actor",
+                  "nl": "Ondersteuning toegevoegd voor Connect Actor",
+                  "fr": "Ajout du support pour Connect Actor",
+                  "it": "Aggiunto supporto per Connect Actor",
+                  "es": "Soporte agregado para Connect Actor",
+                  "pl": "Dodano obsługę Connect Actor",
+                  "zh-cn": "添加了对Connect Actor的支持"
+            },
+            "1.1.2":{
+                 "en": "Update testing for nodejs12, translations",
+                 "de": "Update-Test für nodejs12, Übersetzungen",
+                 "ru": "Обновление тестирования для nodejs12, переводы",
+                 "pt": "Teste de atualização para nodejs12, traduções",
+                 "nl": "Update testen voor nodejs12, vertalingen",
+                 "fr": "Test de mise à jour pour nodejs12, traductions",
+                 "it": "Test di aggiornamento per nodejs12, traduzioni",
+                 "es": "Actualización de pruebas para nodejs12, traducciones",
+                 "pl": "Zaktualizuj testy dla nodejs12, tłumaczenia",
+                 "zh-cn": "更新nodejs12，翻译的测试"
+            },
+            "1.1.1":{
+                "en": "added new device Troll Comfort DuoFern",
+                "de": "Neues Gerät Troll Comfort DuoFern hinzugefügt",
+                "ru": "добавлено новое устройство Troll Comfort DuoFern",
+                "pt": "adicionado novo dispositivo Troll Comfort DuoFern",
+                "nl": "nieuw apparaat toegevoegd Troll Comfort DuoFern",
+                "fr": "ajouté nouveau dispositif Troll Comfort DuoFern",
+                "it": "aggiunto il nuovo dispositivo Troll Comfort DuoFern",
+                "es": "añadido nuevo dispositivo Troll Comfort DuoFern",
+                "pl": "dodano nowe urządzenie Troll Comfort DuoFern"
+            },
             "1.1.0":{
                 "en": "Improved integration of thermostats",
                 "de": "Verbesserte Integration von Thermostaten",
@@ -81,82 +133,12 @@
                 "it": "Supporto di Admin 3, traduzioni in lingue de, ru, pt, nl, fr, it, es e pl",
                 "es": "Soporte de Admin 3, Traducciones a de, ru, pt, nl, fr, it, es y pl languages",
                 "pl": "Wsparcie dla administratora 3, Tłumaczenia na języki de, ru, pt, nl, fr, it, es i pl"
-            },
-            "0.3.1":{  
-                "en":"New documentation structure",
-                "de":"neue Struktur der Dokumentation",
-                "ru":"New documentation structure"
-            },
-            "0.3.0":{  
-                "en":"Support more Z-Wave actuators, integration to iobroker.discover",
-                "de":"Unterstützung weiterer Z-Wave Aktoren, Integration in iobroker.discover",
-                "ru":"Support more Z-Wave actuators, integration to iobroker.discover"
-            },
-            "0.2.9":{  
-                "en":"Minimum nodejs 4 required",
-                "de":"Mindestens nodejs 4 erforderlich",
-                "ru":"Minimum nodejs 4 required"
-            },
-            "0.2.8":{  
-                "en":"Code corrections on Heizkörperstellantrieb Z-Wave",
-                "de":"Code-Korrekturen für Heizkörperstellantrieb Z-Wave",
-                "ru":"Code corrections Heizkörperstellantrieb Z-Wave"
-            },
-            "0.2.7":{  
-                "en":"Added support for Heizkörperstellantrieb Z-Wave",
-                "de":"Heizkörperstellantrieb Z-Wave integriert",
-                "ru":"Added support for Heizkörperstellantrieb Z-Wave"
-            },
-            "0.2.6":{  
-                "en":"Duofern product 'Dimmer' with id 48 integrated",
-                "de":"Dimmer mit Duofern ID 48 integriert",
-                "ru":"Duofern product 'Dimmer' with id 48 integrated"
-            },
-            "0.2.5":{  
-                "en":"CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11.",
-                "de":"Datenpunkt CID erlaubt nun die Eingabe von 'true' or 'false' und wandelt sie in Kommando 10 or 11.",
-                "ru":"CID datapoint now accepts input of 'true' or 'false' and translates it to command 10 or 11."
-            },
-            "0.2.4":{  
-                "en":"converted serial to duofern code",
-                "de":"Seriennummer in Duofern Code geändert",
-                "ru":"converted serial to duofern code"
-            },
-            "0.2.3":{  
-                "en":"datapoint serial number added, fixed regexp issue on cid",
-                "de":"Datenpunkt Seriennummer zugefügt, RegExp Fehler in CID korrigiert",
-                "ru":"datapoint serial number added, fixed regexp issue on cid"
-            },
-            "0.2.2":{  
-                "en":"fixed state datapoint updates",
-                "de":"State Datenpunkt Updates korrigiert",
-                "ru":"fixed state datapoint updates"
-            },
-            "0.2.1":{  
-                "en":"Device recognition by serial number optimized",
-                "de":"Geräte-Erkennung durch Seriennummer verbessert",
-                "ru":"Device recognition by serial number optimized"
-            },
-            "0.2.0":{  
-                "en":"Removed parent from setObject-config",
-                "de":"Eltern/Kind-Zuordnung bei Datenpunkten entfernt",
-                "ru":"Removed parent from setObject-config"
-            },
-            "0.1.1":{  
-                "en":"Roles Added",
-                "de":"Rollen hinzugefügt",
-                "ru":"roles Added"
-            },
-            "0.1.0":{  
-                "en":"Travis CI and Appveyor testing supported",
-                "de":"Travis CI und Appveyor Test Unterstützung",
-                "ru":"Travis CI и Appveyor тестирование при поддержке"
             }
         },
         "platform":"javascript/Node.js",
         "loglevel":"info",
         "materialize": true,
-        "keywords":[  
+        "keywords":[
             "blinds",
             "jalousien",
             "homepilot",
@@ -167,7 +149,7 @@
             "pix"
         ],
         "main":"main.js",
-        "authors":[  
+        "authors":[
             "Pix"
         ],
         "license":"MIT",
@@ -176,37 +158,39 @@
         "extIcon":"https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
         "allowInit":true,
         "type":"iot-systems",
-        "config":{  
+        "connectionType": "local",
+        "dataSource": "push",
+        "config":{
             "width":650,
             "height":450,
             "minWidth":650,
             "minHeight":400
         }
     },
-    "native":{  
+    "native":{
         "homepilotip":"",
         "homepilotport":"",
         "synctime":""
     },
-    "objects":[  
+    "objects":[
 
     ],
-    "instanceObjects":[  
-        {  
+    "instanceObjects":[
+        {
             "_id":"station",
             "type":"channel",
-            "common":{  
+            "common":{
                 "role":"",
                 "name":""
             },
-            "native":{  
+            "native":{
 
             }
         },
-        {  
+        {
             "_id":"station.ip",
             "type":"state",
-            "common":{  
+            "common":{
                 "name":"homepilot IP",
                 "desc":"homepilot station IP adress",
                 "type":"string",
@@ -214,14 +198,14 @@
                 "read":true,
                 "write":false
             },
-            "native":{  
+            "native":{
 
             }
         },
-        {  
+        {
             "_id":"station.UNREACH",
             "type":"state",
-            "common":{  
+            "common":{
                 "name":"homepilot not connected",
                 "desc":"is homepilot station unreachable or not",
                 "type":"boolean",
@@ -230,25 +214,25 @@
                 "read":true,
                 "write":false
             },
-            "native":{  
+            "native":{
 
             }
         },
-        {  
+        {
             "_id":"devices",
             "type":"channel",
-            "common":{  
+            "common":{
                 "role":"",
                 "name":""
             },
-            "native":{  
+            "native":{
 
             }
         },
-        {  
+        {
             "_id":"devices.json",
             "type":"state",
-            "common":{  
+            "common":{
                 "name":"homepilot devices JSON",
                 "desc":"homepilot JSON response on http://homepilotip/deviceajax.do?devices=1",
                 "type":"string",
@@ -256,7 +240,7 @@
                 "read":true,
                 "write":false
             },
-            "native":{  
+            "native":{
 
             }
         }

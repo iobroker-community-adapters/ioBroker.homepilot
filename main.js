@@ -275,6 +275,7 @@ function createStates(result, i) {
         case "47": // Rohrmotor
         case "49": // Rohrmotor
 		case "4B": // DuoFern Connect-Aktor
+		case "70": // Troll Comfort DuoFern
             devicerole = 'level.blind';
             break;
         case "48": // Dimmer
@@ -388,7 +389,7 @@ function createStates(result, i) {
     });
 	
 	if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" || 
-		(parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') != -1)) {
+		(parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') != -1)) {
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
@@ -410,7 +411,7 @@ function createStates(result, i) {
                 });
             }
         });
-    } else if (parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
+    } else if (parseInt(duoferncode.substring(0,2),16) < 26 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
        adapter.setObjectNotExists(path + '.temperature', {
           type: 'state',
             common: {
@@ -556,13 +557,13 @@ function writeStates(result, i) {
     });
     // STATE
     if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" ||
-		(parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') != -1)) { 
+		(parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') != -1)) { 
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
             ack: true
         }); // maybe should write to adapters level and level_inverted too
-	} else if (parseInt(duoferncode.substring(0,2)) < 20 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
+	} else if (parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
 		// TEMP
         adapter.setState(path + 'temperature', {
             val: (parseFloat(result.devices[i].position) * 0.1),
