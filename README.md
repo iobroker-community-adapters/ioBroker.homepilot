@@ -31,7 +31,10 @@ NodeJS 10 or higher required
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
-### 1.1.7a (2021-08-25)
+### 1.2.0a (2021-11-16)
+* (pix) STOP Button for blinds created [#26](https://github.com/Pix---/ioBroker.homepilot/issues/26)
+
+### 1.1.7 (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/Pix---/ioBroker.homepilot/issues/27)
 
 ### 1.1.6 (2021-05-05)
