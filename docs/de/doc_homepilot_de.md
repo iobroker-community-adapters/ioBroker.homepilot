@@ -83,6 +83,8 @@ homepilot.0.devices.product.*deviceID*.__level__ (Zahl)
 
 homepilot.0.devices.product.*deviceID*.__level_inverted__ (Zahl)
 
+homepilot.0.devices.product.*deviceID*.__stop__ (Button, nur bei Rollläden)
+
 homepilot.0.devices.product.*deviceID*.__temperature__ (Zahl, alternative)
 
 homepilot.0.devices.product.*deviceID*.__state__ (boolean, Nur bei Schaltern)
