@@ -215,7 +215,18 @@ function controlHomepilot(id, input) {
             valid = true;
             url = 'http://' + ip + '/deviceajax.do?cid=9&did=' + deviceid + '&goto=' + (100 - parseInt(input,10)) + '&command=1';
         } else valid = false;
-    } 
+    } else if (controller == 'stop') { // control via stop button e.g. blinds e.g. RolloTronStandard
+        if (input.search(/(true)|(EIN)|(AN)|(ON)|([0-1])|(false)|(AUS)|(OFF)\b\b/gmi) != -1) { // check if "true" or "false"
+            valid = true;
+            if (input.search(/(true)|(EIN)|(AN)|(ON)|(1)\b\b/gmi) != -1 ) newcid = '2'; 
+            //if (input.search(/(false)|(AUS)|(OFF)|(0)\b\b/gmi) != -1 ) newcid = '2';  // only input true makes sense for STOP-button
+            url = 'http://' + ip + '/deviceajax.do?did=' + deviceid + '&cid=' + newcid + '&command=1'; // STOP
+            adapter.log.debug('STOP button ' + deviceid + ' new status detected: ' + input + ' URL: '  + url);
+        } else {
+            valid = false;
+            adapter.log.warn('Only use "ON", "true", "ein" (all caseinsensitive) or "1" to control your button STOP');
+        }
+    }
 	
     if (valid) {
         request(url); // Send command to Homepilot
@@ -274,8 +285,8 @@ function createStates(result, i) {
         case "42": // Rohrmotor
         case "47": // Rohrmotor
         case "49": // Rohrmotor
-		case "4B": // DuoFern Connect-Aktor
-		case "70": // Troll Comfort DuoFern
+	case "4B": // DuoFern Connect-Aktor
+	case "70": // Troll Comfort DuoFern
             devicerole = 'level.blind';
             break;
         case "48": // Dimmer
@@ -292,7 +303,8 @@ function createStates(result, i) {
 			break;
         default:
             devicerole = 'switch'
-    }
+    } // ENDE Switch
+	
     // create Channel DeviceID
     adapter.setObjectNotExists(path, {
         type: 'channel',
@@ -302,6 +314,7 @@ function createStates(result, i) {
         },
         native: {}
     });
+	
     // create States
     adapter.setObjectNotExists(path + '.name', {
         type: 'state',
@@ -387,13 +400,13 @@ function createStates(result, i) {
         },
         native: {}
     });
-	
-	if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" || 
-		(parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') != -1)) {
+    
+    // create States depending on DuofernCode
+    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" || (parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') != -1)) {
         adapter.setObjectNotExists(path + '.state', {
             type: 'state',
             common: {
-               name: 'STATE of ' + devicename,
+                name: 'STATE of ' + devicename,
                 desc: 'Boolean datapoint for switches for ' + deviceid,
                 type: 'boolean',
                 role: 'switch',
@@ -413,13 +426,13 @@ function createStates(result, i) {
         });
     } else if (parseInt(duoferncode.substring(0,2),16) < 26 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
        adapter.setObjectNotExists(path + '.temperature', {
-          type: 'state',
+            type: 'state',
             common: {
-             name: 'Temperature of ' + devicename,
+                name: 'Temperature of ' + devicename,
                 desc: 'Temperature datapoint for ' + deviceid,
                 type: 'number',
                 role: devicerole,
-				def: 0,
+		def: 0,
                 min: 0,
                 max: 28,
                 unit: '°C',
@@ -431,14 +444,14 @@ function createStates(result, i) {
             if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
     } else if (duoferncode.substring(0,2) == "E1") {
-		adapter.setObjectNotExists(path + '.temperature', {
-          type: 'state',
+	adapter.setObjectNotExists(path + '.temperature', {
+            type: 'state',
             common: {
-             name: 'Temperature of ' + devicename,
+                name: 'Temperature of ' + devicename,
                 desc: 'Temperature datapoint for ' + deviceid,
                 type: 'number',
                 role: devicerole,
-				def: 4,
+		def: 4,
                 min: 4,
                 max: 28,
                 unit: '°C',
@@ -449,15 +462,15 @@ function createStates(result, i) {
         }, function(err, obj) {
             if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
-	} else if (duoferncode.substring(0,2) == "73") {
-		adapter.setObjectNotExists(path + '.temperature', {
-          type: 'state',
+    } else if (duoferncode.substring(0,2) == "73") {
+	adapter.setObjectNotExists(path + '.temperature', {
+            type: 'state',
             common: {
-             name: 'Temperature of ' + devicename,
+                name: 'Temperature of ' + devicename,
                 desc: 'Temperature datapoint for ' + deviceid,
                 type: 'number',
                 role: devicerole,
-				def: 4,
+		def: 4,
                 min: 4,
                 max: 40,
                 unit: '°C',
@@ -469,14 +482,14 @@ function createStates(result, i) {
             if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
 		
-		adapter.setObjectNotExists(path + '.current_temperature', {
-          type: 'state',
+	adapter.setObjectNotExists(path + '.current_temperature', {
+            type: 'state',
             common: {
-             name: 'current Temperature of ' + devicename,
+            name: 'current Temperature of ' + devicename,
                 desc: 'current Temperature datapoint for ' + deviceid,
                 type: 'number',
                 role: devicerole,
-				def: 4,
+		def: 4,
                 min: 4,
                 max: 40,
                 unit: '°C',
@@ -487,7 +500,7 @@ function createStates(result, i) {
         }, function(err, obj) {
             if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
-	} else {
+    } else {
         adapter.setObjectNotExists(path + '.level_inverted', {
             type: 'state',
             common: {
@@ -521,6 +534,40 @@ function createStates(result, i) {
             if (!err && obj) adapter.log.info('Objects for ' + product + '(' + deviceid + ') created');
         });
     } // ENDE else
+    // create STOP datapoint for blinds
+    // code "40" Rollotron Standard
+    // code "41" Rollotron Comfort
+    // code "42" Rohrmotor
+    // code "47" Rohrmotor
+    // code "49" Rohrmotor
+	
+    if (duoferncode.substring(0,2) == "40" 
+        || duoferncode.substring(0,2) == "41"
+	|| duoferncode.substring(0,2) == "42"
+	|| duoferncode.substring(0,2) == "47"
+	|| duoferncode.substring(0,2) == "49" ) {
+        adapter.setObjectNotExists(path + '.state', {
+            type: 'state',
+            common: {
+                name: 'STOP button for ' + devicename,
+                desc: 'stop datapoint for blinds for ' + deviceid,
+                type: 'boolean',
+                role: 'button',
+                def: false,
+                read: true,
+                write: true
+            },
+            native: {}
+        }, function(err, obj) {
+            if (!err && obj) {
+                adapter.setState(path + 'state', {
+                    val: false,
+                    ack: true
+                });
+            }
+        });
+    }
+    
 }
 
 function writeStates(result, i) {
@@ -556,37 +603,36 @@ function writeStates(result, i) {
         ack: true
     });
     // STATE
-    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" ||
-		(parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') != -1)) { 
+    if (duoferncode.substring(0,2) == "43" || duoferncode.substring(0,2) == "46" || (parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') != -1)) { 
         var statevalue = (result.devices[i].position == 100 || result.devices[i].position === '100') ? true : false;
         adapter.setState(path + 'state', {
             val: statevalue,
             ack: true
         }); // maybe should write to adapters level and level_inverted too
-	} else if (parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
-		// TEMP
+    } else if (parseInt(duoferncode.substring(0,2), 16) < 26 && product.indexOf('Repeater') == -1) { // HeizkörperstellantrieZ-Wave
+	// TEMP
         adapter.setState(path + 'temperature', {
             val: (parseFloat(result.devices[i].position) * 0.1),
             ack: true
         });
     } else if (duoferncode.substring(0,2) == "E1") {
-		// TEMP
+	// TEMP
         adapter.setState(path + 'temperature', {
             val: (parseFloat(result.devices[i].position) * 0.1),
             ack: true
         });
 	} else if (duoferncode.substring(0,2) == "73") {
-		// TEMP
+	// TEMP
         adapter.setState(path + 'temperature', {
             val: (parseFloat(result.devices[i].position) * 0.1),
             ack: true
         });
-		// current TEMP
+	// current TEMP
         adapter.setState(path + 'current_temperature', {
             val: (parseFloat(result.devices[i].statusesMap.acttemperatur) * 0.1),
             ack: true
         });
-	} else { // LEVEL Datapoints
+    } else { // LEVEL Datapoints
         adapter.setState(path + 'level', {
             val: result.devices[i].position,
             ack: true
