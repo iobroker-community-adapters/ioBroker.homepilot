@@ -547,7 +547,7 @@ function createStates(result, i) {
 	|| duoferncode.substring(0,2) == "47"
 	|| duoferncode.substring(0,2) == "49" ) {
         adapter.setObjectNotExists(path + '.stop', {
-            type: 'button.stop',
+            type: 'state',
             common: {
                 name: 'STOP button for ' + devicename,
                 desc: 'stop datapoint for blinds for ' + deviceid,
