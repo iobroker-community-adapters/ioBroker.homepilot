@@ -546,15 +546,15 @@ function createStates(result, i) {
 	|| duoferncode.substring(0,2) == "42"
 	|| duoferncode.substring(0,2) == "47"
 	|| duoferncode.substring(0,2) == "49" ) {
-        adapter.setObjectNotExists(path + '.state', {
-            type: 'state',
+        adapter.setObjectNotExists(path + '.stop', {
+            type: 'button.stop',
             common: {
                 name: 'STOP button for ' + devicename,
                 desc: 'stop datapoint for blinds for ' + deviceid,
                 type: 'boolean',
-                role: 'button',
-                def: false,
-                read: true,
+                role: 'button.stop',
+                def: true,
+                read: false,
                 write: true
             },
             native: {}
