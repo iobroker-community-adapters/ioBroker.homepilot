@@ -156,9 +156,9 @@
             "Pix"
         ],
         "license":"MIT",
-        "readme":"https://github.com/Pix---/ioBroker.homepilot/blob/master/README.md",
+        "readme":"https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/README.md",
         "icon":"homepilot.png",
-        "extIcon":"https://raw.githubusercontent.com/Pix---/ioBroker.homepilot/master/admin/homepilot.png",
+        "extIcon":"https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.homepilot/master/admin/homepilot.png",
         "allowInit":true,
         "type":"iot-systems",
         "connectionType": "local",
