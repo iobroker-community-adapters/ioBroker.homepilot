@@ -8,10 +8,10 @@
     "mikepa1",
     "homecineplexx"
   ],
-  "homepage": "https://github.com/Pix---/ioBroker.homepilot",
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.homepilot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pix---/ioBroker.homepilot"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.homepilot"
   },
   "license": "MIT",
   "keywords": [
@@ -35,7 +35,7 @@
     "chai": "^4.1.2"
   },
   "bugs": {
-    "url": "https://github.com/Pix---/ioBroker.homepilot/issues"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues"
   },
   "main": "main.js",
   "scripts": {
