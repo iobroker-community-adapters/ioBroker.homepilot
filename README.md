@@ -6,7 +6,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)
 
-Adapter needs Homepilot Base Station's firmware to be lower than v5.0 (earlier than September 2019). Newer or updated stations can be managed with [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)
+## _Adapter needs Homepilot Base Station's firmware to be lower than v5.0 (earlier than September 2019)._<br>_Newer or updated stations can be managed with [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_
+
 NodeJS 10 or higher required
 
 :de: [Dokumentation](/docs/de/doc_homepilot_de.md)
