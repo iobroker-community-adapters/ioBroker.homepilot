@@ -2,6 +2,18 @@
     "common":{
         "name":"homepilot",
         "title":"Homepilot",
+        "titleLand":{
+            "en": "Homepilot",
+            "de": "Homepilot",
+            "ru": "Homepilot",
+            "pt": "Homepilot",
+            "nl": "Homepilot",
+            "fr": "Homepilot",
+            "it": "Homepilot",
+            "es": "Homepilot",
+            "pl": "Homepilot",
+            "zh-cn": "Homepilot"
+        },
         "desc":{
             "en": "control Homepilot Duofern Devices with ioBroker",
             "de": "verbindet Rademacher Homepilot Duofern Geräte mit ioBroker",
