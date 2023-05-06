@@ -29,6 +29,14 @@ NodeJS 10 or higher required
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.7a (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 
