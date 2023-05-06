@@ -2,7 +2,7 @@
     "common":{
         "name":"homepilot",
         "title":"Homepilot",
-        "titleLand":{
+        "titleLang":{
             "en": "Homepilot",
             "de": "Homepilot",
             "ru": "Homepilot",
