@@ -24,6 +24,9 @@
     "rollladen",
     "home automation"
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "request": "^2.72.0",
     "xml2js": "^0.4.23",
