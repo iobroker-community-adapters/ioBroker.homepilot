@@ -34,8 +34,8 @@ NodeJS 10 or higher required
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.1.7a (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
@@ -154,6 +154,7 @@ Contributions are welcome!
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

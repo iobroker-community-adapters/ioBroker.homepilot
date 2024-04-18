@@ -1,7 +1,6 @@
 {
     "common":{
         "name":"homepilot",
-        "title":"Homepilot",
         "titleLang":{
             "en": "Homepilot",
             "de": "Homepilot",
@@ -152,6 +151,7 @@
         },
         "platform":"javascript/Node.js",
         "loglevel":"info",
+        "tier": 2,
         "materialize": true,
         "keywords":[
             "blinds",
@@ -163,11 +163,13 @@
             "rollos",
             "pix"
         ],
-        "main":"main.js",
         "authors":[
             "Pix"
         ],
-        "license":"MIT",
+        "licenseInformation": {
+            "license": "MIT",
+            "type": "free"
+        },
         "readme":"https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/README.md",
         "icon":"homepilot.png",
         "extIcon":"https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.homepilot/master/admin/homepilot.png",
@@ -175,7 +177,17 @@
         "type":"iot-systems",
         "connectionType": "local",
         "dataSource": "push",
-        "config":{
+        "dependencies": [
+            {
+              "js-controller": ">=5.0.19"
+            }
+          ],
+          "globalDependencies": [
+            {
+              "admin": ">=6.13.16"
+            }
+          ],
+          "config":{
             "width":650,
             "height":450,
             "minWidth":650,
