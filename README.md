@@ -37,7 +37,7 @@ NodeJS 10 or higher required
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 
-### 1.1.7a (2021-08-25)
+### 1.1.7 (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 
 ### 1.1.6 (2021-05-05)
