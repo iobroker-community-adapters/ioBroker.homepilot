@@ -25,9 +25,22 @@
       "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker",
       "zh-cn": "使用ioBroker控制Homepilot Duofern设备"
     },
-    "version": "1.2.2",
+    "version": "1.2.3",
     "mode": "daemon",
     "news": {
+      "1.2.3": {
+        "en": "NPM related problems have been fixed.",
+        "de": "Probleme mit NPM wurden behoben.",
+        "ru": "Проблемы, связанные с НПМ, были решены.",
+        "pt": "NPM problemas relacionados foram corrigidos.",
+        "nl": "NPM-gerelateerde problemen zijn opgelost.",
+        "fr": "Les problèmes liés aux NPM ont été corrigés.",
+        "it": "I problemi relativi al NPM sono stati risolti.",
+        "es": "Se han solucionado los problemas relacionados con los mecanismos nacionales de prevención.",
+        "pl": "Problemy związane z NPM zostały naprawione.",
+        "uk": "Зафіксовано проблеми пов’язаних з NPM.",
+        "zh-cn": "与国家预防机制有关的问题已经解决."
+      },
       "1.2.2": {
         "en": "Adapter requires node.js >= 18 and js-controller >= 5 now\nDependencies have been updated",
         "de": "Adapter benötigt node.js >= 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
@@ -83,17 +96,6 @@
         "es": "Actualización de pruebas para nodejs12, traducciones",
         "pl": "Zaktualizuj testy dla nodejs12, tłumaczenia",
         "zh-cn": "更新nodejs12，翻译的测试"
-      },
-      "1.1.1": {
-        "en": "added new device Troll Comfort DuoFern",
-        "de": "Neues Gerät Troll Comfort DuoFern hinzugefügt",
-        "ru": "добавлено новое устройство Troll Comfort DuoFern",
-        "pt": "adicionado novo dispositivo Troll Comfort DuoFern",
-        "nl": "nieuw apparaat toegevoegd Troll Comfort DuoFern",
-        "fr": "ajouté nouveau dispositif Troll Comfort DuoFern",
-        "it": "aggiunto il nuovo dispositivo Troll Comfort DuoFern",
-        "es": "añadido nuevo dispositivo Troll Comfort DuoFern",
-        "pl": "dodano nowe urządzenie Troll Comfort DuoFern"
       }
     },
     "platform": "javascript/Node.js",
