@@ -34,6 +34,7 @@ NodeJS 10 or higher required
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (mcm1957) Dependencies have been updated
 
 ### 1.2.3 (2024-04-19)
 - (mcm1957) NPM related problems have been fixed.
