@@ -33,6 +33,9 @@ NodeJS 10 or higher required
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm1957) NPM related problems have been fixed.
+
 ### 1.2.2 (2024-04-18)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
