@@ -33,6 +33,8 @@ NodeJS 10 or higher required
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
 ### 1.2.3 (2024-04-19)
 - (mcm1957) NPM related problems have been fixed.
 
