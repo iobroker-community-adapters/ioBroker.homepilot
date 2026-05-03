@@ -123,7 +123,6 @@
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/README.md",
     "icon": "homepilot.png",
     "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.homepilot/master/admin/homepilot.png",
-    "allowInit": true,
     "type": "iot-systems",
     "connectionType": "local",
     "dataSource": "push",
