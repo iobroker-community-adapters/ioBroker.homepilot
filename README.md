@@ -154,6 +154,8 @@ NodeJS 10 or higher required
 ### 0.0.1 (2016-06-15)
 * (pix) adapter created
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Roadmap
 * 1.4.0 get a list of all installed duofern products in your network within the settings window
 * 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"
