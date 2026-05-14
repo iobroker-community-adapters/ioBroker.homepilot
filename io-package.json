@@ -25,9 +25,22 @@
       "pl": "kontroluj urządzenia Homofilot Duofern z ioBroker",
       "zh-cn": "使用ioBroker控制Homepilot Duofern设备"
     },
-    "version": "1.2.3",
+    "version": "1.3.0",
     "mode": "daemon",
     "news": {
+      "1.3.0": {
+        "en": "Adapter requires node.js >= 22 now\nAdapter requires admin >= 7.7.22 now\nAdapter requires js-controller >= 6.0.11 now\nDependencies have been updated",
+        "de": "Adapter benötigt node.js >= 22 jetzt\nAdapter benötigt admin >= 7.7.22 jetzt\nAdapter benötigt jetzt js-controller >= 6.0.11\nAbhängigkeiten wurden aktualisiert",
+        "ru": "Адаптер требует node.js >= 22 сейчас\nАдаптер требует администратора >= 7.7.22\nАдаптер требует js-контроллер >= 6.0.11\nЗависимости были обновлены",
+        "pt": "Adaptador requer nod.js >= 22 agora\nAdaptador requer admin >= 7.7.22 agora\nAdaptador requer js-controlador >= 6.0.11 agora\nAs dependências foram atualizadas",
+        "nl": "Voor de adapter zijn node.js < 22 nu nodig\nAdapter vereist admin < 7.7.22 nu\nAdapter vereist js-controller < 6,0.11 nu\nAfhankelijkheden zijn bijgewerkt",
+        "fr": "Adaptateur nécessite node.js >= 22 maintenant\nAdaptateur nécessite admin >= 7.7.22 maintenant\nAdaptateur nécessite js-controller >= 6.0.11 maintenant\nLes dépendances ont été actualisées",
+        "it": "Adattatore richiede node.js >= 22 ora\nAdattatore richiede admin >= 7.7.22 ora\nAdattatore richiede js-controller >= 6.0.11 ora\nLe dipendenze sono state aggiornate",
+        "es": "Adaptador requiere node.js ю= 22 ahora\nEl adaptador requiere administrador= 7.7.22 ahora\nAdaptador requiere js-controller >= 6.0.11\nSe han actualizado las dependencias",
+        "pl": "Adapter wymaga node.js > = 22\nAdapter wymaga admin > = 7.7.22\nAdapter wymaga sterownika js- > = 6.0.11\nZaktualizowano zależności",
+        "uk": "Адаптер вимагає node.js >= 22 тепер\nАдаптер вимагає адмін >= 7.7.22 тепер\nАдаптер вимагає js-controller >=6.0.11 тепер\nЗалежність було оновлено",
+        "zh-cn": "适配器需要节点.js 现在22\n适任者需要管理员 \\ 7.7.22 现在\n适配器需要js控制器 现在6.0.11\n依赖关系已更新"
+      },
       "1.2.3": {
         "en": "NPM related problems have been fixed.",
         "de": "Probleme mit NPM wurden behoben.",
@@ -84,18 +97,6 @@
         "es": "Soporte agregado para Connect Actor",
         "pl": "Dodano obsługę Connect Actor",
         "zh-cn": "添加了对Connect Actor的支持"
-      },
-      "1.1.2": {
-        "en": "Update testing for nodejs12, translations",
-        "de": "Update-Test für nodejs12, Übersetzungen",
-        "ru": "Обновление тестирования для nodejs12, переводы",
-        "pt": "Teste de atualização para nodejs12, traduções",
-        "nl": "Update testen voor nodejs12, vertalingen",
-        "fr": "Test de mise à jour pour nodejs12, traductions",
-        "it": "Test di aggiornamento per nodejs12, traduzioni",
-        "es": "Actualización de pruebas para nodejs12, traducciones",
-        "pl": "Zaktualizuj testy dla nodejs12, tłumaczenia",
-        "zh-cn": "更新nodejs12，翻译的测试"
       }
     },
     "platform": "javascript/Node.js",
