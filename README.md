@@ -34,7 +34,6 @@ NodeJS 10 or higher required
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) **CI/CD**: Migrated linting to ESLint 9 with the shared `@iobroker/eslint-config` and matching Prettier template
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
