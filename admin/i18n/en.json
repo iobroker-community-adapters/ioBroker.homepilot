@@ -1,5 +1,5 @@
 {
-    "IP": "ip adress of homepilot station",
+    "IP": "ip address of homepilot station",
     "Port": "Port number",
     "Synctime": "Synctime",
     "default is 12": "if left empty '12' will be used",
