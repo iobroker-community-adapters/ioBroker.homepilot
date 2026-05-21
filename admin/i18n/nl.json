@@ -1,0 +1,9 @@
+{
+    "IP": "ip adres van homepilot station",
+    "Port": "Poortnummer",
+    "Synctime": "Synchronisatietijd",
+    "default is 12": "indien leeg gelaten wordt '12' gebruikt",
+    "homepilot station": "Homepilot station",
+    "if left empty 'homepilot.local' will be used": "indien leeg wordt 'homepilot.local' gebruikt",
+    "normally no port setting is required": "normaal is geen poort vereist"
+}

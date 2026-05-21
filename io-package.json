@@ -103,6 +103,9 @@
     "loglevel": "info",
     "tier": 2,
     "materialize": true,
+    "adminUI": {
+      "config": "json"
+    },
     "keywords": [
       "blinds",
       "jalousien",

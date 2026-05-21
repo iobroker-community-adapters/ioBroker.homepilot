@@ -1,0 +1,9 @@
+{
+    "IP": "adres IP stacji homepilot",
+    "Port": "Numer portu",
+    "Synctime": "Czas synchronizacji",
+    "default is 12": "jeśli pozostanie puste, zostanie użyte „12”",
+    "homepilot station": "Stacja Homepilot",
+    "if left empty 'homepilot.local' will be used": "jeśli zostanie użyty pusty \"homepilot.local\"",
+    "normally no port setting is required": "zwykle nie jest wymagany port"
+}
