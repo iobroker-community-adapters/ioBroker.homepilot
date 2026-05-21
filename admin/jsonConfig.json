@@ -1,0 +1,44 @@
+{
+    "type": "panel",
+    "items": {
+        "_station": {
+            "type": "header",
+            "text": "homepilot station",
+            "xs": 12,
+            "sm": 12,
+            "md": 12,
+            "lg": 12,
+            "xl": 12
+        },
+        "homepilotip": {
+            "type": "text",
+            "label": "IP",
+            "help": "if left empty 'homepilot.local' will be used",
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 6,
+            "xl": 6
+        },
+        "homepilotport": {
+            "type": "text",
+            "label": "Port",
+            "help": "normally no port setting is required",
+            "xs": 12,
+            "sm": 12,
+            "md": 3,
+            "lg": 3,
+            "xl": 3
+        },
+        "synctime": {
+            "type": "text",
+            "label": "Synctime",
+            "help": "default is 12",
+            "xs": 12,
+            "sm": 12,
+            "md": 3,
+            "lg": 3,
+            "xl": 3
+        }
+    }
+}

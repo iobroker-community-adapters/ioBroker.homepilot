@@ -1,0 +1,9 @@
+{
+    "IP": "homepilot站的IP地址",
+    "Port": "端口号",
+    "Synctime": "同步时间",
+    "default is 12": "如果留空，将使用'12'",
+    "homepilot station": "Homepilot站",
+    "if left empty 'homepilot.local' will be used": "如果留空，将使用'homepilot.local'",
+    "normally no port setting is required": "通常不需要端口"
+}
